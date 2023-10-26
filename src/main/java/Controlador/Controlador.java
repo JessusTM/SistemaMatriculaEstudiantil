@@ -200,6 +200,7 @@ public class Controlador {
             lector.close();
             escritor.close();
 
+
             // Eliminar el archivo original y renombrar el temporal
             archivo.delete();
             archivoTemp.renameTo(archivo);
