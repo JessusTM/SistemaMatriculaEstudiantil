@@ -2,346 +2,194 @@ package Clases;
 
 public class Alumno {
 
-    // ========== ATRIBUTOS ==========
-    private String  rut                   , nombres               , apellidos,
-                    edad                  , fechaDeNacimiento     , direccion,
-                    ciudad                , telefono              , gestionadoPor,
-                    email                 , viveCon               , nacionalidad,
-                    sector                , datosAdicionales      , etnia,
-                    matricula             , fechaDeMatricula      , insOrigen,
-                    enfermedades          , medicamentos          , genero,
-                    curso                 , letra                 , electivo,
-                    discAuditiva          , discVisual            , discIntelectual,
-                    tea;
+    // ==================== ATRIBUTOS ====================
+    private Apoderado nuevoApoderado;
+
+    String  rut             , nombres               , apellidos             , edad              ,
+            fechaNacimiento , email                 , ciudad                , telefono          ,
+            nacionalidad    , fechaMatricula        , direccion             , curso             ,
+            letra           , electivo              , enfermedades          , datosAdicionales  ,
+            genero;
 
 
-    // ========== CONSTRUCTOR ==========
-    public Alumno(  String rut              , String nombres                , String apellidos          ,
-                    String edad             , String fechaDeNacimiento      , String direccion          ,
-                    String ciudad           , String telefono               , String gestionadoPor      ,
-                    String email            , String viveCon                , String nacionalidad       ,
-                    String sector           , String datosAdicionales       , String etnia              ,
-                    String matricula        , String fechaDeMatricula       , String insOrigen          ,
-                    String enfermedades     , String medicamentos           , String genero             ,
-                    String curso            , String letra                  , String electivo           ,
-                    String discAuditiva     , String discVisual             , String discIntelectual    ,
-                    String tea){
-        this.rut                        = rut;
-        this.nombres                    = nombres;
-        this.apellidos                  = apellidos;
-        this.edad                       = edad;
-        this.fechaDeNacimiento          = fechaDeNacimiento;
-        this.direccion                  = direccion;
-        this.ciudad                     = ciudad;
-        this.telefono                   = telefono;
-        this.gestionadoPor              = gestionadoPor;
-        this.email                      = email;
-        this.viveCon                    = viveCon;
-        this.nacionalidad               = nacionalidad;
-        this.sector                     = sector;
-        this.datosAdicionales           = datosAdicionales;
-        this.etnia                      = etnia;
-        this.matricula                  = matricula;
-        this.fechaDeMatricula           = fechaDeMatricula;
-        this.insOrigen                  = insOrigen;
-        this.enfermedades               = enfermedades;
-        this.medicamentos               = medicamentos;
-        this.genero                     = genero;
-        this.curso                      = curso;
-        this.letra                      = letra;
-        this.electivo                   = electivo;
-        this.discAuditiva               = discAuditiva;
-        this.discVisual                 = discVisual;
-        this.discIntelectual            = discIntelectual;
-        this.tea                        = tea;
+
+
+    //==================== Constructor ====================
+    public Alumno(  String rut              , String nombres            , String apellidos          , String edad                   ,
+                    String fechaNacimiento  , String email              , String ciudad             , String telefono               ,
+                    String nacionalidad     , String fechaMatricula     , String direccion          , String curso                  ,
+                    String letra            , String electivo           , String enfermedades       , String datosAdicionales       ,
+                    String genero) {
+        this.rut                = rut;
+        this.nombres            = nombres;
+        this.apellidos          = apellidos;
+        this.edad               = edad;
+        this.fechaNacimiento    = fechaNacimiento;
+        this.email              = email;
+        this.ciudad             = ciudad;
+        this.telefono           = telefono;
+        this.nacionalidad       = nacionalidad;
+        this.fechaMatricula     = fechaMatricula;
+        this.direccion          = direccion;
+        this.curso              = curso;
+        this.letra              = letra;
+        this.electivo           = electivo;
+        this.enfermedades       = enfermedades;
+        this.datosAdicionales   = datosAdicionales;
+        this.genero             = genero;
     }
 
-
-
-    // ========== CONSTRUCTOR VACÍO ==========
     public Alumno() {
     }
 
 
 
 
-    // ========== GETTERS Y SETTERS ==========
+    //==================== GET ====================
     public String getRut() {
         return rut;
     }
-
-
-    public void setRut(String rut) {
-        this.rut = rut;
-    }
-
 
     public String getNombres() {
         return nombres;
     }
 
-
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-
     public String getApellidos() {
         return apellidos;
     }
-
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
 
     public String getEdad() {
         return edad;
     }
 
-
-    public void setEdad(String edad) {
-        this.edad = edad;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
-
-
-    public String getFechaDeNacimiento() {
-        return fechaDeNacimiento;
-    }
-
-
-    public void setFechaDeNacimiento(String fechaDeNacimiento) {
-        this.fechaDeNacimiento = fechaDeNacimiento;
-    }
-
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-
-    public String getCiudad() {
-        return ciudad;
-    }
-
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-
-    public String getGestionadoPor() {
-        return gestionadoPor;
-    }
-
-
-    public void setGestionadoPor(String gestionadoPor) {
-        this.gestionadoPor = gestionadoPor;
-    }
-
 
     public String getEmail() {
         return email;
     }
 
-
-    public void setEmail(String email) {
-        this.email = email;
+    public String getCiudad() {
+        return ciudad;
     }
 
-
-    public String getViveCon() {
-        return viveCon;
+    public String getTelefono() {
+        return telefono;
     }
-
-
-    public void setViveCon(String viveCon) {
-        this.viveCon = viveCon;
-    }
-
 
     public String getNacionalidad() {
         return nacionalidad;
     }
 
-
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
+    public String getFechaMatricula() {
+        return fechaMatricula;
     }
 
-
-    public String getSector() {
-        return sector;
+    public String getDireccion() {
+        return direccion;
     }
-
-
-    public void setSector(String sector) {
-        this.sector = sector;
-    }
-
-
-    public String getDatosAdicionales() {
-        return datosAdicionales;
-    }
-
-
-    public void setDatosAdicionales(String datosAdicionales) {
-        this.datosAdicionales = datosAdicionales;
-    }
-
-
-    public String getEtnia() {
-        return etnia;
-    }
-
-
-    public void setEtnia(String etnia) {
-        this.etnia = etnia;
-    }
-
-
-    public String getMatricula() {
-        return matricula;
-    }
-
-
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
-    }
-
-
-    public String getFechaDeMatricula() {
-        return fechaDeMatricula;
-    }
-
-
-    public void setFechaDeMatricula(String fechaDeMatricula) {
-        this.fechaDeMatricula = fechaDeMatricula;
-    }
-
-
-    public String getInsOrigen() {
-        return insOrigen;
-    }
-
-
-    public void setInsOrigen(String insOrigen) {
-        this.insOrigen = insOrigen;
-    }
-
-
-    public String getEnfermedades() {
-        return enfermedades;
-    }
-
-
-    public void setEnfermedades(String enfermedades) {
-        this.enfermedades = enfermedades;
-    }
-
-
-    public String getMedicamentos() {
-        return medicamentos;
-    }
-
-
-    public void setMedicamentos(String medicamentos) {
-        this.medicamentos = medicamentos;
-    }
-
-
-    public String getGenero() {
-        return genero;
-    }
-
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
 
     public String getCurso() {
         return curso;
     }
 
-
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-
     public String getLetra() {
         return letra;
     }
-
-
-    public void setLetra(String letra) {
-        this.letra = letra;
-    }
-
 
     public String getElectivo() {
         return electivo;
     }
 
+    public String getEnfermedades() {
+        return enfermedades;
+    }
+
+    public String getDatosAdicionales() {
+        return datosAdicionales;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public Apoderado getNuevoApoderado() {
+        return nuevoApoderado;
+    }
+
+
+
+    //==================== SET ====================
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setEdad(String edad) {
+        this.edad = edad;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public void setNacionalidad(String nacionalidad) {
+        this.nacionalidad = nacionalidad;
+    }
+
+    public void setFechaMatricula(String fechaMatricula) {
+        this.fechaMatricula = fechaMatricula;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public void setLetra(String letra) {
+        this.letra = letra;
+    }
 
     public void setElectivo(String electivo) {
         this.electivo = electivo;
     }
 
-
-    public String getDiscAuditiva() {
-        return discAuditiva;
+    public void setEnfermedades(String enfermedades) {
+        this.enfermedades = enfermedades;
     }
 
-
-    public void setDiscAuditiva(String discAuditiva) {
-        this.discAuditiva = discAuditiva;
+    public void setDatosAdicionales(String datosAdicionales) {
+        this.datosAdicionales = datosAdicionales;
     }
 
-
-    public String getDiscVisual() {
-        return discVisual;
+    public void setGenero(String genero) {
+        this.genero = genero;
     }
 
-
-    public void setDiscVisual(String discVisual) {
-        this.discVisual = discVisual;
-    }
-
-
-    public String getDiscIntelectual() {
-        return discIntelectual;
-    }
-
-
-    public void setDiscIntelectual(String discIntelectual) {
-        this.discIntelectual = discIntelectual;
-    }
-
-
-    public String getTea() {
-        return tea;
-    }
-
-
-    public void setTea(String tea) {
-        this.tea = tea;
+    public void setNuevoApoderado(Apoderado nuevoApoderado) {
+        this.nuevoApoderado = nuevoApoderado;
     }
 }
