@@ -192,4 +192,8 @@ public class Alumno {
     public void setNuevoApoderado(Apoderado nuevoApoderado) {
         this.nuevoApoderado = nuevoApoderado;
     }
+
+
+
+
 }
