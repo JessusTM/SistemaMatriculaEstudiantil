@@ -9,7 +9,7 @@ public class fmrMenu extends JFrame {
     private JButton btnAgregarAlumno;
     private JButton btnInstitucion;
     private JPanel Menu;
-    private JButton salirButton;
+    private JButton btnSalir;
 
 
     // ========== CONSTRUCTOR ==========
@@ -55,7 +55,7 @@ public class fmrMenu extends JFrame {
 
 
         // ----- BOTÓN TERMINAR PROGRAMA  -----
-        salirButton.addActionListener(new ActionListener() {
+        btnSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
