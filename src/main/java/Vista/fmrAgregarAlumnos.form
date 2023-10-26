@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="Vista.fmrAgregarAlumnos">
-  <grid id="cbd77" binding="contentPane" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+  <grid id="cbd77" binding="AgregarAlumno" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
       <xy x="48" y="54" width="1043" height="775"/>
@@ -541,7 +541,7 @@
                   <text value="Telefono"/>
                 </properties>
               </component>
-              <component id="431d2" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+              <component id="431d2" class="javax.swing.JTextField" binding="txtRutApoderado">
                 <constraints>
                   <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -549,7 +549,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="1e98f" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+              <component id="1e98f" class="javax.swing.JTextField" binding="txtTelefonoApoderado">
                 <constraints>
                   <grid row="6" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -559,7 +559,7 @@
                   <text value=""/>
                 </properties>
               </component>
-              <component id="c312a" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+              <component id="c312a" class="javax.swing.JTextField" binding="txtNombresApoderado">
                 <constraints>
                   <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -567,7 +567,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="1b782" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+              <component id="1b782" class="javax.swing.JTextField" binding="txtParentescoApoderado">
                 <constraints>
                   <grid row="6" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -575,7 +575,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="1757e" class="javax.swing.JTextField" binding="textField5" default-binding="true">
+              <component id="1757e" class="javax.swing.JTextField" binding="txtApellidosApoderado">
                 <constraints>
                   <grid row="6" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -607,7 +607,7 @@
                   <text value="Parentésco"/>
                 </properties>
               </component>
-              <component id="fe7c9" class="javax.swing.JLabel" binding="lblDIreccionApoderado">
+              <component id="fe7c9" class="javax.swing.JLabel" binding="lblDireccionApoderado">
                 <constraints>
                   <grid row="8" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -615,7 +615,7 @@
                   <text value="Dirección"/>
                 </properties>
               </component>
-              <component id="abee9" class="javax.swing.JTextField" binding="textField6" default-binding="true">
+              <component id="abee9" class="javax.swing.JTextField" binding="txtDireccionApoderado">
                 <constraints>
                   <grid row="9" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -623,7 +623,7 @@
                 </constraints>
                 <properties/>
               </component>
-              <component id="72254" class="javax.swing.JTextField" binding="textField7" default-binding="true">
+              <component id="72254" class="javax.swing.JTextField" binding="txtCiudadApoderado">
                 <constraints>
                   <grid row="9" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
@@ -639,7 +639,7 @@
                   <text value="Ciudad"/>
                 </properties>
               </component>
-              <component id="376ed" class="javax.swing.JLabel" binding="lblObservaciones">
+              <component id="376ed" class="javax.swing.JLabel" binding="lblObservacionesApoderado">
                 <constraints>
                   <grid row="11" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -647,7 +647,7 @@
                   <text value="Observaciones"/>
                 </properties>
               </component>
-              <component id="37c74" class="javax.swing.JTextField" binding="textField8" default-binding="true">
+              <component id="37c74" class="javax.swing.JTextField" binding="txtObservacionesApoderado">
                 <constraints>
                   <grid row="12" column="3" row-span="1" col-span="3" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="-1"/>
