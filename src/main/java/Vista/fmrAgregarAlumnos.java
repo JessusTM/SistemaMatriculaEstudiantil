@@ -379,4 +379,58 @@ public class fmrAgregarAlumnos extends JDialog {
     }
 
 
+
+    // ========== CARGAR LISTADO ALUMNOS ==========
+    private void cargarListadoAlumnos(String filtroRut) {
+        // Obtener los datos de los alumnos desde el controlador
+        List<Object[]> alumnosData = Controlador.listadoAlumnos(filtroRut);
+
+        // Crear un modelo de tabla
+        DefaultTableModel modelo = new DefaultTableModel();
+
+        // Definir las columnas
+        String[] columnas = {   "Rut Alumno"                , "Nombres Alumno"              , "Apellidos Alumno"            , "Edad Alumno"                     ,
+                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
+                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
+                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
+                "Género Alumno"};
+        modelo.setColumnIdentifiers(columnas);
+
+        // Agregar los datos al modelo
+        for (Object[] rowData : alumnosData) {
+            modelo.addRow(rowData);
+        }
+
+        // Establecer el modelo en la tabla
+        tblListado.setModel(modelo);
+    }
+
+
+
+    // ========== BUSCAR ALUMNO POR RUT ==========
+    private void buscarAlumnoPorRut() {
+        String filtroRut = txtRut.getText();
+        cargarListadoAlumnos(filtroRut);
+    }
+
+
+
+    // ----- ELIMINAR ESTUDIANTE -----
+    private void eliminarEstudiante() {
+        String rutEstudiante = txtRut.getText();
+
+        if (!rutEstudiante.isEmpty()) {
+            int confirmacion = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar al estudiante?", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                Controlador.eliminarAlumnoCSV(rutEstudiante);
+
+                limpiar();
+                limpiarApoderado();
+                cargarListadoAlumnos(null);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Primero debes buscar al estudiante que deseas eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 }
