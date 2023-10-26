@@ -9,5 +9,4 @@ public class Main {
         fmrMenu menu = new fmrMenu();
         menu.setVisible(true);
     }
-
 }
