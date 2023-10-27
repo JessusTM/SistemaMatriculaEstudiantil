@@ -235,7 +235,7 @@ public class fmrAgregarAlumnos extends JDialog {
         btnModificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, " Ventana en trabajo... ");
+                JOptionPane.showMessageDialog(null, " Función en trabajo... ");
             }
         });
     }
