@@ -61,5 +61,15 @@ public class fmrMenu extends JFrame {
                 System.exit(0);
             }
         });
+
+
+
+        // ----- BOTÓN INSTITUCIÓN -----
+        btnInstitucion.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, " Ventana en trabajo... ");
+            }
+        });
     }
 }
