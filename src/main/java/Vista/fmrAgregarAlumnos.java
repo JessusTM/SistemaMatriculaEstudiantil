@@ -220,10 +220,22 @@ public class fmrAgregarAlumnos extends JDialog {
         });
 
 
+
+        // ----- BOTÓN BORRAR -----
         btnBorrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 eliminarEstudiante();
+            }
+        });
+
+
+
+        // ----- BOTÓN MODIFICAR -----
+        btnModificar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, " Ventana en trabajo... ");
             }
         });
     }
