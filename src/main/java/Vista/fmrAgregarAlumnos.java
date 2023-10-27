@@ -25,7 +25,7 @@ public class fmrAgregarAlumnos extends JDialog {
     private JPanel Alumno;
 
 
-    // ----- TABBED PANE -----
+    // ----- TABBED PANEL -----
     private JTabbedPane tabbedPane1;
 
 
