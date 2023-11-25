@@ -5,7 +5,6 @@ import Clases.Alumno;
 import Clases.Apoderado;
 import Controlador.*;
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -61,21 +60,21 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
     // ----- RDO -----
-    private JRadioButton rdoMasculino;
-    private JRadioButton rdoFemenino;
-    private JRadioButton rdoOtro;
-    private JButton btnGrabar;
-    private JButton btnLimpiar;
-    private JButton btnSalir;
-    private ButtonGroup grupoBotonesGenero;
-    private JButton btnBorrar;
-    private JButton btnModificar;
-    private JButton btnListar;
-    private JButton btnBuscar;
-    private JButton btnLimpiarApoderado;
-    private JRadioButton rdoMasculinoApoderado;
-    private JRadioButton rdoFemeninoApoderado;
-    private JRadioButton rdoOtroApoderado;
+    private JRadioButton    rdoMasculino;
+    private JRadioButton    rdoFemenino;
+    private JRadioButton    rdoOtro;
+    private JButton         btnGrabar;
+    private JButton         btnLimpiar;
+    private JButton         btnSalir;
+    private ButtonGroup     grupoBotonesGenero;
+    private JButton         btnBorrar;
+    private JButton         btnModificar;
+    private JButton         btnListar;
+    private JButton         btnBuscar;
+    private JButton         btnLimpiarApoderado;
+    private JRadioButton    rdoMasculinoApoderado;
+    private JRadioButton    rdoFemeninoApoderado;
+    private JRadioButton    rdoOtroApoderado;
 
 
     // ----- LBL -----
@@ -117,8 +116,6 @@ public class fmrAgregarAlumnos extends JDialog {
         // ----- GRUPO DE BOTONES -----
         grupoBotonesGenero = new ButtonGroup();
 
-
-        // GÉNERO
         ButtonGroup grupoBotonesGenero = new ButtonGroup();
         grupoBotonesGenero.add(rdoFemenino);
         grupoBotonesGenero.add(rdoMasculino);
@@ -134,8 +131,8 @@ public class fmrAgregarAlumnos extends JDialog {
         // ----- APARIENCIA WINDOWS -----
         try {
             UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException e) {
+        } catch (   ClassNotFoundException | InstantiationException | IllegalAccessException |
+                    UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
         // ------------------------------
@@ -143,15 +140,10 @@ public class fmrAgregarAlumnos extends JDialog {
 
         // VENTANA PRIORIDAD
         setModal(true);
-        // TÍTULO
         setTitle("Agregar Alumno");
-        // TAMAÑO
         setSize(1000, 700);
-        // CENTRAR
         setLocationRelativeTo(null);
-        // DISEÑO DEL PANEL "AGREGAR ALUMNO"
         setContentPane(AgregarAlumno);
-        // CARGAR TABLA DE ALUMNOS
         cargarListadoAlumnos(null);
 
 
@@ -230,7 +222,6 @@ public class fmrAgregarAlumnos extends JDialog {
         });
 
 
-
         // ----- BOTÓN MODIFICAR -----
         btnModificar.addActionListener(new ActionListener() {
             @Override
@@ -243,21 +234,21 @@ public class fmrAgregarAlumnos extends JDialog {
 
     //========== GRABAR ALUMNO ==========
     Alumno grabar() {
-        String rut = txtRut.getText();
-        String nombres = txtNombres.getText();
-        String apellidos = txtApellidos.getText();
-        String edad = txtEdad.getText();
-        String fechaNacimiento = txtFechaNacimiento.getText();
-        String direccion = txtDireccion.getText();
-        String ciudad = txtCiudad.getText();
-        String telefono = txtTelefono.getText();
-        String email = txtEmail.getText();
-        String nacionalidad = txtNacionalidad.getText();
+        String rut              = txtRut.getText();
+        String nombres          = txtNombres.getText();
+        String apellidos        = txtApellidos.getText();
+        String edad             = txtEdad.getText();
+        String fechaNacimiento  = txtFechaNacimiento.getText();
+        String direccion        = txtDireccion.getText();
+        String ciudad           = txtCiudad.getText();
+        String telefono         = txtTelefono.getText();
+        String email            = txtEmail.getText();
+        String nacionalidad     = txtNacionalidad.getText();
         String datosAdicionales = txtDatosAdicionales.getText();
-        String fechaMatricula = txtFechaMatricula.getText();
-        String enfermedades = txtEnfermedades.getText();
+        String fechaMatricula   = txtFechaMatricula.getText();
+        String enfermedades     = txtEnfermedades.getText();
 
-        String genero = "";
+        String genero           = "";
         if (rdoMasculino.isSelected()) {
             genero = "Masculino";
         }
@@ -268,31 +259,31 @@ public class fmrAgregarAlumnos extends JDialog {
             genero = "Otro";
         }
 
-        String curso = txtCurso.getText();
-        String letra = txtLetra.getText();
-        String electivo = txtElectivo.getText();
+        String curso            = txtCurso.getText();
+        String letra            = txtLetra.getText();
+        String electivo         = txtElectivo.getText();
 
-        Alumno nuevoAlumno = new Alumno(rut, nombres, apellidos, edad,
-                fechaNacimiento, email, ciudad, telefono,
-                nacionalidad, fechaMatricula, direccion, curso,
-                letra, electivo, enfermedades, datosAdicionales,
-                genero);
+        Alumno nuevoAlumno      = new Alumno(   rut             , nombres           , apellidos         , edad              ,
+                                                fechaNacimiento , email             , ciudad            , telefono          ,
+                                                nacionalidad    , fechaMatricula    , direccion         , curso             ,
+                                                letra           , electivo          , enfermedades      , datosAdicionales  ,
+                                                genero);
         return nuevoAlumno;
     }
 
 
     // ========== GRABAR APODERADO ==========
     public void grabarApoderado() {
-        String rutApoderado = txtRutApoderado.getText();
-        String nombresApoderado = txtNombresApoderado.getText();
-        String apellidosApoderado = txtApellidosApoderado.getText();
-        String parentescoApoderado = txtParentescoApoderado.getText();
-        String telefonoApoderado = txtTelefonoApoderado.getText();
-        String ciudadApoderado = txtCiudadApoderado.getText();
-        String direccionApoderado = txtDireccionApoderado.getText();
-        String observacionesApoderado = txtObservacionesApoderado.getText();
+        String rutApoderado             = txtRutApoderado           .getText();
+        String nombresApoderado         = txtNombresApoderado       .getText();
+        String apellidosApoderado       = txtApellidosApoderado     .getText();
+        String parentescoApoderado      = txtParentescoApoderado    .getText();
+        String telefonoApoderado        = txtTelefonoApoderado      .getText();
+        String ciudadApoderado          = txtCiudadApoderado        .getText();
+        String direccionApoderado       = txtDireccionApoderado     .getText();
+        String observacionesApoderado   = txtObservacionesApoderado .getText();
 
-        String generoApoderado = "";
+        String generoApoderado          = "";
         if (rdoMasculino.isSelected()) {
             generoApoderado = "Masculino";
         }
@@ -303,9 +294,9 @@ public class fmrAgregarAlumnos extends JDialog {
             generoApoderado = "Otro";
         }
 
-        Clases.Apoderado nuevoApoderado = new Apoderado(rutApoderado, nombresApoderado, apellidosApoderado,
-                parentescoApoderado, telefonoApoderado, ciudadApoderado,
-                direccionApoderado, observacionesApoderado, generoApoderado);
+        Clases.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
+                                                            parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
+                                                            direccionApoderado      , observacionesApoderado    , generoApoderado           );
 
         nuevoAlumno.setNuevoApoderado(nuevoApoderado);
     }
@@ -313,40 +304,40 @@ public class fmrAgregarAlumnos extends JDialog {
 
     // ========== LIMPIAR ALUMNO ==========
     public void limpiar() {
-        txtRut.setText(null);
-        txtNombres.setText(null);
-        txtApellidos.setText(null);
-        txtEdad.setText(null);
-        txtFechaNacimiento.setText(null);
-        txtDireccion.setText(null);
-        txtDireccion.setText(null);
-        txtCiudad.setText(null);
-        txtTelefono.setText(null);
-        txtEmail.setText(null);
-        txtNacionalidad.setText(null);
-        txtDatosAdicionales.setText(null);
-        txtFechaMatricula.setText(null);
-        txtEnfermedades.setText(null);
-        txtCurso.setText(null);
-        txtLetra.setText(null);
-        txtElectivo.setText(null);
-        grupoBotonesGenero.clearSelection();
+        txtRut              .setText(null);
+        txtNombres          .setText(null);
+        txtApellidos        .setText(null);
+        txtEdad             .setText(null);
+        txtFechaNacimiento  .setText(null);
+        txtDireccion        .setText(null);
+        txtDireccion        .setText(null);
+        txtCiudad           .setText(null);
+        txtTelefono         .setText(null);
+        txtEmail            .setText(null);
+        txtNacionalidad     .setText(null);
+        txtDatosAdicionales .setText(null);
+        txtFechaMatricula   .setText(null);
+        txtEnfermedades     .setText(null);
+        txtCurso            .setText(null);
+        txtLetra            .setText(null);
+        txtElectivo         .setText(null);
+        grupoBotonesGenero  .clearSelection();
     }
 
 
     // ========== LIMPIAR APODERADO ==========
     public void limpiarApoderado() {
-        txtRutApoderado.setText(null);
-        txtNombresApoderado.setText(null);
-        txtApellidosApoderado.setText(null);
-        txtParentescoApoderado.setText(null);
-        txtTelefonoApoderado.setText(null);
-        txtCiudadApoderado.setText(null);
-        txtDireccionApoderado.setText(null);
-        txtObservacionesApoderado.setText(null);
-        rdoMasculinoApoderado.setSelected(false);
-        rdoFemeninoApoderado.setSelected(false);
-        rdoOtroApoderado.setSelected(false);
+        txtRutApoderado             .setText(null);
+        txtNombresApoderado         .setText(null);
+        txtApellidosApoderado       .setText(null);
+        txtParentescoApoderado      .setText(null);
+        txtTelefonoApoderado        .setText(null);
+        txtCiudadApoderado          .setText(null);
+        txtDireccionApoderado       .setText(null);
+        txtObservacionesApoderado   .setText(null);
+        rdoMasculinoApoderado       .setSelected(false);
+        rdoFemeninoApoderado        .setSelected(false);
+        rdoOtroApoderado            .setSelected(false);
     }
 
 
@@ -402,10 +393,10 @@ public class fmrAgregarAlumnos extends JDialog {
 
         // Definir las columnas
         String[] columnas = {   "Rut Alumno"                , "Nombres Alumno"              , "Apellidos Alumno"            , "Edad Alumno"                     ,
-                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
-                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
-                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
-                "Género Alumno"};
+                                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
+                                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
+                                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
+                                "Género Alumno"};
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo

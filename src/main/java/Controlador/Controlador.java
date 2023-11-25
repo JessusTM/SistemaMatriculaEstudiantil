@@ -27,16 +27,16 @@ public class Controlador {
 
                 // ----- Encabezados -----
                 escritor.write( " [ALUMNO] Rut, [ALUMNO] Nombres, [ALUMNO] Apellidos, " +
-                        " [ALUMNO] Edad, [ALUMNO] Fecha nacimiento, [ALUMNO] Email, " +
-                        " [ALUMNO] Ciudad, [ALUMNO] Teléfono, [ALUMNO] Nacionalidad, " +
-                        " [ALUMNO] Fecha Matrícula, [ALUMNO] Dirección, [ALUMNO] Curso, " +
-                        " [ALUMNO] Letra, [ALUMNO] Electivo, [ALUMNO] Enfermedades, " +
-                        " [ALUMNO] Matrícula, [ALUMNO] Fecha matrícula, [ALUMNO] Institución de origen, " +
-                        " [ALUMNO] Enfermedades, [ALUMNO] Datos Adicionales, [ALUMNO] Género, " +
-                        " [APODERADO] Rut, [APODERADO] Nombres, [APODERADO] Apellidos, " +
-                        " [APODERADO] Paréntesco, [APODERADO] Teléfono, [APODERADO] Email, " +
-                        " [APODERADO] Ciudad, [APODERADO] Situación laboral, [APODERADO] Escolaridad, " +
-                        " [APODERADO] Dirección, [APODERADO] Observaciones");
+                                " [ALUMNO] Edad, [ALUMNO] Fecha nacimiento, [ALUMNO] Email, " +
+                                " [ALUMNO] Ciudad, [ALUMNO] Teléfono, [ALUMNO] Nacionalidad, " +
+                                " [ALUMNO] Fecha Matrícula, [ALUMNO] Dirección, [ALUMNO] Curso, " +
+                                " [ALUMNO] Letra, [ALUMNO] Electivo, [ALUMNO] Enfermedades, " +
+                                " [ALUMNO] Matrícula, [ALUMNO] Fecha matrícula, [ALUMNO] Institución de origen, " +
+                                " [ALUMNO] Enfermedades, [ALUMNO] Datos Adicionales, [ALUMNO] Género, " +
+                                " [APODERADO] Rut, [APODERADO] Nombres, [APODERADO] Apellidos, " +
+                                " [APODERADO] Paréntesco, [APODERADO] Teléfono, [APODERADO] Email, " +
+                                " [APODERADO] Ciudad, [APODERADO] Situación laboral, [APODERADO] Escolaridad, " +
+                                " [APODERADO] Dirección, [APODERADO] Observaciones");
 
                 // Nueva línea después del encabezado
                 escritor.newLine();
@@ -83,12 +83,12 @@ public class Controlador {
             BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivo, true));
 
             escritor.write( rutAlumno                   + "," + nombresAlumno               + "," + apellidosAlumno             + "," + edadAlumno                  + "," +
-                    fechaNacimientoAlumno       + "," + emailAlumno                 + "," + ciudadAlumno                + "," + telefonoAlumno              + "," +
-                    nacionalidadAlumno          + "," + fechaMatriculaAlumno        + "," + direccionAlumno             + "," + cursoAlumno                 + "," +
-                    letraCursoAlumno            + "," + electivoAlumno              + "," + enfermedadesAlumno          + "," + datosAdicionalesAlumno      + "," +
-                    generoAlumno                + "," + rutApoderado                + "," + nombresApoderado            + "," + apellidosApoderado          + "," +
-                    parentescoApoderado         + "," + telefonoApoderado           + "," + ciudadApoderado             + "," + direccionApoderado          + "," +
-                    observacionesApoderado);
+                            fechaNacimientoAlumno       + "," + emailAlumno                 + "," + ciudadAlumno                + "," + telefonoAlumno              + "," +
+                            nacionalidadAlumno          + "," + fechaMatriculaAlumno        + "," + direccionAlumno             + "," + cursoAlumno                 + "," +
+                            letraCursoAlumno            + "," + electivoAlumno              + "," + enfermedadesAlumno          + "," + datosAdicionalesAlumno      + "," +
+                            generoAlumno                + "," + rutApoderado                + "," + nombresApoderado            + "," + apellidosApoderado          + "," +
+                            parentescoApoderado         + "," + telefonoApoderado           + "," + ciudadApoderado             + "," + direccionApoderado          + "," +
+                            observacionesApoderado);
 
 
             // ----- NUEVA LÍNEA DESPUÉS PARA AGREGAR UN ALUMNO -----
@@ -140,18 +140,12 @@ public class Controlador {
                     String generoAlumno             = campos[16].trim();
 
 
-
-                    // Si se proporciona un filtroRut, solo agrega la información del
-                    // alumno al resultado si el rut coincide con el filtro
-
-                    // Si no se proporciona ningún filtro, se agregan todos los alumnos.
                     if (filtroRut == null || rutAlumno.equals(filtroRut)) {
                         Object[] rowData = {    rutAlumno               , nombresAlumno             , apellidosAlumno           , edadAlumno                    ,
-                                fechaNacimientoAlumno   , emailAlumno               , ciudadAlumno              , telefonoAlumno                ,
-                                nacionalidadAlumno      , fechaMatriculaAlumno      , direccionAlumno           , cursoAlumno                   ,
-                                letraAlumno             , electivoAlumno            , enfermedadesAlumno        , datosAdicionalesAlumno        ,
-                                generoAlumno};
-
+                                                fechaNacimientoAlumno   , emailAlumno               , ciudadAlumno              , telefonoAlumno                ,
+                                                nacionalidadAlumno      , fechaMatriculaAlumno      , direccionAlumno           , cursoAlumno                   ,
+                                                letraAlumno             , electivoAlumno            , enfermedadesAlumno        , datosAdicionalesAlumno        ,
+                                                generoAlumno};
                         alumnosData.add(rowData);
                     }
                 }
