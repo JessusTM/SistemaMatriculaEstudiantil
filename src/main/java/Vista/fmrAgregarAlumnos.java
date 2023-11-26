@@ -128,16 +128,6 @@ public class fmrAgregarAlumnos extends JDialog {
         grupoBotonesGeneroApoderado.add(rdoOtroApoderado);
 
 
-        // ----- APARIENCIA WINDOWS -----
-        try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (   ClassNotFoundException | InstantiationException | IllegalAccessException |
-                    UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-        // ------------------------------
-
-
         // VENTANA PRIORIDAD
         setModal(true);
         setTitle("Agregar Alumno");

@@ -1,5 +1,8 @@
 package Vista;
 
+import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,10 +18,10 @@ public class fmrMenu extends JFrame {
     // ========== CONSTRUCTOR ==========
     public fmrMenu(){
 
-        // ----- APARIENCIA WINDOWS -----
+        // ----- APARIENCIA -----
         try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
         // ------------------------------
