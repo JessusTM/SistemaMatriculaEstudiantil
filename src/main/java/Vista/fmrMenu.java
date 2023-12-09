@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.Controlador;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -37,7 +39,7 @@ public class fmrMenu extends JFrame {
         btnSalir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.exit(0);
+                cerrarVentana();
             }
         });
 
@@ -49,5 +51,17 @@ public class fmrMenu extends JFrame {
                 JOptionPane.showMessageDialog(null, " Ventana en trabajo... ");
             }
         });
+    }
+
+
+
+    // # ======================================== MÉTODOS ======================================== #
+    // -------------------- Confirmar cerrar ventana --------------------
+    private void cerrarVentana() {
+        int confirmacion = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?", "Salir", JOptionPane.YES_NO_OPTION);
+
+        if (confirmacion == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
     }
 }

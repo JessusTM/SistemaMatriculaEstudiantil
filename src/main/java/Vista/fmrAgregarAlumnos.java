@@ -280,7 +280,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ========== GRABAR APODERADO ==========
+    // -------------------- GRABAR APODERADO --------------------
     public void grabarApoderado() {
         String rutApoderado             = txtRutApoderado           .getText();
         String nombresApoderado         = txtNombresApoderado       .getText();
@@ -313,7 +313,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ========== LIMPIAR ALUMNO ==========
+    // -------------------- LIMPIAR ALUMNO --------------------
     public void limpiar() {
         txtRut              .setText(null);
         txtNombres          .setText(null);
@@ -337,7 +337,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ========== LIMPIAR APODERADO ==========
+    // -------------------- LIMPIAR APODERADO --------------------
     public void limpiarApoderado() {
         txtRutApoderado             .setText(null);
         txtNombresApoderado         .setText(null);
@@ -352,14 +352,14 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ========== SET NUEVO ALUMNO ==========
+    // -------------------- SET NUEVO ALUMNO --------------------
     public void setNuevoAlumno(Alumno nuevoAlumno) {
         this.nuevoAlumno = nuevoAlumno;
     }
 
 
 
-    // ========== VALIDAR CAMPOS ==========
+    // -------------------- VALIDAR CAMPOS --------------------
     private boolean validarCampos() {
         if (    txtRut                  .getText().isEmpty() ||
                 txtNombres              .getText().isEmpty() ||
@@ -392,7 +392,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ========== CARGAR LISTADO ALUMNOS ==========
+    // -------------------- CARGAR LISTADO ALUMNOS --------------------
     private void cargarListadoAlumnos(String filtroRut) {
         // Obtener los datos de los alumnos desde el controlador
         List<Object[]> alumnosData = Controlador.listadoAlumnos(filtroRut);
@@ -419,7 +419,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ===== ELIMINAR ESTUDIANTE =====
+    // -------------------- ELIMINAR ESTUDIANTE --------------------
     private void eliminarEstudiante() {
         String rutEstudiante = txtRut.getText();
 
@@ -440,7 +440,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ========== BUSCAR ALUMNO POR RUT ==========
+    // -------------------- BUSCAR ALUMNO POR RUT --------------------
     private void buscarAlumnoPorRut() {
         String filtroRut = txtRut.getText();
         cargarListadoAlumnos(filtroRut);
