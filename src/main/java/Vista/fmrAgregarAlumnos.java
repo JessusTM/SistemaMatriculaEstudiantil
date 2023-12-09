@@ -455,7 +455,6 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
     // ========== BUSCAR ALUMNO POR RUT ==========
     private void buscarAlumnoPorRut() {
         String filtroRut = txtRut.getText();
@@ -464,11 +463,42 @@ public class fmrAgregarAlumnos extends JDialog {
         // Obtener los datos de los alumnos desde el controlador
         List<Object[]> alumnosData = Controlador.listadoAlumnos(filtroRut);
 
-        // Determinar si se encontró algún alumno
-        boolean alumnoEncontrado = !alumnosData.isEmpty();
+        if (!alumnosData.isEmpty()) {
+            Object[] alumnoEncontrado = alumnosData.get(0);
 
-        // Habilitar o deshabilitar los botones según si se encontró un alumno
-        btnBorrar.setEnabled(alumnoEncontrado);
-        btnModificar.setEnabled(alumnoEncontrado);
+            // Datos del alumno encontrado en los textfield
+            txtRut                  .setText((String) alumnoEncontrado[0]);
+            txtNombres              .setText((String) alumnoEncontrado[1]);
+            txtApellidos            .setText((String) alumnoEncontrado[2]);
+            txtEdad                 .setText((String) alumnoEncontrado[3]);
+            txtFechaNacimiento      .setText((String) alumnoEncontrado[4]);
+            txtEmail                .setText((String) alumnoEncontrado[5]);
+            txtCiudad               .setText((String) alumnoEncontrado[6]);
+            txtTelefono             .setText((String) alumnoEncontrado[7]);
+            txtNacionalidad         .setText((String) alumnoEncontrado[8]);
+            txtFechaMatricula       .setText((String) alumnoEncontrado[9]);
+            txtDireccion            .setText((String) alumnoEncontrado[10]);
+            txtCurso                .setText((String) alumnoEncontrado[11]);
+            txtLetra                .setText((String) alumnoEncontrado[12]);
+            txtElectivo             .setText((String) alumnoEncontrado[13]);
+            txtEnfermedades         .setText((String) alumnoEncontrado[14]);
+            txtDatosAdicionales     .setText((String) alumnoEncontrado[15]);
+            String generoAlumno = (String) alumnoEncontrado[16];
+            if (generoAlumno.equals("Masculino")) {
+                rdoMasculino.setSelected(true);
+            } else if (generoAlumno.equals("Femenino")) {
+                rdoFemenino.setSelected(true);
+            } else {
+                rdoOtro.setSelected(true);
+            }
+            btnBorrar.setEnabled(true);
+            btnModificar.setEnabled(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró un alumno con el RUT especificado.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            limpiar();
+            limpiarApoderado();
+            btnBorrar.setEnabled(false);
+            btnModificar.setEnabled(false);
+        }
     }
 }

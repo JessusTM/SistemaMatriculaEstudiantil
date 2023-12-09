@@ -1,6 +1,7 @@
 package Clases;
 
 public class Alumno {
+
     // ==================== ATRIBUTOS ====================
     private Apoderado nuevoApoderado;
 
