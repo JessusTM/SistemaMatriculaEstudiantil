@@ -180,8 +180,9 @@ public class Controlador {
 
             while (lector.hasNextLine()) {
                 String linea = lector.nextLine();
+                String[] campos = linea.split(",");
 
-                if (linea.contains("," + rutEstudiante + ",")) {
+                if (campos.length >= 1 && campos[0].trim().equals(rutEstudiante.trim())) {
                     estudianteEncontrado = true;
                 } else {
                     escritor.write(linea);

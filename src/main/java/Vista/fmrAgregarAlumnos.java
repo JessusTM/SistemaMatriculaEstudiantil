@@ -198,6 +198,8 @@ public class fmrAgregarAlumnos extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 eliminarEstudiante();
                 cargarListadoAlumnos(null);
+                btnBorrar.setEnabled(false);
+                btnModificar.setEnabled(false);
             }
         });
         btnBorrar.setEnabled(false);
