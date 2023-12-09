@@ -449,9 +449,10 @@ public class fmrAgregarAlumnos extends JDialog {
         List<Object[]> alumnosData      = Controlador.listadoAlumnos(filtroRut);
 
         if (!alumnosData.isEmpty()) {
+            btnGrabar.setEnabled(false);
             Object[] alumnoEncontrado   = alumnosData.get(0);
 
-            // Datos del alumno encontrado en los textfield
+            // Datos del alumno encontrado en los TextField
             txtRut                  .setText((String) alumnoEncontrado[0]);
             txtNombres              .setText((String) alumnoEncontrado[1]);
             txtApellidos            .setText((String) alumnoEncontrado[2]);
