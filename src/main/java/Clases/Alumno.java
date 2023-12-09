@@ -11,7 +11,7 @@ public class Alumno {
             genero;
 
 
-    //==================== Constructor ====================
+    // ==================== Constructor ====================
     public Alumno(  String rut              , String nombres            , String apellidos          , String edad                   ,
                     String fechaNacimiento  , String email              , String ciudad             , String telefono               ,
                     String nacionalidad     , String fechaMatricula     , String direccion          , String curso                  ,
@@ -37,7 +37,7 @@ public class Alumno {
     }
 
 
-    //==================== GET ====================
+    // ==================== GET ====================
     public String getRut() {
         return rut;
     }
@@ -111,8 +111,7 @@ public class Alumno {
     }
 
 
-
-    //==================== SET ====================
+    // ==================== SET ====================
     public void setRut(String rut) {
         this.rut = rut;
     }

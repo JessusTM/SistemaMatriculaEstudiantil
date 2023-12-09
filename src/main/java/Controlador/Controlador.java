@@ -2,7 +2,6 @@ package Controlador;
 
 import Clases.Alumno;
 import Clases.Apoderado;
-
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -11,16 +10,41 @@ import java.util.Scanner;
 
 public class Controlador {
 
-    // ========== ATRIBUTOS ==========
+    // ==================== ATRIBUTOS ====================
     public static final String nombreArchivo = "Matriculas.csv";
 
 
-    // ========== AGREGAR ALUMNO CSV ==========
+    // ==================== AGREGAR ALUMNO CSV ====================
     public static void agregarAlumnoCSV(Alumno nuevoAlumno) {
+        // Si el archivo no existe:
+        crearArchivo();
+
+        // Si el archivo ya existe:
         try {
             File archivo = new File(nombreArchivo);
 
-            // ----- SI EL ARCHIVO NO EXISTE-----
+            // ----- Atributos Alumno -----
+            String atributosAlumno      = atributosAlumno(nuevoAlumno);
+
+            // ----- Atributos Apoderado -----
+            String atributosApoderado   = atributosApoderado(nuevoAlumno.getNuevoApoderado());
+
+            // ----- Agregar datos a el archivo en modo append -----
+            BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivo, true));
+            escritor.write(atributosAlumno + "," + atributosApoderado);
+
+            // ----- Nueva linea para un nuevo alumno -----
+            escritor.newLine();
+            escritor.close();
+        } catch (IOException e) {
+            System.out.println("Error al registrar: " + e.getMessage());
+        }
+    }
+    // ----- Crear archivo ------
+    public static void crearArchivo(){
+        try{
+            File archivo = new File(nombreArchivo);
+
             if (!archivo.exists()) {
                 BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivo));
 
@@ -37,66 +61,50 @@ public class Controlador {
                                 " [APODERADO] Ciudad, [APODERADO] Situación laboral, [APODERADO] Escolaridad, " +
                                 " [APODERADO] Dirección, [APODERADO] Observaciones");
 
-                // Nueva línea después del encabezado
                 escritor.newLine();
                 escritor.close();
             }
-
-
-            // ----- ATRIBUTOS ALUMNO -----
-            String rutAlumno                    = nuevoAlumno.getRut();
-            String nombresAlumno                = nuevoAlumno.getNombres();
-            String apellidosAlumno              = nuevoAlumno.getApellidos();
-            String edadAlumno                   = nuevoAlumno.getEdad();
-            String fechaNacimientoAlumno        = nuevoAlumno.getFechaNacimiento();
-            String emailAlumno                  = nuevoAlumno.getEmail();
-            String ciudadAlumno                 = nuevoAlumno.getCiudad();
-            String telefonoAlumno               = nuevoAlumno.getTelefono();
-            String nacionalidadAlumno           = nuevoAlumno.getNacionalidad();
-            String fechaMatriculaAlumno         = nuevoAlumno.getFechaMatricula();
-            String direccionAlumno              = nuevoAlumno.getDireccion();
-            String cursoAlumno                  = nuevoAlumno.getCurso();
-            String letraCursoAlumno             = nuevoAlumno.getLetra();
-            String electivoAlumno               = nuevoAlumno.getElectivo();
-            String enfermedadesAlumno           = nuevoAlumno.getEnfermedades();
-            String datosAdicionalesAlumno       = nuevoAlumno.getDatosAdicionales();
-            String generoAlumno                 = nuevoAlumno.getGenero();
-
-
-            // ----- ATRIBUTOS APODERADO -----
-            Apoderado apoderado = nuevoAlumno.getNuevoApoderado();
-            String rutApoderado                 = apoderado.getRut();
-            String nombresApoderado             = apoderado.getNombres();
-            String apellidosApoderado           = apoderado.getApellidos();
-            String parentescoApoderado          = apoderado.getParentesco();
-            String telefonoApoderado            = apoderado.getTelefono();
-            String ciudadApoderado              = apoderado.getCiudad();
-            String direccionApoderado           = apoderado.getDireccion();
-            String observacionesApoderado       = apoderado.getObservaciones();
-
-
-            // Agregar datos al final del archivo en modo append
-            BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivo, true));
-
-            escritor.write( rutAlumno                   + "," + nombresAlumno               + "," + apellidosAlumno             + "," + edadAlumno                  + "," +
-                            fechaNacimientoAlumno       + "," + emailAlumno                 + "," + ciudadAlumno                + "," + telefonoAlumno              + "," +
-                            nacionalidadAlumno          + "," + fechaMatriculaAlumno        + "," + direccionAlumno             + "," + cursoAlumno                 + "," +
-                            letraCursoAlumno            + "," + electivoAlumno              + "," + enfermedadesAlumno          + "," + datosAdicionalesAlumno      + "," +
-                            generoAlumno                + "," + rutApoderado                + "," + nombresApoderado            + "," + apellidosApoderado          + "," +
-                            parentescoApoderado         + "," + telefonoApoderado           + "," + ciudadApoderado             + "," + direccionApoderado          + "," +
-                            observacionesApoderado);
-
-
-            // ----- NUEVA LÍNEA DESPUÉS PARA AGREGAR UN ALUMNO -----
-            escritor.newLine();
-            escritor.close();
         } catch (IOException e) {
-            System.out.println("Error al registrar: " + e.getMessage());
+            System.out.println("Error al verificar y crear el archivo: " + e.getMessage());
         }
+    }
+    // ----- Atributos alumno ------
+    private static String atributosAlumno(Alumno nuevoAlumno) {
+        return  nuevoAlumno.getRut()                + "," +
+                nuevoAlumno.getNombres()            + "," +
+                nuevoAlumno.getApellidos()          + "," +
+                nuevoAlumno.getEdad()               + "," +
+                nuevoAlumno.getFechaNacimiento()    + "," +
+                nuevoAlumno.getEmail()              + "," +
+                nuevoAlumno.getCiudad()             + "," +
+                nuevoAlumno.getTelefono()           + "," +
+                nuevoAlumno.getNacionalidad()       + "," +
+                nuevoAlumno.getFechaMatricula()     + "," +
+                nuevoAlumno.getDireccion()          + "," +
+                nuevoAlumno.getCurso()              + "," +
+                nuevoAlumno.getLetra()              + "," +
+                nuevoAlumno.getElectivo()           + "," +
+                nuevoAlumno.getEnfermedades()       + "," +
+                nuevoAlumno.getDatosAdicionales()   + "," +
+                nuevoAlumno.getGenero();
+    }
+    // ----- Atributos apoderado ------
+    private static String atributosApoderado(Apoderado apoderado) {
+        return  apoderado.getRut()                  + "," +
+                apoderado.getNombres()              + "," +
+                apoderado.getApellidos()            + "," +
+                apoderado.getParentesco()           + "," +
+                apoderado.getTelefono()             + "," +
+                apoderado.getCiudad()               + "," +
+                apoderado.getDireccion()            + "," +
+                apoderado.getObservaciones();
     }
 
 
-    //==================== MOSTRAR ALUMNOS CSV ====================
+
+
+
+    // ==================== MOSTRAR ALUMNOS CSV ====================
     public static List<Object[]> listadoAlumnos(String filtroRut) {
         List<Object[]> alumnosData  = new ArrayList<>();
 
@@ -104,8 +112,8 @@ public class Controlador {
             BufferedReader lector   = new BufferedReader(new FileReader(nombreArchivo));
             String linea;
 
+            // Omitir encabezados
             boolean primeraLinea    = true;
-
             while ((linea = lector.readLine()) != null) {
                 if (primeraLinea) {
                     primeraLinea    = false;
@@ -133,7 +141,6 @@ public class Controlador {
                     String datosAdicionalesAlumno   = campos[15].trim();
                     String generoAlumno             = campos[16].trim();
 
-
                     if (filtroRut == null || rutAlumno.equals(filtroRut)) {
                         Object[] rowData = {    rutAlumno               , nombresAlumno             , apellidosAlumno           , edadAlumno                    ,
                                                 fechaNacimientoAlumno   , emailAlumno               , ciudadAlumno              , telefonoAlumno                ,
@@ -150,6 +157,9 @@ public class Controlador {
         }
         return alumnosData;
     }
+
+
+
 
 
     // ==================== ELIMINAR ALUMNO ====================

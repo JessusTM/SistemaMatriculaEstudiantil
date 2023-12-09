@@ -9,7 +9,7 @@ public class Apoderado {
                     genero;
 
 
-    //==================== CONSTRUCTORES ====================
+    // ==================== CONSTRUCTORES ====================
     public Apoderado(   String rut              , String nombres            , String apellidos              , String parentesco         ,
                         String telefono         , String ciudad             , String direccion              , String observaciones      ,
                         String genero) {
@@ -25,8 +25,7 @@ public class Apoderado {
     }
 
 
-
-    //==================== GET ====================
+    // ==================== GET ====================
     public String getRut() {
         return rut;
     }
@@ -64,7 +63,7 @@ public class Apoderado {
     }
 
 
-    //==================== SET ====================
+    // ==================== SET ====================
     public void setRut(String rut) {
         this.rut = rut;
     }

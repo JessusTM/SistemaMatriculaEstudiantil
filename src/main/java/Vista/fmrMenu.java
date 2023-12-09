@@ -1,8 +1,5 @@
 package Vista;
 
-import com.formdev.flatlaf.intellijthemes.FlatCarbonIJTheme;
-import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,20 +19,6 @@ public class fmrMenu extends JFrame {
         setLocationRelativeTo(null);
         setTitle("Menú");
         setContentPane(Menu);
-
-        // ----- APARIENCIA -----
-        try {
-            UIManager.setLookAndFeel(String.valueOf(new FlatDarkPurpleIJTheme()));
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-        } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-        // ------------------------------
 
 
         // ----- BOTÓN CAMBIO DE VENTANA A AGREGAR ALUMNO -----
