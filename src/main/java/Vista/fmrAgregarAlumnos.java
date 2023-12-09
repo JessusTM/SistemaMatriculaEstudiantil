@@ -58,14 +58,14 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
     // ----- BUTTON -----
-    private JButton         btnGrabar;
-    private JButton         btnLimpiar;
-    private JButton         btnSalir;
-    private JButton         btnBorrar;
-    private JButton         btnModificar;
-    private JButton         btnListar;
-    private JButton         btnBuscar;
-    private JButton         btnLimpiarApoderado;
+    private JButton     btnGrabar;
+    private JButton     btnLimpiar;
+    private JButton     btnSalir;
+    private JButton     btnBorrar;
+    private JButton     btnModificar;
+    private JButton     btnListar;
+    private JButton     btnBuscar;
+    private JButton     btnLimpiarApoderado;
 
 
     // ----- BUTTON GROUP -----
@@ -135,7 +135,7 @@ public class fmrAgregarAlumnos extends JDialog {
         grupoBotonesGeneroApoderado.add(rdoMasculinoApoderado);
         grupoBotonesGeneroApoderado.add(rdoOtroApoderado);
 
-
+// # ======================================== BOTONES ======================================== #
         // ----- BOTÓN LIMPIAR ALUMNO-----
         btnLimpiar.addActionListener(new ActionListener() {
             @Override
@@ -224,7 +224,8 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-    // ==================== GRABAR TOTAL ===============
+    // # ======================================== MÉTODOS ======================================== #
+    // -------------------- GRABAR TOTAL --------------------
     public void grabarTotal() {
         if (validarCampos()) {
             this.nuevoAlumno = grabar();
@@ -236,9 +237,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
-
-    //========== GRABAR ALUMNO ==========
+    // -------------------- GRABAR ALUMNO --------------------
     public Alumno grabar() {
         String rut              = txtRut                .getText();
         String nombres          = txtNombres            .getText();
@@ -281,8 +280,6 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // ========== GRABAR APODERADO ==========
     public void grabarApoderado() {
         String rutApoderado             = txtRutApoderado           .getText();
@@ -316,8 +313,6 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // ========== LIMPIAR ALUMNO ==========
     public void limpiar() {
         txtRut              .setText(null);
@@ -342,8 +337,6 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // ========== LIMPIAR APODERADO ==========
     public void limpiarApoderado() {
         txtRutApoderado             .setText(null);
@@ -359,14 +352,10 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // ========== SET NUEVO ALUMNO ==========
     public void setNuevoAlumno(Alumno nuevoAlumno) {
         this.nuevoAlumno = nuevoAlumno;
     }
-
-
 
 
 
@@ -403,8 +392,6 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // ========== CARGAR LISTADO ALUMNOS ==========
     private void cargarListadoAlumnos(String filtroRut) {
         // Obtener los datos de los alumnos desde el controlador
@@ -415,10 +402,10 @@ public class fmrAgregarAlumnos extends JDialog {
 
         // Definir las columnas
         String[] columnas = {   "Rut Alumno"                , "Nombres Alumno"              , "Apellidos Alumno"            , "Edad Alumno"                     ,
-                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
-                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
-                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
-                "Género Alumno"};
+                                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
+                                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
+                                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
+                                "Género Alumno"};
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo
@@ -429,7 +416,6 @@ public class fmrAgregarAlumnos extends JDialog {
         // Establecer el modelo en la tabla
         tblListado.setModel(modelo);
     }
-
 
 
 
@@ -451,7 +437,6 @@ public class fmrAgregarAlumnos extends JDialog {
             JOptionPane.showMessageDialog(this, "Primero debes buscar al estudiante que deseas eliminar", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
-
 
 
 
