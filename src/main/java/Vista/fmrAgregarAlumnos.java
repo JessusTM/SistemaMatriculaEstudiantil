@@ -69,7 +69,6 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
     // ----- RDO -----
-    private ButtonGroup     grupoBotonesGenero;
     private JRadioButton    rdoMasculino;
     private JRadioButton    rdoFemenino;
     private JRadioButton    rdoOtro;
@@ -164,8 +163,10 @@ public class fmrAgregarAlumnos extends JDialog {
         btnListar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                limpiar();
                 cargarListadoAlumnos(null);
+                limpiar();
+                btnBorrar.setEnabled(false);
+                btnModificar.setEnabled(false);
             }
         });
 
@@ -175,6 +176,9 @@ public class fmrAgregarAlumnos extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 grabarTotal();
+                limpiar();
+                limpiarApoderado();
+                cargarListadoAlumnos(null);
             }
         });
 
@@ -193,8 +197,10 @@ public class fmrAgregarAlumnos extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 eliminarEstudiante();
+                cargarListadoAlumnos(null);
             }
         });
+        btnBorrar.setEnabled(false);
 
 
         // ----- BOTÓN MODIFICAR -----
@@ -204,6 +210,7 @@ public class fmrAgregarAlumnos extends JDialog {
                 JOptionPane.showMessageDialog(null, " Función en trabajo... ");
             }
         });
+        btnModificar.setEnabled(false);
     }
 
 
@@ -217,9 +224,6 @@ public class fmrAgregarAlumnos extends JDialog {
             grabarApoderado();
             Controlador.agregarAlumnoCSV(this.nuevoAlumno);
             JOptionPane.showMessageDialog(null, "Alumno y apoderado agregados correctamente");
-            limpiar();
-            limpiarApoderado();
-            cargarListadoAlumnos(null);
         }
     }
 
@@ -248,10 +252,10 @@ public class fmrAgregarAlumnos extends JDialog {
         String electivo         = txtElectivo           .getText();
 
         Alumno nuevoAlumno      = new Alumno(   rut             , nombres           , apellidos         , edad              ,
-                                                fechaNacimiento , email             , ciudad            , telefono          ,
-                                                nacionalidad    , fechaMatricula    , direccion         , curso             ,
-                                                letra           , electivo          , enfermedades      , datosAdicionales  ,
-                                                genero);
+                fechaNacimiento , email             , ciudad            , telefono          ,
+                nacionalidad    , fechaMatricula    , direccion         , curso             ,
+                letra           , electivo          , enfermedades      , datosAdicionales  ,
+                genero);
         return nuevoAlumno;
     }
     // ----- Obtener género -----
@@ -285,8 +289,8 @@ public class fmrAgregarAlumnos extends JDialog {
         String generoApoderado          = obtenerGeneroApoderado();
 
         Clases.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
-                                                            parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
-                                                            direccionApoderado      , observacionesApoderado    , generoApoderado           );
+                parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
+                direccionApoderado      , observacionesApoderado    , generoApoderado           );
         nuevoAlumno.setNuevoApoderado(nuevoApoderado);
     }
     // ----- Obtener género apoderado-----
@@ -326,7 +330,9 @@ public class fmrAgregarAlumnos extends JDialog {
         txtCurso            .setText(null);
         txtLetra            .setText(null);
         txtElectivo         .setText(null);
-        grupoBotonesGenero  .clearSelection();
+        rdoMasculino        .setSelected(false);
+        rdoFemenino         .setSelected(false);
+        rdoOtro             .setSelected(false);
     }
 
 
@@ -406,10 +412,10 @@ public class fmrAgregarAlumnos extends JDialog {
 
         // Definir las columnas
         String[] columnas = {   "Rut Alumno"                , "Nombres Alumno"              , "Apellidos Alumno"            , "Edad Alumno"                     ,
-                                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
-                                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
-                                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
-                                "Género Alumno"};
+                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
+                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
+                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
+                "Género Alumno"};
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo
@@ -451,5 +457,15 @@ public class fmrAgregarAlumnos extends JDialog {
     private void buscarAlumnoPorRut() {
         String filtroRut = txtRut.getText();
         cargarListadoAlumnos(filtroRut);
+
+        // Obtener los datos de los alumnos desde el controlador
+        List<Object[]> alumnosData = Controlador.listadoAlumnos(filtroRut);
+
+        // Determinar si se encontró algún alumno
+        boolean alumnoEncontrado = !alumnosData.isEmpty();
+
+        // Habilitar o deshabilitar los botones según si se encontró un alumno
+        btnBorrar.setEnabled(alumnoEncontrado);
+        btnModificar.setEnabled(alumnoEncontrado);
     }
 }
