@@ -14,8 +14,10 @@ public class Main {
             UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
-        }
-            fmrMenu menu = new fmrMenu();
+
+
+        fmrMenu menu = new fmrMenu();
             menu.setVisible(true);
+        }
     }
 }

@@ -1,17 +1,14 @@
 package Clases;
 
 public class Alumno {
-
     // ==================== ATRIBUTOS ====================
     private Apoderado nuevoApoderado;
 
-    String  rut             , nombres               , apellidos             , edad              ,
-            fechaNacimiento , email                 , ciudad                , telefono          ,
-            nacionalidad    , fechaMatricula        , direccion             , curso             ,
-            letra           , electivo              , enfermedades          , datosAdicionales  ,
+    private String  rut             , nombres               , apellidos             , edad              ,
+            fechaNacimiento         , email                 , ciudad                , telefono          ,
+            nacionalidad            , fechaMatricula        , direccion             , curso             ,
+            letra                   , electivo              , enfermedades          , datosAdicionales  ,
             genero;
-
-
 
 
     //==================== Constructor ====================
@@ -38,11 +35,6 @@ public class Alumno {
         this.datosAdicionales   = datosAdicionales;
         this.genero             = genero;
     }
-
-    public Alumno() {
-    }
-
-
 
 
     //==================== GET ====================

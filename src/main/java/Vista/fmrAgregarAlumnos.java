@@ -15,7 +15,6 @@ public class fmrAgregarAlumnos extends JDialog {
     // ========== ATRIBUTOS ==========
     private Alumno nuevoAlumno;
 
-
     // ----- PANEL -----
     private JPanel AgregarAlumno;
     private JPanel AgregarAlumnos;
@@ -23,14 +22,11 @@ public class fmrAgregarAlumnos extends JDialog {
     private JPanel Apoderado;
     private JPanel Alumno;
 
-
     // ----- TABBED PANEL -----
     private JTabbedPane tabbedPane1;
 
-
     // ----- JTABLE -----
     private JTable tblListado;
-
 
     // ----- TXT -----
     private JTextField txtRut;
@@ -58,7 +54,6 @@ public class fmrAgregarAlumnos extends JDialog {
     private JTextField txtDireccionApoderado;
     private JTextField txtObservacionesApoderado;
 
-
     // ----- RDO -----
     private JRadioButton    rdoMasculino;
     private JRadioButton    rdoFemenino;
@@ -75,7 +70,6 @@ public class fmrAgregarAlumnos extends JDialog {
     private JRadioButton    rdoMasculinoApoderado;
     private JRadioButton    rdoFemeninoApoderado;
     private JRadioButton    rdoOtroApoderado;
-
 
     // ----- LBL -----
     private JLabel lblDatos;
@@ -112,29 +106,23 @@ public class fmrAgregarAlumnos extends JDialog {
     // ========== CONSTRUCTOR ==========
     public fmrAgregarAlumnos() {
 
-
-        // ----- GRUPO DE BOTONES -----
-        grupoBotonesGenero = new ButtonGroup();
-
-        ButtonGroup grupoBotonesGenero = new ButtonGroup();
-        grupoBotonesGenero.add(rdoFemenino);
-        grupoBotonesGenero.add(rdoMasculino);
-        grupoBotonesGenero.add(rdoOtro);
-
-
-        ButtonGroup grupoBotonesGeneroApoderado = new ButtonGroup();
-        grupoBotonesGeneroApoderado.add(rdoFemeninoApoderado);
-        grupoBotonesGeneroApoderado.add(rdoMasculinoApoderado);
-        grupoBotonesGeneroApoderado.add(rdoOtroApoderado);
-
-
-        // VENTANA PRIORIDAD
         setModal(true);
         setTitle("Agregar Alumno");
         setSize(1000, 700);
         setLocationRelativeTo(null);
         setContentPane(AgregarAlumno);
         cargarListadoAlumnos(null);
+
+        // ----- GRUPO DE BOTONES -----
+        ButtonGroup grupoBotonesGenero = new ButtonGroup();
+        grupoBotonesGenero.add(rdoFemenino);
+        grupoBotonesGenero.add(rdoMasculino);
+        grupoBotonesGenero.add(rdoOtro);
+
+        ButtonGroup grupoBotonesGeneroApoderado = new ButtonGroup();
+        grupoBotonesGeneroApoderado.add(rdoFemeninoApoderado);
+        grupoBotonesGeneroApoderado.add(rdoMasculinoApoderado);
+        grupoBotonesGeneroApoderado.add(rdoOtroApoderado);
 
 
         // ----- BOTÓN LIMPIAR ALUMNO-----
@@ -200,7 +188,6 @@ public class fmrAgregarAlumnos extends JDialog {
                 dispose();
             }
         });
-
 
 
         // ----- BOTÓN BORRAR -----
@@ -331,12 +318,10 @@ public class fmrAgregarAlumnos extends JDialog {
     }
 
 
-
     // ========== SET NUEVO ALUMNO ==========
     public void setNuevoAlumno(Alumno nuevoAlumno) {
         this.nuevoAlumno = nuevoAlumno;
     }
-
 
 
     // ========== VALIDAR CAMPOS ==========
@@ -372,7 +357,6 @@ public class fmrAgregarAlumnos extends JDialog {
     }
 
 
-
     // ========== CARGAR LISTADO ALUMNOS ==========
     private void cargarListadoAlumnos(String filtroRut) {
         // Obtener los datos de los alumnos desde el controlador
@@ -399,13 +383,11 @@ public class fmrAgregarAlumnos extends JDialog {
     }
 
 
-
     // ========== BUSCAR ALUMNO POR RUT ==========
     private void buscarAlumnoPorRut() {
         String filtroRut = txtRut.getText();
         cargarListadoAlumnos(filtroRut);
     }
-
 
 
     // ----- ELIMINAR ESTUDIANTE -----

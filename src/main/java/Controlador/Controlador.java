@@ -15,7 +15,6 @@ public class Controlador {
     public static final String nombreArchivo = "Matriculas.csv";
 
 
-
     // ========== AGREGAR ALUMNO CSV ==========
     public static void agregarAlumnoCSV(Alumno nuevoAlumno) {
         try {
@@ -44,7 +43,6 @@ public class Controlador {
             }
 
 
-
             // ----- ATRIBUTOS ALUMNO -----
             String rutAlumno                    = nuevoAlumno.getRut();
             String nombresAlumno                = nuevoAlumno.getNombres();
@@ -63,8 +61,6 @@ public class Controlador {
             String enfermedadesAlumno           = nuevoAlumno.getEnfermedades();
             String datosAdicionalesAlumno       = nuevoAlumno.getDatosAdicionales();
             String generoAlumno                 = nuevoAlumno.getGenero();
-
-
 
 
             // ----- ATRIBUTOS APODERADO -----
@@ -94,12 +90,10 @@ public class Controlador {
             // ----- NUEVA LÍNEA DESPUÉS PARA AGREGAR UN ALUMNO -----
             escritor.newLine();
             escritor.close();
-
         } catch (IOException e) {
             System.out.println("Error al registrar: " + e.getMessage());
         }
     }
-
 
 
     //==================== MOSTRAR ALUMNOS CSV ====================
@@ -151,14 +145,11 @@ public class Controlador {
                 }
             }
             lector.close();
-
         } catch (IOException e) {
             System.err.println("Hubo un error al leer el archivo: " + e.getMessage());
         }
-
         return alumnosData;
     }
-
 
 
     // ==================== ELIMINAR ALUMNO ====================
@@ -166,12 +157,10 @@ public class Controlador {
         try {
             File archivo = new File(nombreArchivo);
 
-            // Verificar si el archivo existe
             if (!archivo.exists()) {
                 JOptionPane.showMessageDialog(null, "El archivo de matrículas no existe.", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-
 
             Scanner lector                  = new Scanner(archivo);
             File archivoTemp                = new File(nombreArchivo + ".temp");
@@ -181,7 +170,6 @@ public class Controlador {
 
             while (lector.hasNextLine()) {
                 String linea = lector.nextLine();
-
 
                 if (linea.contains("," + rutEstudiante + ",")) {
                     estudianteEncontrado = true;
@@ -194,8 +182,6 @@ public class Controlador {
             lector.close();
             escritor.close();
 
-
-            // Eliminar el archivo original y renombrar el temporal
             archivo.delete();
             archivoTemp.renameTo(archivo);
 
@@ -204,7 +190,6 @@ public class Controlador {
             } else {
                 JOptionPane.showMessageDialog(null, "No se encontró un estudiante con el RUT " + rutEstudiante, "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
-
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, "Hubo un error al eliminar el estudiante: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }

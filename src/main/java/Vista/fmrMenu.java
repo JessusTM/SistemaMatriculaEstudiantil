@@ -18,18 +18,24 @@ public class fmrMenu extends JFrame {
     // ========== CONSTRUCTOR ==========
     public fmrMenu(){
 
-        // ----- APARIENCIA -----
-        try {
-            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-        // ------------------------------
-
         setSize(1024, 768);
         setLocationRelativeTo(null);
         setTitle("Menú");
         setContentPane(Menu);
+
+        // ----- APARIENCIA -----
+        try {
+            UIManager.setLookAndFeel(String.valueOf(new FlatDarkPurpleIJTheme()));
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (InstantiationException e) {
+            throw new RuntimeException(e);
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        // ------------------------------
 
 
         // ----- BOTÓN CAMBIO DE VENTANA A AGREGAR ALUMNO -----

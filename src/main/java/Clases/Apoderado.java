@@ -4,10 +4,9 @@ package Clases;
 public class Apoderado {
 
     // ==================== ATRIBUTOS ====================
-    String  rut         , nombres       , apellidos         , parentesco            ,
-            telefono    , ciudad        , direccion         , observaciones         ,
-            genero;
-
+    private String  rut             , nombres       , apellidos         , parentesco            ,
+                    telefono        , ciudad        , direccion         , observaciones         ,
+                    genero;
 
 
     //==================== CONSTRUCTORES ====================
@@ -63,7 +62,6 @@ public class Apoderado {
     public String getGenero() {
         return genero;
     }
-
 
 
     //==================== SET ====================
