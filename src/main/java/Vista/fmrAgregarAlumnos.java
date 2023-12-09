@@ -68,6 +68,11 @@ public class fmrAgregarAlumnos extends JDialog {
     private JButton         btnLimpiarApoderado;
 
 
+    // ----- BUTTON GROUP -----
+    private ButtonGroup grupoBotonesGenero;
+    private ButtonGroup grupoBotonesGeneroApoderado;
+
+
     // ----- RDO -----
     private JRadioButton    rdoMasculino;
     private JRadioButton    rdoFemenino;
@@ -120,12 +125,12 @@ public class fmrAgregarAlumnos extends JDialog {
         cargarListadoAlumnos(null);
 
         // ----- GRUPO DE BOTONES -----
-        ButtonGroup grupoBotonesGenero = new ButtonGroup();
+        this.grupoBotonesGenero = new ButtonGroup();
         grupoBotonesGenero.add(rdoFemenino);
         grupoBotonesGenero.add(rdoMasculino);
         grupoBotonesGenero.add(rdoOtro);
 
-        ButtonGroup grupoBotonesGeneroApoderado = new ButtonGroup();
+        this.grupoBotonesGeneroApoderado = new ButtonGroup();
         grupoBotonesGeneroApoderado.add(rdoFemeninoApoderado);
         grupoBotonesGeneroApoderado.add(rdoMasculinoApoderado);
         grupoBotonesGeneroApoderado.add(rdoOtroApoderado);
@@ -332,9 +337,7 @@ public class fmrAgregarAlumnos extends JDialog {
         txtCurso            .setText(null);
         txtLetra            .setText(null);
         txtElectivo         .setText(null);
-        rdoMasculino        .setSelected(false);
-        rdoFemenino         .setSelected(false);
-        rdoOtro             .setSelected(false);
+        grupoBotonesGenero.clearSelection();
     }
 
 
@@ -351,9 +354,7 @@ public class fmrAgregarAlumnos extends JDialog {
         txtCiudadApoderado          .setText(null);
         txtDireccionApoderado       .setText(null);
         txtObservacionesApoderado   .setText(null);
-        rdoMasculinoApoderado       .setSelected(false);
-        rdoFemeninoApoderado        .setSelected(false);
-        rdoOtroApoderado            .setSelected(false);
+        grupoBotonesGeneroApoderado.clearSelection();
     }
 
 
