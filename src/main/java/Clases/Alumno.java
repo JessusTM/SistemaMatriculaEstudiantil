@@ -13,11 +13,11 @@ public class Alumno {
 
 
     // ==================== Constructor ====================
-    public Alumno(  String rut              , String nombres            , String apellidos          , String edad                   ,
-                    String fechaNacimiento  , String email              , String ciudad             , String telefono               ,
-                    String nacionalidad     , String fechaMatricula     , String direccion          , String curso                  ,
-                    String letra            , String electivo           , String enfermedades       , String datosAdicionales       ,
-                    String genero) {
+    public Alumno(      String rut              , String nombres            , String apellidos          , String edad                   ,
+                        String fechaNacimiento  , String email              , String ciudad             , String telefono               ,
+                        String nacionalidad     , String fechaMatricula     , String direccion          , String curso                  ,
+                        String letra            , String electivo           , String enfermedades       , String datosAdicionales       ,
+                        String genero) {
         this.rut                = rut;
         this.nombres            = nombres;
         this.apellidos          = apellidos;
