@@ -461,10 +461,10 @@ public class fmrAgregarAlumnos extends JDialog {
         cargarListadoAlumnos(filtroRut);
 
         // Obtener los datos de los alumnos desde el controlador
-        List<Object[]> alumnosData = Controlador.listadoAlumnos(filtroRut);
+        List<Object[]> alumnosData      = Controlador.listadoAlumnos(filtroRut);
 
         if (!alumnosData.isEmpty()) {
-            Object[] alumnoEncontrado = alumnosData.get(0);
+            Object[] alumnoEncontrado   = alumnosData.get(0);
 
             // Datos del alumno encontrado en los textfield
             txtRut                  .setText((String) alumnoEncontrado[0]);

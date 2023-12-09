@@ -3,13 +3,13 @@ package Clases;
 public class Alumno {
 
     // ==================== ATRIBUTOS ====================
-    private Apoderado nuevoApoderado;
+    private Apoderado   nuevoApoderado;
 
-    private String  rut             , nombres               , apellidos             , edad              ,
-            fechaNacimiento         , email                 , ciudad                , telefono          ,
-            nacionalidad            , fechaMatricula        , direccion             , curso             ,
-            letra                   , electivo              , enfermedades          , datosAdicionales  ,
-            genero;
+    private String      rut                     , nombres               , apellidos             , edad              ,
+                        fechaNacimiento         , email                 , ciudad                , telefono          ,
+                        nacionalidad            , fechaMatricula        , direccion             , curso             ,
+                        letra                   , electivo              , enfermedades          , datosAdicionales  ,
+                        genero;
 
 
     // ==================== Constructor ====================
