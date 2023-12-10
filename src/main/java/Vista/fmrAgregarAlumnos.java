@@ -116,10 +116,19 @@ public class fmrAgregarAlumnos extends JDialog {
     private JLabel lblObservacionesApoderado;
 
 
+    // ----- COMBO BOX -----
+    private JComboBox boxNacionalidad;
+    private JComboBox boxCurso;
+    private JComboBox boxLetra;
+    private JComboBox boxElectivo;
+
+
     // ========== CONSTRUCTOR ==========
     public fmrAgregarAlumnos() {
+
+        // ----- APARIENCIA -----
         try {
-            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme()); // Configura el tema
+            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
@@ -143,7 +152,19 @@ public class fmrAgregarAlumnos extends JDialog {
         grupoBotonesGeneroApoderado.add(rdoMasculinoApoderado);
         grupoBotonesGeneroApoderado.add(rdoOtroApoderado);
 
-// # ======================================== BOTONES ======================================== #
+        // ----- COMBO BOX -----
+        String[] nacionalidades = {"Chilena", "Venezolana", "Haitiana", "Otra"};
+        String[] cursos         = {"1°", "2°", "3°", "4°"};
+        String[] letras         = {"A", "B", "C", "D"};
+        String[] electivos      = {"Telecomunicaciones", "Agropecuaria"};
+
+        boxNacionalidad .setModel(new DefaultComboBoxModel<>(nacionalidades));
+        boxCurso        .setModel(new DefaultComboBoxModel<>(cursos));
+        boxLetra        .setModel(new DefaultComboBoxModel<>(letras));
+        boxElectivo     .setModel(new DefaultComboBoxModel<>(electivos));
+
+        comboBoxVacio();
+
         // ----- BOTÓN LIMPIAR ALUMNO-----
         btnLimpiar.addActionListener(new ActionListener() {
             @Override
@@ -232,8 +253,6 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // # ======================================== MÉTODOS ======================================== #
     // -------------------- GRABAR TOTAL --------------------
     public void grabarTotal() {
@@ -249,23 +268,23 @@ public class fmrAgregarAlumnos extends JDialog {
 
     // -------------------- GRABAR ALUMNO --------------------
     public Alumno grabar() {
-        String rut              = txtRut                .getText();
-        String nombres          = txtNombres            .getText();
-        String apellidos        = txtApellidos          .getText();
-        String edad             = txtEdad               .getText();
-        String fechaNacimiento  = txtFechaNacimiento    .getText();
-        String direccion        = txtDireccion          .getText();
-        String ciudad           = txtCiudad             .getText();
-        String telefono         = txtTelefono           .getText();
-        String email            = txtEmail              .getText();
-        String nacionalidad     = txtNacionalidad       .getText();
-        String datosAdicionales = txtDatosAdicionales   .getText();
-        String fechaMatricula   = txtFechaMatricula     .getText();
-        String enfermedades     = txtEnfermedades       .getText();
+        String rut              = txtRut                    .getText();
+        String nombres          = txtNombres                .getText();
+        String apellidos        = txtApellidos              .getText();
+        String edad             = txtEdad                   .getText();
+        String fechaNacimiento  = txtFechaNacimiento        .getText();
+        String direccion        = txtDireccion              .getText();
+        String ciudad           = txtCiudad                 .getText();
+        String telefono         = txtTelefono               .getText();
+        String email            = txtEmail                  .getText();
+        String nacionalidad     = (String) boxNacionalidad  .getSelectedItem();
+        String datosAdicionales = txtDatosAdicionales       .getText();
+        String fechaMatricula   = txtFechaMatricula         .getText();
+        String enfermedades     = txtEnfermedades           .getText();
         String genero           = obtenerGeneroAlumno();
-        String curso            = txtCurso              .getText();
-        String letra            = txtLetra              .getText();
-        String electivo         = txtElectivo           .getText();
+        String curso            = (String) boxCurso         .getSelectedItem();
+        String letra            = (String) boxLetra         .getSelectedItem();
+        String electivo         = (String) boxElectivo      .getSelectedItem();
 
         Alumno nuevoAlumno      = new Alumno(   rut             , nombres           , apellidos         , edad              ,
                 fechaNacimiento , email             , ciudad            , telefono          ,
@@ -311,11 +330,11 @@ public class fmrAgregarAlumnos extends JDialog {
     private String obtenerGeneroApoderado() {
         String generoApoderado = "";
 
-        if (rdoMasculino.isSelected()) {
+        if (rdoMasculinoApoderado.isSelected()) {
             return "Masculino";
-        } else if (rdoFemenino.isSelected()) {
+        } else if (rdoFemeninoApoderado.isSelected()) {
             return "Femenino";
-        } else if (rdoOtro.isSelected()) {
+        } else if (rdoOtroApoderado.isSelected()) {
             return "Otro";
         }
         return generoApoderado;
@@ -331,18 +350,17 @@ public class fmrAgregarAlumnos extends JDialog {
         txtEdad             .setText(null);
         txtFechaNacimiento  .setText(null);
         txtDireccion        .setText(null);
-        txtDireccion        .setText(null);
         txtCiudad           .setText(null);
         txtTelefono         .setText(null);
         txtEmail            .setText(null);
-        txtNacionalidad     .setText(null);
+        boxNacionalidad     .setSelectedIndex(-1);
         txtDatosAdicionales .setText(null);
         txtFechaMatricula   .setText(null);
         txtEnfermedades     .setText(null);
-        txtCurso            .setText(null);
-        txtLetra            .setText(null);
-        txtElectivo         .setText(null);
-        grupoBotonesGenero.clearSelection();
+        boxCurso            .setSelectedIndex(-1);
+        boxLetra            .setSelectedIndex(-1);
+        boxElectivo         .setSelectedIndex(-1);
+        grupoBotonesGenero  .clearSelection();
     }
 
 
@@ -371,27 +389,27 @@ public class fmrAgregarAlumnos extends JDialog {
 
     // -------------------- VALIDAR CAMPOS --------------------
     private boolean validarCampos() {
-        if (    txtRut                  .getText().isEmpty() ||
-                txtNombres              .getText().isEmpty() ||
-                txtApellidos            .getText().isEmpty() ||
-                txtEdad                 .getText().isEmpty() ||
-                txtFechaNacimiento      .getText().isEmpty() ||
-                txtDireccion            .getText().isEmpty() ||
-                txtCiudad               .getText().isEmpty() ||
-                txtTelefono             .getText().isEmpty() ||
-                txtNacionalidad         .getText().isEmpty() ||
-                txtDatosAdicionales     .getText().isEmpty() ||
-                txtFechaMatricula       .getText().isEmpty() ||
-                txtDireccion            .getText().isEmpty() ||
-                txtCurso                .getText().isEmpty() ||
-                txtLetra                .getText().isEmpty() ||
-                txtElectivo             .getText().isEmpty() ||
-                txtRutApoderado         .getText().isEmpty() ||
-                txtNombresApoderado     .getText().isEmpty() ||
-                txtApellidosApoderado   .getText().isEmpty() ||
-                txtParentescoApoderado  .getText().isEmpty() ||
-                txtTelefonoApoderado    .getText().isEmpty() ||
-                txtDireccionApoderado   .getText().isEmpty() ||
+        if (    txtRut                  .getText().isEmpty()        ||
+                txtNombres              .getText().isEmpty()        ||
+                txtApellidos            .getText().isEmpty()        ||
+                txtEdad                 .getText().isEmpty()        ||
+                txtFechaNacimiento      .getText().isEmpty()        ||
+                txtDireccion            .getText().isEmpty()        ||
+                txtCiudad               .getText().isEmpty()        ||
+                txtTelefono             .getText().isEmpty()        ||
+                boxNacionalidad         .getSelectedIndex() == -1   ||
+                txtDatosAdicionales     .getText().isEmpty()        ||
+                txtFechaMatricula       .getText().isEmpty()        ||
+                txtDireccion            .getText().isEmpty()        ||
+                boxCurso                .getSelectedIndex() == -1   ||
+                boxLetra                .getSelectedIndex() == -1   ||
+                boxElectivo             .getSelectedIndex() == -1   ||
+                txtRutApoderado         .getText().isEmpty()        ||
+                txtNombresApoderado     .getText().isEmpty()        ||
+                txtApellidosApoderado   .getText().isEmpty()        ||
+                txtParentescoApoderado  .getText().isEmpty()        ||
+                txtTelefonoApoderado    .getText().isEmpty()        ||
+                txtDireccionApoderado   .getText().isEmpty()        ||
                 txtCiudadApoderado      .getText().isEmpty()
         ) {
             JOptionPane.showMessageDialog(this, "Faltan campos por rellenar", "Error de Validación", JOptionPane.ERROR_MESSAGE);
@@ -471,12 +489,12 @@ public class fmrAgregarAlumnos extends JDialog {
             txtEmail                .setText((String) alumnoEncontrado[5]);
             txtCiudad               .setText((String) alumnoEncontrado[6]);
             txtTelefono             .setText((String) alumnoEncontrado[7]);
-            txtNacionalidad         .setText((String) alumnoEncontrado[8]);
+            boxNacionalidad         .setSelectedItem((String) alumnoEncontrado[8]);
             txtFechaMatricula       .setText((String) alumnoEncontrado[9]);
             txtDireccion            .setText((String) alumnoEncontrado[10]);
-            txtCurso                .setText((String) alumnoEncontrado[11]);
-            txtLetra                .setText((String) alumnoEncontrado[12]);
-            txtElectivo             .setText((String) alumnoEncontrado[13]);
+            boxCurso                .setSelectedItem((String) alumnoEncontrado[11]);
+            boxLetra                .setSelectedItem((String) alumnoEncontrado[12]);
+            boxElectivo             .setSelectedItem((String) alumnoEncontrado[13]);
             txtEnfermedades         .setText((String) alumnoEncontrado[14]);
             txtDatosAdicionales     .setText((String) alumnoEncontrado[15]);
             String generoAlumno = (String) alumnoEncontrado[16];
@@ -499,6 +517,7 @@ public class fmrAgregarAlumnos extends JDialog {
     }
 
 
+
     // -------------------- MODIFICAR ALUMNO --------------------
     private void modificarAlumno() {
         if (validarCampos()) {
@@ -509,5 +528,14 @@ public class fmrAgregarAlumnos extends JDialog {
 
             JOptionPane.showMessageDialog(null, "Alumno modificado correctamente");
         }
+    }
+
+
+    // -------------------- COMBO BOX EN BLANCO --------------------
+    private void comboBoxVacio() {
+        boxNacionalidad .setSelectedIndex(-1);
+        boxCurso        .setSelectedIndex(-1);
+        boxLetra        .setSelectedIndex(-1);
+        boxElectivo     .setSelectedIndex(-1);
     }
 }

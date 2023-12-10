@@ -3,7 +3,7 @@
   <grid id="cbd77" binding="AgregarAlumno" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="48" y="54" width="1043" height="775"/>
+      <xy x="48" y="54" width="1043" height="800"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -121,30 +121,6 @@
                   <text value="Teléfono"/>
                 </properties>
               </component>
-              <component id="d54cb" class="javax.swing.JLabel" binding="lblNacionalidad">
-                <constraints>
-                  <grid row="11" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Nacionalidad"/>
-                </properties>
-              </component>
-              <component id="f7173" class="javax.swing.JLabel" binding="lblFechaMatricula">
-                <constraints>
-                  <grid row="11" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Fecha matrícula"/>
-                </properties>
-              </component>
-              <component id="2667b" class="javax.swing.JLabel" binding="lblDireccion">
-                <constraints>
-                  <grid row="11" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Dirección"/>
-                </properties>
-              </component>
               <component id="1c970" class="javax.swing.JTextField" binding="txtCiudad">
                 <constraints>
                   <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
@@ -160,94 +136,6 @@
                   </grid>
                 </constraints>
                 <properties/>
-              </component>
-              <component id="24dd4" class="javax.swing.JTextField" binding="txtNacionalidad">
-                <constraints>
-                  <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="1109c" class="javax.swing.JTextField" binding="txtFechaMatricula">
-                <constraints>
-                  <grid row="12" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="6eb12" class="javax.swing.JTextField" binding="txtDireccion">
-                <constraints>
-                  <grid row="12" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="ed19b" class="javax.swing.JLabel" binding="lblCurso">
-                <constraints>
-                  <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Curso"/>
-                </properties>
-              </component>
-              <component id="79681" class="javax.swing.JTextField" binding="txtCurso">
-                <constraints>
-                  <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="4307a" class="javax.swing.JLabel" binding="lblLetra">
-                <constraints>
-                  <grid row="14" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Letra"/>
-                </properties>
-              </component>
-              <component id="c31ec" class="javax.swing.JTextField" binding="txtLetra">
-                <constraints>
-                  <grid row="15" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="79afe" class="javax.swing.JLabel" binding="lblElectivo">
-                <constraints>
-                  <grid row="14" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Electivo"/>
-                </properties>
-              </component>
-              <component id="743ee" class="javax.swing.JTextField" binding="txtElectivo">
-                <constraints>
-                  <grid row="15" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="e8aeb" class="javax.swing.JTextField" binding="txtEnfermedades">
-                <constraints>
-                  <grid row="15" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="3e835" class="javax.swing.JLabel" binding="lblEnfermedades">
-                <constraints>
-                  <grid row="14" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-                </constraints>
-                <properties>
-                  <text value="Enfermedades"/>
-                </properties>
               </component>
               <component id="a95a3" class="javax.swing.JLabel" binding="lblDatosAdicionales">
                 <constraints>
@@ -506,6 +394,135 @@
                   <grid row="27" column="7" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
                 </constraints>
               </vspacer>
+              <component id="79afe" class="javax.swing.JLabel" binding="lblElectivo">
+                <constraints>
+                  <grid row="14" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Electivo"/>
+                </properties>
+              </component>
+              <component id="4307a" class="javax.swing.JLabel" binding="lblLetra">
+                <constraints>
+                  <grid row="14" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Letra"/>
+                </properties>
+              </component>
+              <component id="ed19b" class="javax.swing.JLabel" binding="lblCurso">
+                <constraints>
+                  <grid row="14" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Curso"/>
+                </properties>
+              </component>
+              <component id="d54cb" class="javax.swing.JLabel" binding="lblNacionalidad">
+                <constraints>
+                  <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Nacionalidad"/>
+                </properties>
+              </component>
+              <component id="f7173" class="javax.swing.JLabel" binding="lblFechaMatricula">
+                <constraints>
+                  <grid row="11" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Fecha matrícula"/>
+                </properties>
+              </component>
+              <component id="1109c" class="javax.swing.JTextField" binding="txtFechaMatricula">
+                <constraints>
+                  <grid row="12" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="2667b" class="javax.swing.JLabel" binding="lblDireccion">
+                <constraints>
+                  <grid row="11" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Dirección"/>
+                </properties>
+              </component>
+              <component id="6eb12" class="javax.swing.JTextField" binding="txtDireccion">
+                <constraints>
+                  <grid row="12" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="3e835" class="javax.swing.JLabel" binding="lblEnfermedades">
+                <constraints>
+                  <grid row="11" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Enfermedades"/>
+                </properties>
+              </component>
+              <component id="e8aeb" class="javax.swing.JTextField" binding="txtEnfermedades">
+                <constraints>
+                  <grid row="12" column="11" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="5d16d" class="javax.swing.JComboBox" binding="boxNacionalidad">
+                <constraints>
+                  <grid row="15" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="Chilena"/>
+                    <item value="Venezolana"/>
+                    <item value="Haitiana"/>
+                    <item value="Otra"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="d90c7" class="javax.swing.JComboBox" binding="boxCurso">
+                <constraints>
+                  <grid row="15" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="1°"/>
+                    <item value="2°"/>
+                    <item value="3°"/>
+                    <item value="4°"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="e5c68" class="javax.swing.JComboBox" binding="boxLetra">
+                <constraints>
+                  <grid row="15" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="A"/>
+                    <item value="B"/>
+                    <item value="C"/>
+                  </model>
+                </properties>
+              </component>
+              <component id="ad297" class="javax.swing.JComboBox" binding="boxElectivo">
+                <constraints>
+                  <grid row="15" column="9" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <model>
+                    <item value="Telecomunicaciones"/>
+                    <item value="Agropecuaria"/>
+                  </model>
+                </properties>
+              </component>
             </children>
           </grid>
           <grid id="1b1b9" layout-manager="GridLayoutManager" row-count="19" column-count="15" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
