@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.ContadorAlumnos;
+import Controlador.ContadorPorCurso;
 import Controlador.ContadorPorGenero;
 import Controlador.ContadorPorNacionalidad;
 import org.jfree.chart.ChartFactory;
@@ -24,6 +26,9 @@ public class guiGraficos extends JDialog {
     private JButton btnVolver;
     private JLabel lblPeopleIcon;
     private JLabel lblFlagIcon;
+    private JButton btnGraficoCurso;
+    private JPanel jpGraficaCurso;
+    private JLabel jbelAlumnosTotales;
 
 
     public guiGraficos() {
@@ -58,7 +63,7 @@ public class guiGraficos extends JDialog {
 
                 jpGraficaGenero.setLayout(new BorderLayout());
                 jpGraficaGenero.add(panelGrafico,BorderLayout.CENTER);
-                jpGraficaGenero.setSize(250,200);
+                jpGraficaGenero.setSize(220,150);
 
 
             }
@@ -108,6 +113,35 @@ public class guiGraficos extends JDialog {
             }
         });
 
+        btnGraficoCurso.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int contador1MEDIO = ContadorPorCurso.contarAlumnosPrimeroMedio();
+                int contador2MEDIO = ContadorPorCurso.contarAlumnosSegundoMedio();
+                int contador3MEDIO = ContadorPorCurso.contarAlumnosTerceroMedio();
+                int contador4MEDIO = ContadorPorCurso.contarAlumnosCuartoMedio();
+
+                DefaultPieDataset datosCursos = new DefaultPieDataset();
+                datosCursos.setValue("1° Medio", contador1MEDIO);
+                datosCursos.setValue("2° Medio", contador2MEDIO);
+                datosCursos.setValue("3° Medio", contador3MEDIO);
+                datosCursos.setValue("4° Medio", contador4MEDIO);
+
+                JFreeChart grafico_circular = ChartFactory.createPieChart("Estadisticas de los Cursos", datosCursos, true, true, false);
+
+                ChartPanel panelGrafico = new ChartPanel(grafico_circular);
+                panelGrafico.setMouseWheelEnabled(true);
+                panelGrafico.setSize(220,150);
+
+                jpGraficaCurso.setLayout(new BorderLayout());
+                jpGraficaCurso.add(panelGrafico,BorderLayout.CENTER);
+                jpGraficaCurso.setSize(220,150);
+
+            }
+        });
+
+        int contadorTotal = ContadorAlumnos.contarAlumnos();
+        jbelAlumnosTotales.setText("Alumnos matriculados: " + contadorTotal);
     }
 
 }

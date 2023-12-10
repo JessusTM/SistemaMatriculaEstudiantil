@@ -39,6 +39,7 @@ public class guiMenu extends JFrame {
         setTitle("Menú");
         setContentPane(Menu);
         setResizable(false);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 
         // ----- BOTÓN CAMBIO DE VENTANA A AGREGAR ALUMNO -----
@@ -70,6 +71,8 @@ public class guiMenu extends JFrame {
             }
         });
     }
+
+
 
 
 
