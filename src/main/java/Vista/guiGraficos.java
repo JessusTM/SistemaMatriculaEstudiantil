@@ -22,6 +22,8 @@ public class guiGraficos extends JDialog {
     private JPanel jpGraficaGenero;
     private JPanel jpGraficaNacionalidad;
     private JButton btnVolver;
+    private JLabel lblPeopleIcon;
+    private JLabel lblFlagIcon;
 
 
     public guiGraficos() {
@@ -31,7 +33,7 @@ public class guiGraficos extends JDialog {
         setTitle("Estadisticas");
         setLocationRelativeTo(null);
         setModal(true);
-        setSize(700,500);
+        setSize(750,550);
         setResizable(false);
 
 
