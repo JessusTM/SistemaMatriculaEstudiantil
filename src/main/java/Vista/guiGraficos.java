@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.Controlador;
+import Controlador.ContadorPorGenero;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -35,9 +35,9 @@ public class guiGraficos extends JDialog {
         btnGraficaGenero.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                int contadorMasculino = Controlador.contarAlumnosMasculinos();
-                int contadorFemenino = Controlador.contarAlumnosFemeninos();
-                int contadorOtros = Controlador.contarAlumnosOtrosGeneros();
+                int contadorMasculino = ContadorPorGenero.contarAlumnosMasculinos();
+                int contadorFemenino = ContadorPorGenero.contarAlumnosFemeninos();
+                int contadorOtros = ContadorPorGenero.contarAlumnosOtrosGeneros();
 
                 DefaultPieDataset datosContadores = new DefaultPieDataset();
 

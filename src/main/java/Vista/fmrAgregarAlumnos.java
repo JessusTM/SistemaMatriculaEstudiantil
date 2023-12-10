@@ -259,7 +259,7 @@ public class fmrAgregarAlumnos extends JDialog {
         if (validarCampos()) {
             this.nuevoAlumno = grabar();
             grabarApoderado();
-            Controlador.agregarAlumnoCSV(this.nuevoAlumno);
+            Csv.agregarAlumnoCSV(this.nuevoAlumno);
             JOptionPane.showMessageDialog(null, "Alumno y apoderado agregados correctamente");
         }
     }
@@ -423,7 +423,7 @@ public class fmrAgregarAlumnos extends JDialog {
     // -------------------- CARGAR LISTADO ALUMNOS --------------------
     private void cargarListadoAlumnos(String filtroRut) {
         // Obtener los datos de los alumnos desde el controlador
-        List<Object[]> alumnosData = Controlador.listadoAlumnos(filtroRut);
+        List<Object[]> alumnosData = Csv.listadoAlumnos(filtroRut);
 
         // Crear un modelo de tabla
         DefaultTableModel modelo = new DefaultTableModel();
@@ -455,7 +455,7 @@ public class fmrAgregarAlumnos extends JDialog {
             int confirmacion = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar al estudiante?", "Confirmar Borrado", JOptionPane.YES_NO_OPTION);
 
             if (confirmacion == JOptionPane.YES_OPTION) {
-                Controlador.eliminarAlumnoCSV(rutEstudiante);
+                Csv.eliminarAlumnoCSV(rutEstudiante);
 
                 limpiar();
                 limpiarApoderado();
@@ -474,7 +474,7 @@ public class fmrAgregarAlumnos extends JDialog {
         cargarListadoAlumnos(filtroRut);
 
         // Obtener los datos de los alumnos desde el controlador
-        List<Object[]> alumnosData      = Controlador.listadoAlumnos(filtroRut);
+        List<Object[]> alumnosData      = Csv.listadoAlumnos(filtroRut);
 
         if (!alumnosData.isEmpty()) {
             btnGrabar.setEnabled(false);
@@ -524,7 +524,7 @@ public class fmrAgregarAlumnos extends JDialog {
             // Obtener los datos modificados de los TextField
             Alumno alumnoModificado = grabar();
 
-            Controlador.modificarAlumno(alumnoModificado);
+            Csv.modificarAlumno(alumnoModificado);
 
             JOptionPane.showMessageDialog(null, "Alumno modificado correctamente");
         }
