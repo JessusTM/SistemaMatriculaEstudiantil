@@ -91,6 +91,9 @@ public class Controlador {
     }
     // ----- Atributos apoderado ------
     private static String atributosApoderado(Apoderado apoderado) {
+        if (apoderado == null) {
+            return "";
+        }
         return  apoderado.getRut()                  + "," +
                 apoderado.getNombres()              + "," +
                 apoderado.getApellidos()            + "," +
@@ -199,6 +202,52 @@ public class Controlador {
             }
         } catch (IOException e) {
             JOptionPane.showMessageDialog(null, " Hubo un error al eliminar el estudiante: " + e.getMessage(), " Error ", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+
+
+
+
+    // ==================== MODIFICAR ALUMNO ====================
+    public static void modificarAlumno(Alumno alumnoModificado) {
+        try {
+            File archivo = new File(nombreArchivo);
+
+            Scanner lector                  = new Scanner(archivo);
+            File archivoTemp                = new File(nombreArchivo + ".temp");
+            BufferedWriter escritor         = new BufferedWriter(new FileWriter(archivoTemp));
+
+            boolean estudianteEncontrado    = false;
+
+            while (lector.hasNextLine()) {
+                String linea    = lector.nextLine();
+                String[] campos = linea.split(",");
+
+                if (campos.length >= 1 && campos[0].trim().equals(alumnoModificado.getRut().trim())) {
+                    // Modifica la línea con los nuevos datos del alumno
+                    String nuevaLinea = atributosAlumno(alumnoModificado) + "," + atributosApoderado(alumnoModificado.getNuevoApoderado());
+                    escritor.write(nuevaLinea);
+                    escritor.newLine();
+
+                    estudianteEncontrado = true;
+                } else {
+                    escritor.write(linea);
+                    escritor.newLine();
+                }
+            }
+
+            lector.close();
+            escritor.close();
+
+            archivo.delete();
+            archivoTemp.renameTo(archivo);
+
+            if (!estudianteEncontrado) {
+                JOptionPane.showMessageDialog(null, "No se encontró un estudiante con el RUT " + alumnoModificado.getRut(), "Advertencia", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Hubo un error al modificar el estudiante: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

@@ -214,7 +214,9 @@ public class fmrAgregarAlumnos extends JDialog {
         btnModificar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, " Función en trabajo... ");
+                modificarAlumno();
+                limpiar();
+                cargarListadoAlumnos(null);
             }
         });
         btnModificar.setEnabled(false);
@@ -485,6 +487,19 @@ public class fmrAgregarAlumnos extends JDialog {
             limpiarApoderado();
             btnBorrar.setEnabled(false);
             btnModificar.setEnabled(false);
+        }
+    }
+
+
+    // -------------------- MODIFICAR ALUMNO --------------------
+    private void modificarAlumno() {
+        if (validarCampos()) {
+            // Obtener los datos modificados de los TextField
+            Alumno alumnoModificado = grabar();
+
+            Controlador.modificarAlumno(alumnoModificado);
+
+            JOptionPane.showMessageDialog(null, "Alumno modificado correctamente");
         }
     }
 }
