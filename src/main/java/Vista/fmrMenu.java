@@ -1,6 +1,5 @@
 package Vista;
 
-import Controlador.Controlador;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
 import javax.swing.*;
@@ -11,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class fmrMenu extends JFrame {
     private JButton btnAgregarAlumno;
-    private JButton btnInstitucion;
+    private JButton btnEstadisticas;
     private JPanel  Menu;
     private JButton btnSalir;
     private JLabel lblAgregar;
@@ -64,10 +63,10 @@ public class fmrMenu extends JFrame {
 
 
         // ----- BOTÓN INSTITUCIÓN -----
-        btnInstitucion.addActionListener(new ActionListener() {
+        btnEstadisticas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, " Ventana en trabajo... ");
+                new Graficos();
             }
         });
     }
