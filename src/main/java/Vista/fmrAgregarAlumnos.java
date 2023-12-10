@@ -3,6 +3,8 @@ package Vista;
 import Clases.Alumno;
 import Clases.Apoderado;
 import Controlador.*;
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
@@ -116,6 +118,11 @@ public class fmrAgregarAlumnos extends JDialog {
 
     // ========== CONSTRUCTOR ==========
     public fmrAgregarAlumnos() {
+        try {
+            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme()); // Configura el tema
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
 
         setModal(true);
         setTitle("Agregar Alumno");

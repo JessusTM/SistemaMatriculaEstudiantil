@@ -1,8 +1,10 @@
 package Vista;
 
 import Controlador.Controlador;
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,12 +14,30 @@ public class fmrMenu extends JFrame {
     private JButton btnInstitucion;
     private JPanel  Menu;
     private JButton btnSalir;
+    private JLabel lblAgregar;
+    private JLabel lblStats;
+    private JLabel lblClose;
+    private JLabel lblLaGranja;
+    private JLabel lblDirector;
+    private JLabel lblNombreDirector;
+    private JLabel lblFono;
+    private JLabel lblFonoNum;
+    private JLabel lblRbd;
+    private JLabel lblRbdNum;
 
 
     // ========== CONSTRUCTOR ==========
     public fmrMenu(){
-
-        setSize(1024, 768);
+        //APARIENCIA FLATLAF
+        try {
+            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme()); // Configura el tema
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+        //TAMAÑO NO CAMBIABLE
+        setMinimumSize(new Dimension(600, 400));
+        setMaximumSize(new Dimension(600, 400));
+        setUndecorated(true);
         setLocationRelativeTo(null);
         setTitle("Menú");
         setContentPane(Menu);
