@@ -37,6 +37,8 @@ public class Alumno {
         this.genero             = genero;
     }
 
+    public Alumno() {
+    }
 
     // ==================== GET ====================
     public String getRut() {

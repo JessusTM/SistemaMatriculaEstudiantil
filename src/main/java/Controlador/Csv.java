@@ -60,7 +60,7 @@ public class Csv {
                                 "|Rut Apoderado|Nombres Apoderado|Apellidos Apoderado|"                    +
                                 "|Paréntesco Apoderado|Teléfono Apoderado|Email Apoderado|"                +
                                 "|Ciudad Apoderado|Situación laboral Apoderado|Escolaridad Apoderado|"     +
-                                "|Dirección Apoderado|Observaciones Apoderado|");
+                                "|Dirección Apoderado|Observaciones Apoderado|Genero Apoderado|");
 
                 escritor.newLine();
                 escritor.close();
@@ -74,18 +74,23 @@ public class Csv {
         return  nuevoAlumno.getRut()                + "," +
                 nuevoAlumno.getNombres()            + "," +
                 nuevoAlumno.getApellidos()          + "," +
+
                 nuevoAlumno.getEdad()               + "," +
                 nuevoAlumno.getFechaNacimiento()    + "," +
                 nuevoAlumno.getEmail()              + "," +
+
                 nuevoAlumno.getCiudad()             + "," +
                 nuevoAlumno.getTelefono()           + "," +
                 nuevoAlumno.getNacionalidad()       + "," +
+
                 nuevoAlumno.getFechaMatricula()     + "," +
                 nuevoAlumno.getDireccion()          + "," +
                 nuevoAlumno.getCurso()              + "," +
+
                 nuevoAlumno.getLetra()              + "," +
                 nuevoAlumno.getElectivo()           + "," +
                 nuevoAlumno.getEnfermedades()       + "," +
+
                 nuevoAlumno.getDatosAdicionales()   + "," +
                 nuevoAlumno.getGenero();
     }
@@ -97,11 +102,14 @@ public class Csv {
         return  apoderado.getRut()                  + "," +
                 apoderado.getNombres()              + "," +
                 apoderado.getApellidos()            + "," +
+
                 apoderado.getParentesco()           + "," +
                 apoderado.getTelefono()             + "," +
                 apoderado.getCiudad()               + "," +
+
                 apoderado.getDireccion()            + "," +
-                apoderado.getObservaciones();
+                apoderado.getObservaciones()        + "," +
+                apoderado.getGenero();
     }
 
 
@@ -130,27 +138,46 @@ public class Csv {
                     String rutAlumno                = campos[0] .trim();
                     String nombresAlumno            = campos[1] .trim();
                     String apellidosAlumno          = campos[2] .trim();
+
                     String edadAlumno               = campos[3] .trim();
                     String fechaNacimientoAlumno    = campos[4] .trim();
                     String emailAlumno              = campos[5] .trim();
+
                     String ciudadAlumno             = campos[6] .trim();
                     String telefonoAlumno           = campos[7] .trim();
                     String nacionalidadAlumno       = campos[8] .trim();
+
                     String fechaMatriculaAlumno     = campos[9] .trim();
                     String direccionAlumno          = campos[10].trim();
                     String cursoAlumno              = campos[11].trim();
+
                     String letraAlumno              = campos[12].trim();
                     String electivoAlumno           = campos[13].trim();
                     String enfermedadesAlumno       = campos[14].trim();
+
                     String datosAdicionalesAlumno   = campos[15].trim();
                     String generoAlumno             = campos[16].trim();
+
+                    String rutApoderado             = campos[17].trim();
+                    String nombresApoderado         = campos[18].trim();
+                    String apellidosApoderado       = campos[19].trim();
+
+                    String parentescoApoderado      = campos[20].trim();
+                    String telefonoApoderado        = campos[21].trim();
+                    String ciudadApoderado          = campos[22].trim();
+
+                    String direccionApoderado       = campos[23].trim();
+                    String observacionesApoderado   = campos[24].trim();
+                    String generoApoderado          = campos[25].trim();
 
                     if (filtroRut == null || rutAlumno.equals(filtroRut)) {
                         Object[] rowData = {    rutAlumno               , nombresAlumno             , apellidosAlumno           , edadAlumno                    ,
                                                 fechaNacimientoAlumno   , emailAlumno               , ciudadAlumno              , telefonoAlumno                ,
                                                 nacionalidadAlumno      , fechaMatriculaAlumno      , direccionAlumno           , cursoAlumno                   ,
                                                 letraAlumno             , electivoAlumno            , enfermedadesAlumno        , datosAdicionalesAlumno        ,
-                                                generoAlumno};
+                                                generoAlumno            , rutApoderado              , nombresApoderado          , apellidosApoderado            ,
+                                                parentescoApoderado     , telefonoApoderado         , ciudadApoderado           , direccionApoderado            ,
+                                                observacionesApoderado  , generoApoderado};
                         alumnosData.add(rowData);
                     }
                 }
@@ -161,6 +188,8 @@ public class Csv {
         }
         return alumnosData;
     }
+
+
 
 
 
@@ -214,14 +243,14 @@ public class Csv {
         try {
             File archivo = new File(nombreArchivo);
 
-            Scanner lector                  = new Scanner(archivo);
-            File archivoTemp                = new File(nombreArchivo + ".temp");
-            BufferedWriter escritor         = new BufferedWriter(new FileWriter(archivoTemp));
+            Scanner lector = new Scanner(archivo);
+            File archivoTemp = new File(nombreArchivo + ".temp");
+            BufferedWriter escritor = new BufferedWriter(new FileWriter(archivoTemp));
 
-            boolean estudianteEncontrado    = false;
+            boolean estudianteEncontrado = false;
 
             while (lector.hasNextLine()) {
-                String linea    = lector.nextLine();
+                String linea = lector.nextLine();
                 String[] campos = linea.split(",");
 
                 if (campos.length >= 1 && campos[0].trim().equals(alumnoModificado.getRut().trim())) {

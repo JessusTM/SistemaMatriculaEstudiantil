@@ -253,6 +253,8 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // # ======================================== MÉTODOS ======================================== #
     // -------------------- GRABAR TOTAL --------------------
     public void grabarTotal() {
@@ -263,6 +265,8 @@ public class fmrAgregarAlumnos extends JDialog {
             JOptionPane.showMessageDialog(null, "Alumno y apoderado agregados correctamente");
         }
     }
+
+
 
 
 
@@ -309,6 +313,8 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // -------------------- GRABAR APODERADO --------------------
     public void grabarApoderado() {
         String rutApoderado             = txtRutApoderado           .getText();
@@ -342,6 +348,8 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // -------------------- LIMPIAR ALUMNO --------------------
     public void limpiar() {
         txtRut              .setText(null);
@@ -365,6 +373,8 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // -------------------- LIMPIAR APODERADO --------------------
     public void limpiarApoderado() {
         txtRutApoderado             .setText(null);
@@ -380,10 +390,14 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // -------------------- SET NUEVO ALUMNO --------------------
     public void setNuevoAlumno(Alumno nuevoAlumno) {
         this.nuevoAlumno = nuevoAlumno;
     }
+
+
 
 
 
@@ -420,6 +434,8 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // -------------------- CARGAR LISTADO ALUMNOS --------------------
     private void cargarListadoAlumnos(String filtroRut) {
         // Obtener los datos de los alumnos desde el controlador
@@ -447,6 +463,8 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // -------------------- ELIMINAR ESTUDIANTE --------------------
     private void eliminarEstudiante() {
         String rutEstudiante = txtRut.getText();
@@ -468,9 +486,11 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
 
+
+
     // -------------------- BUSCAR ALUMNO POR RUT --------------------
     private void buscarAlumnoPorRut() {
-        String filtroRut = txtRut.getText();
+        String filtroRut    = txtRut.getText();
         cargarListadoAlumnos(filtroRut);
 
         // Obtener los datos de los alumnos desde el controlador
@@ -480,7 +500,6 @@ public class fmrAgregarAlumnos extends JDialog {
             btnGrabar.setEnabled(false);
             Object[] alumnoEncontrado   = alumnosData.get(0);
 
-            // Datos del alumno encontrado en los TextField
             txtRut                  .setText((String) alumnoEncontrado[0]);
             txtNombres              .setText((String) alumnoEncontrado[1]);
             txtApellidos            .setText((String) alumnoEncontrado[2]);
@@ -497,6 +516,7 @@ public class fmrAgregarAlumnos extends JDialog {
             boxElectivo             .setSelectedItem((String) alumnoEncontrado[13]);
             txtEnfermedades         .setText((String) alumnoEncontrado[14]);
             txtDatosAdicionales     .setText((String) alumnoEncontrado[15]);
+
             String generoAlumno = (String) alumnoEncontrado[16];
             if (generoAlumno.equals("Masculino")) {
                 rdoMasculino.setSelected(true);
@@ -505,16 +525,37 @@ public class fmrAgregarAlumnos extends JDialog {
             } else {
                 rdoOtro.setSelected(true);
             }
-            btnBorrar.setEnabled(true);
-            btnModificar.setEnabled(true);
+
+            txtRutApoderado             .setText((String) alumnoEncontrado[17]);
+            txtNombresApoderado         .setText((String) alumnoEncontrado[18]);
+            txtApellidosApoderado       .setText((String) alumnoEncontrado[19]);
+            txtParentescoApoderado      .setText((String) alumnoEncontrado[20]);
+            txtTelefonoApoderado        .setText((String) alumnoEncontrado[21]);
+            txtCiudadApoderado          .setText((String) alumnoEncontrado[22]);
+            txtDireccionApoderado       .setText((String) alumnoEncontrado[23]);
+            txtObservacionesApoderado   .setText((String) alumnoEncontrado[24]);
+
+            String generoApoderado = (String) alumnoEncontrado[25];
+            if (generoApoderado.equals("Masculino")) {
+                rdoMasculinoApoderado.setSelected(true);
+            } else if (generoApoderado.equals("Femenino")) {
+                rdoFemeninoApoderado.setSelected(true);
+            } else {
+                rdoOtroApoderado.setSelected(true);
+            }
+
+            btnBorrar       .setEnabled(true);
+            btnModificar    .setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró un alumno con el RUT especificado.", "Advertencia", JOptionPane.WARNING_MESSAGE);
             limpiar();
             limpiarApoderado();
-            btnBorrar.setEnabled(false);
-            btnModificar.setEnabled(false);
+            btnBorrar       .setEnabled(false);
+            btnModificar    .setEnabled(false);
         }
     }
+
+
 
 
 
@@ -531,11 +572,41 @@ public class fmrAgregarAlumnos extends JDialog {
     }
 
 
+
+
+
     // -------------------- COMBO BOX EN BLANCO --------------------
     private void comboBoxVacio() {
         boxNacionalidad .setSelectedIndex(-1);
         boxCurso        .setSelectedIndex(-1);
         boxLetra        .setSelectedIndex(-1);
         boxElectivo     .setSelectedIndex(-1);
+    }
+
+
+
+
+
+    // -------------------- CARGAR DATOS APODERADO EN INTERFAZ --------------------
+    public void cargarDatosApoderado(Apoderado apoderado) {
+        if (apoderado != null) {
+            txtRutApoderado             .setText(apoderado.getRut());
+            txtNombresApoderado         .setText(apoderado.getNombres());
+            txtApellidosApoderado       .setText(apoderado.getApellidos());
+            txtParentescoApoderado      .setText(apoderado.getParentesco());
+            txtTelefonoApoderado        .setText(apoderado.getTelefono());
+            txtCiudadApoderado          .setText(apoderado.getCiudad());
+            txtDireccionApoderado       .setText(apoderado.getDireccion());
+            txtObservacionesApoderado   .setText(apoderado.getObservaciones());
+
+            String generoApoderado = apoderado.getGenero();
+            if (generoApoderado.equals("Masculino")) {
+                rdoMasculinoApoderado.setSelected(true);
+            } else if (generoApoderado.equals("Femenino")) {
+                rdoFemeninoApoderado.setSelected(true);
+            } else {
+                rdoOtroApoderado.setSelected(true);
+            }
+        }
     }
 }
