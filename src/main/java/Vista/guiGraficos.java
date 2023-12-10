@@ -28,7 +28,7 @@ public class guiGraficos extends JDialog {
         setTitle("Estadisticas");
         setLocationRelativeTo(null);
         setModal(true);
-        setSize(1000,700);
+        setSize(600,400);
         setResizable(false);
 
 
@@ -49,10 +49,10 @@ public class guiGraficos extends JDialog {
 
                 ChartPanel panelGrafico = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
-                panelGrafico.setSize(300,200);
+                panelGrafico.setSize(220,150);
 
                 jpGraficaGenero.setLayout(new BorderLayout());
-                jpGraficaGenero.add(panelGrafico,BorderLayout.NORTH);
+                jpGraficaGenero.add(panelGrafico,BorderLayout.CENTER);
                 jpGraficaGenero.setSize(300,200);
 
 
