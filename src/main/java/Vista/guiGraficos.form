@@ -114,7 +114,7 @@
           <text value="Estadisticas De La Matricula"/>
         </properties>
       </component>
-      <grid id="414a7" binding="jpGraficaNoSe" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="414a7" binding="jpGraficaNacionalidad" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="8" row-span="1" col-span="2" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -123,12 +123,12 @@
         <border type="none"/>
         <children/>
       </grid>
-      <component id="6f8d6" class="javax.swing.JButton" binding="btnGraficoNose">
+      <component id="6f8d6" class="javax.swing.JButton" binding="btnGraficoNacionalidad">
         <constraints>
           <grid row="1" column="10" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="(Ver aun)"/>
+          <text value="Nacionalidad"/>
         </properties>
       </component>
       <component id="9aca0" class="javax.swing.JButton" binding="btnVolver">
