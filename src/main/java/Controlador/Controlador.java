@@ -50,23 +50,23 @@ public class Controlador {
                 BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivo));
 
                 // ----- Encabezados -----
-                escritor.write( " [ALUMNO] Rut, [ALUMNO] Nombres, [ALUMNO] Apellidos, "                             +
-                                " [ALUMNO] Edad, [ALUMNO] Fecha nacimiento, [ALUMNO] Email, "                       +
-                                " [ALUMNO] Ciudad, [ALUMNO] Teléfono, [ALUMNO] Nacionalidad, "                      +
-                                " [ALUMNO] Fecha Matrícula, [ALUMNO] Dirección, [ALUMNO] Curso, "                   +
-                                " [ALUMNO] Letra, [ALUMNO] Electivo, [ALUMNO] Enfermedades, "                       +
-                                " [ALUMNO] Matrícula, [ALUMNO] Fecha matrícula, [ALUMNO] Institución de origen, "   +
-                                " [ALUMNO] Enfermedades, [ALUMNO] Datos Adicionales, [ALUMNO] Género, "             +
-                                " [APODERADO] Rut, [APODERADO] Nombres, [APODERADO] Apellidos, "                    +
-                                " [APODERADO] Paréntesco, [APODERADO] Teléfono, [APODERADO] Email, "                +
-                                " [APODERADO] Ciudad, [APODERADO] Situación laboral, [APODERADO] Escolaridad, "     +
-                                " [APODERADO] Dirección, [APODERADO] Observaciones");
+                escritor.write( "|Rut Alumno|Nombres Alumno|Apellidos Alumno|"                             +
+                                "|Edad Alumno|Fecha Nacimiento Alumno|Email Alumno|"                       +
+                                "|Ciudad Alumno|Teléfono Alumno|Nacionalidad Alumno|"                      +
+                                "|Fecha Matrícula Alumno|Dirección Alumno|Curso Alumno|"                   +
+                                "|Letra Alumno|Electivo Alumno|Enfermedades Alumno|"                       +
+                                "|Matrícula Alumno|Fecha matrícula Alumno|Institución de origen Alumno|"   +
+                                "|Enfermedades Alumno|Datos Adicionales Alumno|Género Alumno|"             +
+                                "|Rut Apoderado|Nombres Apoderado|Apellidos Apoderado|"                    +
+                                "|Paréntesco Apoderado|Teléfono Apoderado|Email Apoderado|"                +
+                                "|Ciudad Apoderado|Situación laboral Apoderado|Escolaridad Apoderado|"     +
+                                "|Dirección Apoderado|Observaciones Apoderado|");
 
                 escritor.newLine();
                 escritor.close();
             }
         } catch (IOException e) {
-            System.out.println(" Error al crear el archivo Matrículas.csv: " + e.getMessage());
+            System.out.println(" El archivo Matrículas.csv, aún no ha sido creado: " + e.getMessage());
         }
     }
     // ----- Atributos alumno ------

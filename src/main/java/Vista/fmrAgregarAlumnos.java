@@ -129,6 +129,7 @@ public class fmrAgregarAlumnos extends JDialog {
         setSize(1000, 700);
         setLocationRelativeTo(null);
         setContentPane(AgregarAlumno);
+        setResizable(false);
         cargarListadoAlumnos(null);
 
         // ----- GRUPO DE BOTONES -----

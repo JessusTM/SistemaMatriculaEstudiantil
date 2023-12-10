@@ -36,11 +36,10 @@ public class fmrMenu extends JFrame {
         }
         //TAMAÑO NO CAMBIABLE
         setMinimumSize(new Dimension(600, 400));
-        setMaximumSize(new Dimension(600, 400));
-        setUndecorated(true);
         setLocationRelativeTo(null);
         setTitle("Menú");
         setContentPane(Menu);
+        setResizable(false);
 
 
         // ----- BOTÓN CAMBIO DE VENTANA A AGREGAR ALUMNO -----
