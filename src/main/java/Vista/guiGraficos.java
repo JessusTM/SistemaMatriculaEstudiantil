@@ -11,7 +11,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Graficos extends JDialog {
+public class guiGraficos extends JDialog {
     private JPanel jpInicial;
     private JLabel jbelTitulo;
     private JButton btnGraficaGenero;
@@ -21,7 +21,7 @@ public class Graficos extends JDialog {
     private JButton btnVolver;
 
 
-    public Graficos() {
+    public guiGraficos() {
 
         setContentPane(jpInicial);
         setVisible(true);

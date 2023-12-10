@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class fmrMenu extends JFrame {
+public class guiMenu extends JFrame {
     private JButton btnAgregarAlumno;
     private JButton btnEstadisticas;
     private JPanel  Menu;
@@ -26,7 +26,7 @@ public class fmrMenu extends JFrame {
 
 
     // ========== CONSTRUCTOR ==========
-    public fmrMenu(){
+    public guiMenu(){
         //APARIENCIA FLATLAF
         try {
             UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme()); // Configura el tema
@@ -66,7 +66,7 @@ public class fmrMenu extends JFrame {
         btnEstadisticas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Graficos();
+                new guiGraficos();
             }
         });
     }

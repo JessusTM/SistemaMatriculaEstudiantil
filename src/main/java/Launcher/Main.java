@@ -14,7 +14,7 @@ public class Main {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        fmrMenu menu = new fmrMenu();
+        guiMenu menu = new guiMenu();
         menu.setVisible(true);
     }
 }
