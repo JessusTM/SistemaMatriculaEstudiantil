@@ -19,7 +19,7 @@ public class Csv {
         // --> Si el archivo no existe
         crearArchivo();
 
-        // --> Si el archivo ya existe
+        // -→ Si el archivo ya existe
         try {
             File archivo = new File(nombreArchivo);
 
@@ -30,7 +30,8 @@ public class Csv {
             String atributosApoderado   = atributosApoderado(nuevoAlumno.getNuevoApoderado());
 
             // ----- Agregar datos a el archivo en modo append -----
-            BufferedWriter escritor     = new BufferedWriter(new FileWriter(nombreArchivo, true));
+            FileWriter fileWriter = new FileWriter(nombreArchivo, true);
+            BufferedWriter escritor = new BufferedWriter(fileWriter);
             escritor.write(atributosAlumno + "," + atributosApoderado);
 
             // ----- Nueva linea para un nuevo alumno -----
@@ -47,7 +48,8 @@ public class Csv {
             File archivo = new File(nombreArchivo);
 
             if (!archivo.exists()) {
-                BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivo));
+                FileWriter fileWriter   = new FileWriter(nombreArchivo, true);
+                BufferedWriter escritor = new BufferedWriter(fileWriter);
 
                 // ----- Encabezados -----
                 escritor.write( "|Rut Alumno|Nombres Alumno|Apellidos Alumno|"                             +
@@ -74,23 +76,18 @@ public class Csv {
         return  nuevoAlumno.getRut()                + "," +
                 nuevoAlumno.getNombres()            + "," +
                 nuevoAlumno.getApellidos()          + "," +
-
                 nuevoAlumno.getEdad()               + "," +
                 nuevoAlumno.getFechaNacimiento()    + "," +
                 nuevoAlumno.getEmail()              + "," +
-
                 nuevoAlumno.getCiudad()             + "," +
                 nuevoAlumno.getTelefono()           + "," +
                 nuevoAlumno.getNacionalidad()       + "," +
-
                 nuevoAlumno.getFechaMatricula()     + "," +
                 nuevoAlumno.getDireccion()          + "," +
                 nuevoAlumno.getCurso()              + "," +
-
                 nuevoAlumno.getLetra()              + "," +
                 nuevoAlumno.getElectivo()           + "," +
                 nuevoAlumno.getEnfermedades()       + "," +
-
                 nuevoAlumno.getDatosAdicionales()   + "," +
                 nuevoAlumno.getGenero();
     }
@@ -121,7 +118,8 @@ public class Csv {
         List<Object[]> alumnosData  = new ArrayList<>();
 
         try {
-            BufferedReader lector   = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader fileReader = new FileReader(nombreArchivo);
+            BufferedReader lector = new BufferedReader(fileReader);
             String linea;
 
             // Omitir línea de encabezados
@@ -138,34 +136,27 @@ public class Csv {
                     String rutAlumno                = campos[0] .trim();
                     String nombresAlumno            = campos[1] .trim();
                     String apellidosAlumno          = campos[2] .trim();
-
                     String edadAlumno               = campos[3] .trim();
                     String fechaNacimientoAlumno    = campos[4] .trim();
                     String emailAlumno              = campos[5] .trim();
-
                     String ciudadAlumno             = campos[6] .trim();
                     String telefonoAlumno           = campos[7] .trim();
                     String nacionalidadAlumno       = campos[8] .trim();
-
                     String fechaMatriculaAlumno     = campos[9] .trim();
                     String direccionAlumno          = campos[10].trim();
                     String cursoAlumno              = campos[11].trim();
-
                     String letraAlumno              = campos[12].trim();
                     String electivoAlumno           = campos[13].trim();
                     String enfermedadesAlumno       = campos[14].trim();
-
                     String datosAdicionalesAlumno   = campos[15].trim();
                     String generoAlumno             = campos[16].trim();
 
                     String rutApoderado             = campos[17].trim();
                     String nombresApoderado         = campos[18].trim();
                     String apellidosApoderado       = campos[19].trim();
-
                     String parentescoApoderado      = campos[20].trim();
                     String telefonoApoderado        = campos[21].trim();
                     String ciudadApoderado          = campos[22].trim();
-
                     String direccionApoderado       = campos[23].trim();
                     String observacionesApoderado   = campos[24].trim();
                     String generoApoderado          = campos[25].trim();
@@ -198,23 +189,28 @@ public class Csv {
     // ==================== ELIMINAR ALUMNO ====================
     public static void eliminarAlumnoCSV(String rutEstudiante) {
         try {
-            File archivo = new File(nombreArchivo);
-
+            File archivo                    = new File(nombreArchivo);
             Scanner lector                  = new Scanner(archivo);
             File archivoTemp                = new File(nombreArchivo + ".temp");
-            BufferedWriter escritor         = new BufferedWriter(new FileWriter(archivoTemp));
+            FileWriter fileWriterTemp       = new FileWriter(archivoTemp);
+            BufferedWriter escritor         = new BufferedWriter(fileWriterTemp);
 
             boolean estudianteEncontrado    = false;
 
             while (lector.hasNextLine()) {
-                String linea    = lector.nextLine();
-                String[] campos = linea.split(",");
+                String linea        = lector.nextLine();
+                String[] campos     = linea.split(",");
 
-                if (campos.length >= 1 && campos[0].trim().equals(rutEstudiante.trim())) {
-                    estudianteEncontrado = true;
-                } else {
-                    escritor.write(linea);
-                    escritor.newLine();
+                if (campos.length >= 1) {
+                    String rutAlumnoSinEspacios     = campos[0].trim();
+                    String rutEstudianteSinEspacios = rutEstudiante.trim();
+
+                    if (rutAlumnoSinEspacios.equals(rutEstudianteSinEspacios)) {
+                        estudianteEncontrado = true;
+                    } else {
+                        escritor.write(linea);
+                        escritor.newLine();
+                    }
                 }
             }
 
@@ -225,7 +221,7 @@ public class Csv {
             archivoTemp.renameTo(archivo);
 
             if (estudianteEncontrado) {
-                JOptionPane.showMessageDialog(null, " El estudiante de RUT " + rutEstudiante + " fue eliminado correctamente ", " Éxito ", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, " El alumno de RUT " + rutEstudiante + " fue eliminado correctamente ", " Éxito ", JOptionPane.INFORMATION_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, " No se encontró un estudiante con el RUT " + rutEstudiante, " Advertencia ", JOptionPane.WARNING_MESSAGE);
             }
@@ -241,28 +237,31 @@ public class Csv {
     // ==================== MODIFICAR ALUMNO ====================
     public static void modificarAlumno(Alumno alumnoModificado) {
         try {
-            File archivo = new File(nombreArchivo);
+            File archivo                    = new File(nombreArchivo);
+            Scanner lector                  = new Scanner(archivo);
+            File archivoTemp                = new File(nombreArchivo + ".temp");
+            FileWriter fileWriterTemp       = new FileWriter(archivoTemp);
+            BufferedWriter escritor         = new BufferedWriter(fileWriterTemp);
 
-            Scanner lector = new Scanner(archivo);
-            File archivoTemp = new File(nombreArchivo + ".temp");
-            BufferedWriter escritor = new BufferedWriter(new FileWriter(archivoTemp));
-
-            boolean estudianteEncontrado = false;
+            boolean estudianteEncontrado    = false;
 
             while (lector.hasNextLine()) {
-                String linea = lector.nextLine();
-                String[] campos = linea.split(",");
+                String linea        = lector.nextLine();
+                String[] campos     = linea.split(",");
 
-                if (campos.length >= 1 && campos[0].trim().equals(alumnoModificado.getRut().trim())) {
-                    // Modifica la línea con los nuevos datos del alumno
-                    String nuevaLinea = atributosAlumno(alumnoModificado) + "," + atributosApoderado(alumnoModificado.getNuevoApoderado());
-                    escritor.write(nuevaLinea);
-                    escritor.newLine();
+                if (campos.length >= 1) {
+                    String rutAlumnoSinEspacios     = campos[0].trim();
+                    String rutModificadoSinEspacios = alumnoModificado.getRut().trim();
 
-                    estudianteEncontrado = true;
-                } else {
-                    escritor.write(linea);
-                    escritor.newLine();
+                    if (rutAlumnoSinEspacios.equals(rutModificadoSinEspacios)) {
+                        String nuevaLinea = atributosAlumno(alumnoModificado) + "," + atributosApoderado(alumnoModificado.getNuevoApoderado());
+                        escritor.write(nuevaLinea);
+                        escritor.newLine();
+                        estudianteEncontrado = true;
+                    } else {
+                        escritor.write(linea);
+                        escritor.newLine();
+                    }
                 }
             }
 

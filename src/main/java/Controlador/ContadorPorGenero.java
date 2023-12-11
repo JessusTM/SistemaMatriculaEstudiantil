@@ -18,7 +18,8 @@ public class ContadorPorGenero {
         int contadorMasculinos = 0;
 
         try {
-            BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -38,6 +39,7 @@ public class ContadorPorGenero {
                     }
                 }
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println(" Error al leer el archivo: " + e.getMessage());
@@ -55,7 +57,8 @@ public class ContadorPorGenero {
         int contadorFemeninos = 0;
 
         try {
-            BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -75,6 +78,7 @@ public class ContadorPorGenero {
                     }
                 }
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println(" Error al leer el archivo: " + e.getMessage());
@@ -92,7 +96,8 @@ public class ContadorPorGenero {
         int contadorOtrosGeneros = 0;
 
         try {
-            BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -112,6 +117,7 @@ public class ContadorPorGenero {
                     }
                 }
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println(" Error al leer el archivo: " + e.getMessage());

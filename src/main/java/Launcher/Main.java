@@ -5,7 +5,7 @@ import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
 import javax.swing.*;
 
-public class  Main {
+public class   Main {
 
     //==================== MAIN ====================
     public static void main(String[] args) {

@@ -19,7 +19,8 @@ public class ContadorPorCurso {
         int contadorPrimeroMedio    = 0;
 
         try {
-            BufferedReader lector   = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -39,6 +40,7 @@ public class ContadorPorCurso {
                     }
                 }
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
@@ -55,7 +57,8 @@ public class ContadorPorCurso {
         int contadorSegundoMedio    = 0;
 
         try {
-            BufferedReader lector   = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -75,6 +78,7 @@ public class ContadorPorCurso {
                     }
                 }
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
@@ -92,7 +96,8 @@ public class ContadorPorCurso {
         int contadorTerceroMedio    = 0;
 
         try {
-            BufferedReader lector   = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -112,6 +117,7 @@ public class ContadorPorCurso {
                     }
                 }
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());
@@ -130,7 +136,8 @@ public class ContadorPorCurso {
         int contadorCuartoMedio     = 0;
 
         try {
-            BufferedReader lector   = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -150,6 +157,7 @@ public class ContadorPorCurso {
                     }
                 }
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println("Error al leer el archivo: " + e.getMessage());

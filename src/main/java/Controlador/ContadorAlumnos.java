@@ -18,7 +18,8 @@ public class ContadorAlumnos {
         int contador = 0;
 
         try {
-            BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo));
+            FileReader archivoLectura   = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
             // Omitir línea de encabezados
@@ -31,6 +32,7 @@ public class ContadorAlumnos {
 
                 contador++;
             }
+            archivoLectura.close();
             lector.close();
         } catch (IOException e) {
             System.err.println(" Error al leer el archivo: " + e.getMessage());

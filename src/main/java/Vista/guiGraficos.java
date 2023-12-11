@@ -17,22 +17,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class guiGraficos extends JDialog {
+    // ========== ATRIBUTOS ==========
+    // ----- PANEL -----
     private JPanel jpInicial;
+
+
+    // ----- LABEL -----
+    private JLabel jbelAlumnosTotales;
     private JLabel jbelTitulo;
-    private JButton btnGraficaGenero;
-    private JButton btnGraficoNacionalidad;
-    private JPanel jpGraficaGenero;
-    private JPanel jpGraficaNacionalidad;
-    private JButton btnVolver;
     private JLabel lblPeopleIcon;
     private JLabel lblFlagIcon;
+
+
+    // ----- BUTTON -----
+    private JButton btnGraficaGenero;
+    private JButton btnGraficoNacionalidad;
+    private JButton btnVolver;
     private JButton btnGraficoCurso;
+
+
+    // ----- PANEL ------
+    private JPanel jpGraficaGenero;
+    private JPanel jpGraficaNacionalidad;
     private JPanel jpGraficaCurso;
-    private JLabel jbelAlumnosTotales;
 
 
+
+
+
+    // ========== CONSTRUCTOR ==========
     public guiGraficos() {
-
         setContentPane(jpInicial);
         setVisible(true);
         setTitle("Estadisticas");
@@ -42,6 +56,7 @@ public class guiGraficos extends JDialog {
         setResizable(false);
 
 
+        // ----- GRÁFICA GÉNERO -----
         btnGraficaGenero.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,7 +70,7 @@ public class guiGraficos extends JDialog {
                 datosContadores.setValue("Femenino",contadorFemenino);
                 datosContadores.setValue("Otro",contadorOtros);
 
-                JFreeChart grafico_circular = ChartFactory.createPieChart("Alumnos por genero",datosContadores,true,true,false);
+                JFreeChart grafico_circular = ChartFactory.createPieChart("Alumnos por género",datosContadores,true,true,false);
 
                 ChartPanel panelGrafico = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
@@ -68,6 +83,9 @@ public class guiGraficos extends JDialog {
 
             }
         });
+
+
+        // ----- BOTÓN VOLVER -----
         btnVolver.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,14 +93,16 @@ public class guiGraficos extends JDialog {
             }
         });
 
+
+        // ----- GRÁFICO NACIONALIDAD -----
         btnGraficoNacionalidad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                int contadorChilena = ContadorPorNacionalidad.contarAlumnosChilenos();
-                int contadorVenezolano = ContadorPorNacionalidad.contarAlumnosVenezolanos();
-                int contadorHaitiano = ContadorPorNacionalidad.contarAlumnosHaitianos();
-                int contadorOtraNacionalidad = ContadorPorNacionalidad.contarAlumnosOtraNacionalidad();
+                int contadorChilena             = ContadorPorNacionalidad.contarAlumnosChilenos();
+                int contadorVenezolano          = ContadorPorNacionalidad.contarAlumnosVenezolanos();
+                int contadorHaitiano            = ContadorPorNacionalidad.contarAlumnosHaitianos();
+                int contadorOtraNacionalidad    = ContadorPorNacionalidad.contarAlumnosOtraNacionalidad();
 
                 DefaultCategoryDataset datosNacionalidad = new DefaultCategoryDataset();
 
@@ -92,7 +112,7 @@ public class guiGraficos extends JDialog {
                 datosNacionalidad.setValue(contadorOtraNacionalidad,"Cantidad","Otros");
 
                 JFreeChart grafico_nacionalidad = ChartFactory.createBarChart(
-                        "Estadisticas de Nacionalidad",
+                        "Estadísticas de Nacionalidad",
                         "Nacionalidad",
                         "Cantidad",
                         datosNacionalidad,
@@ -113,6 +133,8 @@ public class guiGraficos extends JDialog {
             }
         });
 
+
+        // ----- GRÁFICO CURSOS -----
         btnGraficoCurso.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -127,9 +149,9 @@ public class guiGraficos extends JDialog {
                 datosCursos.setValue("3° Medio", contador3MEDIO);
                 datosCursos.setValue("4° Medio", contador4MEDIO);
 
-                JFreeChart grafico_circular = ChartFactory.createPieChart("Estadisticas de los Cursos", datosCursos, true, true, false);
+                JFreeChart grafico_circular = ChartFactory.createPieChart("Estadísticas de los Cursos", datosCursos, true, true, false);
 
-                ChartPanel panelGrafico = new ChartPanel(grafico_circular);
+                ChartPanel panelGrafico     = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
                 panelGrafico.setSize(300,200);
 
@@ -141,7 +163,7 @@ public class guiGraficos extends JDialog {
         });
 
         int contadorTotal = ContadorAlumnos.contarAlumnos();
-        jbelAlumnosTotales.setText("Alumnos matriculados: " + contadorTotal);
+        jbelAlumnosTotales.setText("Alumnos matrículados: " + contadorTotal);
     }
 
 }
