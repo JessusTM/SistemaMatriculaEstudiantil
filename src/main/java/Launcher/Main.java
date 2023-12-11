@@ -14,7 +14,7 @@ public class   Main {
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        guiMenu menu = new guiMenu();
+        GuiMenu menu = new GuiMenu();
         menu.setVisible(true);
     }
 }

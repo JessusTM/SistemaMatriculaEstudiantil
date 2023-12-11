@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 
-public class fmrAgregarAlumnos extends JDialog {
+public class FmrAgregarAlumnos extends JDialog {
     // ========== ATRIBUTOS ==========
     private Alumno nuevoAlumno;
 
@@ -124,7 +124,7 @@ public class fmrAgregarAlumnos extends JDialog {
 
 
     // ========== CONSTRUCTOR ==========
-    public fmrAgregarAlumnos() {
+    public FmrAgregarAlumnos() {
 
         // ----- APARIENCIA -----
         try {

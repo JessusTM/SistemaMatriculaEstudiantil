@@ -16,7 +16,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class guiGraficos extends JDialog {
+public class GuiGraficos extends JDialog {
     // ========== ATRIBUTOS ==========
     // ----- PANEL -----
     private JPanel jpInicial;
@@ -46,7 +46,7 @@ public class guiGraficos extends JDialog {
 
 
     // ========== CONSTRUCTOR ==========
-    public guiGraficos() {
+    public GuiGraficos() {
         setContentPane(jpInicial);
         setVisible(true);
         setTitle("Estadisticas");
@@ -165,5 +165,4 @@ public class guiGraficos extends JDialog {
         int contadorTotal = ContadorAlumnos.contarAlumnos();
         jbelAlumnosTotales.setText("Alumnos matrículados: " + contadorTotal);
     }
-
 }
