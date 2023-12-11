@@ -1,5 +1,2 @@
-# Avance proyecto 2
+# Avance Final
 ### Integrantes: Benjamín Ferrnández, Jesús Tapia, Yoandri Villarroel.
-
-### Link del video
-yoa pon el link porfa dou
