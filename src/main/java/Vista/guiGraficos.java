@@ -38,7 +38,7 @@ public class guiGraficos extends JDialog {
         setTitle("Estadisticas");
         setLocationRelativeTo(null);
         setModal(true);
-        setSize(750,550);
+        setSize(1050,850);
         setResizable(false);
 
 
@@ -59,11 +59,11 @@ public class guiGraficos extends JDialog {
 
                 ChartPanel panelGrafico = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
-                panelGrafico.setSize(220,150);
+                panelGrafico.setSize(300,200);
 
                 jpGraficaGenero.setLayout(new BorderLayout());
                 jpGraficaGenero.add(panelGrafico,BorderLayout.CENTER);
-                jpGraficaGenero.setSize(220,150);
+                jpGraficaGenero.setSize(300,200);
 
 
             }
@@ -104,11 +104,11 @@ public class guiGraficos extends JDialog {
 
                 ChartPanel panelGrafico = new ChartPanel(grafico_nacionalidad);
                 panelGrafico.setMouseWheelEnabled(true);
-                panelGrafico.setSize(220,150);
+                panelGrafico.setSize(300,200);
 
                 jpGraficaNacionalidad.setLayout(new BorderLayout());
                 jpGraficaNacionalidad.add(panelGrafico,BorderLayout.CENTER);
-                jpGraficaNacionalidad.setSize(220,150);
+                jpGraficaNacionalidad.setSize(300,200);
 
             }
         });
@@ -131,11 +131,11 @@ public class guiGraficos extends JDialog {
 
                 ChartPanel panelGrafico = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
-                panelGrafico.setSize(220,150);
+                panelGrafico.setSize(300,200);
 
                 jpGraficaCurso.setLayout(new BorderLayout());
                 jpGraficaCurso.add(panelGrafico,BorderLayout.CENTER);
-                jpGraficaCurso.setSize(220,150);
+                jpGraficaCurso.setSize(300,200);
 
             }
         });
