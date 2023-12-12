@@ -15,30 +15,27 @@ public class ContadorPorNacionalidad {
 
     // ================================ CONTADOR ALUMNOS NACIONALIDAD: "CHILENA" TOTALES ==========================
     public static int contarAlumnosChilenos() {
-        int contadorChilenos = 0;
+        int contadorChilenos            = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
+            // Omitir encabezados
+            lector.readLine();
+
             while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
-
-                String[] campos = linea.split(",");
+                String[] campos         = linea.split(",");
                 if (campos.length >= 9) {
-                    String nacionalidadAlumno = campos[8].trim();
+                    String cursoAlumno  = campos[8].trim();
 
-                    if (nacionalidadAlumno.equalsIgnoreCase("Chilena")) {
+                    if (cursoAlumno.equalsIgnoreCase("Chilena")) {
                         contadorChilenos++;
                     }
                 }
             }
+
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
@@ -54,26 +51,22 @@ public class ContadorPorNacionalidad {
 
     // ================================ CONTADOR ALUMNOS NACIONALIDAD: "VENEZOLANA" TOTALES ==========================
     public static int contarAlumnosVenezolanos() {
-        int contadorVenezolanos = 0;
+        int contadorVenezolanos         = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
+            // Omitir encabezados
+            lector.readLine();
+
             while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
-
-                String[] campos = linea.split(",");
+                String[] campos         = linea.split(",");
                 if (campos.length >= 9) {
-                    String nacionalidadAlumno = campos[8].trim();
+                    String cursoAlumno  = campos[8].trim();
 
-                    if (nacionalidadAlumno.equalsIgnoreCase("Venezolana")) {
+                    if (cursoAlumno.equalsIgnoreCase("Venezolana")) {
                         contadorVenezolanos++;
                     }
                 }
@@ -93,30 +86,28 @@ public class ContadorPorNacionalidad {
 
     // ================================ CONTADOR ALUMNOS NACIONALIDAD: "HAITIANA" TOTALES ==========================
     public static int contarAlumnosHaitianos() {
-        int contadorHaitianos = 0;
+        int contadorHaitianos           = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
+            // Omitir encabezados
+            lector.readLine();
+
             while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
-
-                String[] campos = linea.split(",");
+                String[] campos         = linea.split(",");
                 if (campos.length >= 9) {
-                    String nacionalidadAlumno = campos[8].trim();
+                    String cursoAlumno  = campos[8].trim();
 
-                    if (nacionalidadAlumno.equalsIgnoreCase("Haitiana")) {
+                    if (cursoAlumno.equalsIgnoreCase("Haitiana")) {
                         contadorHaitianos++;
                     }
                 }
             }
+
+
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
@@ -132,26 +123,22 @@ public class ContadorPorNacionalidad {
 
     // ================================ CONTADOR ALUMNOS NACIONALIDAD: "OTRA NACIONALIDAD" TOTALES ==========================
     public static int contarAlumnosOtraNacionalidad() {
-        int contadorOtraNacionalidad = 0;
+        int contadorOtraNacionalidad    = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
+            // Omitir encabezados
+            lector.readLine();
+
             while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
-
-                String[] campos = linea.split(",");
+                String[] campos         = linea.split(",");
                 if (campos.length >= 9) {
-                    String nacionalidadAlumno = campos[8].trim();
+                    String cursoAlumno  = campos[8].trim();
 
-                    if (nacionalidadAlumno.equalsIgnoreCase("Otra")) {
+                    if (cursoAlumno.equalsIgnoreCase("Otra")) {
                         contadorOtraNacionalidad++;
                     }
                 }

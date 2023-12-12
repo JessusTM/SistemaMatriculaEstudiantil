@@ -22,16 +22,13 @@ public class ContadorAlumnos {
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
-            while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
+            // Omitir encabezados
+            lector.readLine();
 
+            while ((linea = lector.readLine()) != null) {
                 contador++;
             }
+
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {

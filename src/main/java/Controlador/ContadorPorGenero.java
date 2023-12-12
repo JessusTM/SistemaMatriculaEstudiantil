@@ -15,30 +15,27 @@ public class ContadorPorGenero {
 
     // ================================ CONTADOR ALUMNOS GENERO: "MASCULINOS" TOTALES ==========================
     public static int contarAlumnosMasculinos() {
-        int contadorMasculinos = 0;
+        int contadorMasculinos          = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
+            // Omitir encabezados
+            lector.readLine();
+
             while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
-
-                String[] campos = linea.split(",");
+                String[] campos         = linea.split(",");
                 if (campos.length >= 17) {
-                    String generoAlumno = campos[16].trim();
+                    String cursoAlumno  = campos[16].trim();
 
-                    if (generoAlumno.equalsIgnoreCase("masculino")) {
+                    if (cursoAlumno.equalsIgnoreCase("masculino")) {
                         contadorMasculinos++;
                     }
                 }
             }
+
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
@@ -54,30 +51,27 @@ public class ContadorPorGenero {
 
     // ================================ CONTADOR ALUMNOS GENERO: "FEMENINOS" TOTALES ==========================
     public static int contarAlumnosFemeninos() {
-        int contadorFemeninos = 0;
+        int contadorFemeninos           = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
+            // Omitir encabezados
+            lector.readLine();
+
             while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
-
-                String[] campos = linea.split(",");
+                String[] campos         = linea.split(",");
                 if (campos.length >= 17) {
-                    String generoAlumno = campos[16].trim();
+                    String cursoAlumno  = campos[16].trim();
 
-                    if (generoAlumno.equalsIgnoreCase("femenino")) {
+                    if (cursoAlumno.equalsIgnoreCase("femenino")) {
                         contadorFemeninos++;
                     }
                 }
             }
+
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
@@ -93,22 +87,18 @@ public class ContadorPorGenero {
 
     // ================================ CONTADOR ALUMNOS GENERO: "OTRO" TOTALES ==========================
     public static int contarAlumnosOtrosGeneros() {
-        int contadorOtrosGeneros = 0;
+        int contadorOtrosGeneros        = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea = true;
-            while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea = false;
-                    continue;
-                }
+            // Omitir encabezados
+            lector.readLine();
 
-                String[] campos = linea.split(",");
+            while ((linea = lector.readLine()) != null) {
+                String[] campos         = linea.split(",");
                 if (campos.length >= 17) {
                     String generoAlumno = campos[16].trim();
 
@@ -125,5 +115,4 @@ public class ContadorPorGenero {
 
         return contadorOtrosGeneros;
     }
-
 }

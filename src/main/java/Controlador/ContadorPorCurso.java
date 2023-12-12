@@ -16,24 +16,20 @@ public class ContadorPorCurso {
 
     // ================================ CONTADOR ALUMNOS DE 1° AÑO TOTALES ==========================
     public static int contarAlumnosPrimeroMedio() {
-        int contadorPrimeroMedio    = 0;
+        int contadorPrimeroMedio        = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea    = true;
-            while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea    = false;
-                    continue;
-                }
+            // Omitir encabezados
+            lector.readLine();
 
-                String[] campos = linea.split(",");
+            while ((linea = lector.readLine()) != null) {
+                String[] campos         = linea.split(",");
                 if (campos.length >= 12) {
-                    String cursoAlumno = campos[11].trim();
+                    String cursoAlumno  = campos[11].trim();
 
                     if (cursoAlumno.equalsIgnoreCase("1°")) {
                         contadorPrimeroMedio++;
@@ -54,24 +50,20 @@ public class ContadorPorCurso {
 
     // ================================ CONTADOR ALUMNOS DE 2° MEDIO TOTALES ==========================
     public static int contarAlumnosSegundoMedio() {
-        int contadorSegundoMedio    = 0;
+        int contadorSegundoMedio        = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea    = true;
-            while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea    = false;
-                    continue;
-                }
+            // Omitir encabezados
+            lector.readLine();
 
-                String[] campos = linea.split(",");
+            while ((linea = lector.readLine()) != null) {
+                String[] campos         = linea.split(",");
                 if (campos.length >= 12) {
-                    String cursoAlumno = campos[11].trim();
+                    String cursoAlumno  = campos[11].trim();
 
                     if (cursoAlumno.equalsIgnoreCase("2°")) {
                         contadorSegundoMedio++;
@@ -93,24 +85,20 @@ public class ContadorPorCurso {
 
     // ================================ CONTADOR ALUMNOS DE 3° MEDIO TOTALES ==========================
     public static int contarAlumnosTerceroMedio() {
-        int contadorTerceroMedio    = 0;
+        int contadorTerceroMedio        = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea    = true;
-            while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea    = false;
-                    continue;
-                }
+            // Omitir encabezados
+            lector.readLine();
 
-                String[] campos     = linea.split(",");
+            while ((linea = lector.readLine()) != null) {
+                String[] campos         = linea.split(",");
                 if (campos.length >= 12) {
-                    String cursoAlumno = campos[11].trim();
+                    String cursoAlumno  = campos[11].trim();
 
                     if (cursoAlumno.equalsIgnoreCase("3°")) {
                         contadorTerceroMedio++;
@@ -131,28 +119,23 @@ public class ContadorPorCurso {
 
 
     // ================================ CONTADOR ALUMNOS DE 4° MEDIO TOTALES ==========================
-
     public static int contarAlumnosCuartoMedio() {
-        int contadorCuartoMedio     = 0;
+        int contadorCuartoMedio         = 0;
 
         try {
             FileReader archivoLectura   = new FileReader(nombreArchivo);
             BufferedReader lector       = new BufferedReader(archivoLectura);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea    = true;
+            // Omitir encabezados
+            lector.readLine();
+
             while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea    = false;
-                    continue;
-                }
-
-                String[] campos     = linea.split(",");
+                String[] campos         = linea.split(",");
                 if (campos.length >= 12) {
-                    String cursoAlumno = campos[11].trim();
+                    String cursoAlumno  = campos[11].trim();
 
-                    if (cursoAlumno.equalsIgnoreCase("4° Medio")) {
+                    if (cursoAlumno.equalsIgnoreCase("4°")) {
                         contadorCuartoMedio++;
                     }
                 }
