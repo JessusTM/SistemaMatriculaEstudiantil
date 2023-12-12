@@ -1,7 +1,7 @@
 package Controlador;
 
-import Modelo.Alumno;
-import Modelo.Apoderado;
+import Clases.*;
+import Vista.*;
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -38,6 +38,7 @@ public class Csv {
             escritor.newLine();
             escritor.close();
 
+
         } catch (IOException e) {
             System.out.println(" Error al agregar alumno: " + e.getMessage());
         }
@@ -52,17 +53,18 @@ public class Csv {
                 BufferedWriter escritor = new BufferedWriter(fileWriter);
 
                 // ----- Encabezados -----
-                escritor.write( "|Rut Alumno|Nombres Alumno|Apellidos Alumno|"                             +
-                                "|Edad Alumno|Fecha Nacimiento Alumno|Email Alumno|"                       +
-                                "|Ciudad Alumno|Teléfono Alumno|Nacionalidad Alumno|"                      +
-                                "|Fecha Matrícula Alumno|Dirección Alumno|Curso Alumno|"                   +
-                                "|Letra Alumno|Electivo Alumno|Enfermedades Alumno|"                       +
-                                "|Matrícula Alumno|Fecha matrícula Alumno|Institución de origen Alumno|"   +
-                                "|Enfermedades Alumno|Datos Adicionales Alumno|Género Alumno|"             +
-                                "|Rut Apoderado|Nombres Apoderado|Apellidos Apoderado|"                    +
-                                "|Paréntesco Apoderado|Teléfono Apoderado|Email Apoderado|"                +
-                                "|Ciudad Apoderado|Situación laboral Apoderado|Escolaridad Apoderado|"     +
-                                "|Dirección Apoderado|Observaciones Apoderado|Genero Apoderado|");
+                escritor.write( "Rut Alumno,Nombres Alumno,Apellidos Alumno,"                               +
+                                "Edad Alumno,Fecha Nacimiento Alumno,Email Alumno,"                         +
+                                "Ciudad Alumno,Teléfono Alumno,Nacionalidad Alumno,"                        +
+                                "Fecha Matrícula Alumno,Dirección Alumno,Curso Alumno,"                     +
+                                "Letra Alumno,Electivo Alumno,Enfermedades Alumno,"                         +
+                                "Matrícula Alumno,Fecha matrícula Alumno,Institución de origen Alumno,"     +
+                                "Enfermedades Alumno,Datos Adicionales Alumno,Género Alumno,"               +
+                                "Rut Apoderado,Nombres Apoderado,Apellidos Apoderado,"                      +
+                                "Paréntesco Apoderado,Teléfono Apoderado,Email Apoderado,"                  +
+                                "Ciudad Apoderado,Situación laboral Apoderado,Escolaridad Apoderado,"       +
+                                "Dirección Apoderado,Observaciones Apoderado,Genero Apoderado");
+
 
                 escritor.newLine();
                 escritor.close();
@@ -124,7 +126,7 @@ public class Csv {
             while ((linea = lector.readLine()) != null) {
                 String[] campos = linea.split(",");
 
-                if (campos.length >= 1) {
+                if (campos.length >= 26) {
                     String rutAlumno                = campos[0] .trim();
                     String nombresAlumno            = campos[1] .trim();
                     String apellidosAlumno          = campos[2] .trim();

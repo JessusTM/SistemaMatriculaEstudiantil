@@ -18,6 +18,7 @@ public class   Main {
 
         // ----- VENTANA PRINCIPAL -----
         GuiMenu menu = new GuiMenu();
+        menu.setLocationRelativeTo(null);
         menu.setVisible(true);
     }
 }

@@ -1,7 +1,7 @@
 package Vista;
 
-import Modelo.Alumno;
-import Modelo.Apoderado;
+import Clases.Alumno;
+import Clases.Apoderado;
 import Controlador.*;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
@@ -237,8 +237,8 @@ public class FmrAgregarAlumnos extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 modificarAlumno();
-                limpiar();
                 cargarListadoAlumnos(null);
+                limpiar();
             }
         });
         btnModificar.setEnabled(false);
@@ -320,7 +320,7 @@ public class FmrAgregarAlumnos extends JDialog {
         String observacionesApoderado   = txtObservacionesApoderado .getText();
         String generoApoderado          = obtenerGeneroApoderado();
 
-        Modelo.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
+        Clases.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
                 parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
                 direccionApoderado      , observacionesApoderado    , generoApoderado           );
         nuevoAlumno.setNuevoApoderado(nuevoApoderado);
@@ -430,7 +430,7 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
     // -------------------- CARGAR LISTADO ALUMNOS --------------------
-    private void cargarListadoAlumnos(String filtroRut) {
+    public void cargarListadoAlumnos(String filtroRut) {
         // Obtener los datos de los alumnos desde el controlador
         List<Object[]> alumnosData  = Csv.listadoAlumnos(filtroRut);
 

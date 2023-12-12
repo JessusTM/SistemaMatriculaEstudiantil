@@ -55,9 +55,8 @@ public class GuiMenu extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FmrAgregarAlumnos ventana = new FmrAgregarAlumnos();
-                ventana.setVisible(true);
-                ventana.setSize(400, 300);
                 ventana.setLocationRelativeTo(null);
+                ventana.setVisible(true);
             }
         });
 
@@ -75,7 +74,8 @@ public class GuiMenu extends JFrame {
         btnEstadisticas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GuiGraficos();
+                GuiGraficos ventana = new GuiGraficos();
+                ventana.setLocationRelativeTo(null);
             }
         });
     }
