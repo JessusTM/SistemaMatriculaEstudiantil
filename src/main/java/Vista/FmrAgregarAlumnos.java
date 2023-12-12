@@ -1,7 +1,7 @@
 package Vista;
 
-import Clases.Alumno;
-import Clases.Apoderado;
+import Modelo.Alumno;
+import Modelo.Apoderado;
 import Controlador.*;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
@@ -320,7 +320,7 @@ public class FmrAgregarAlumnos extends JDialog {
         String observacionesApoderado   = txtObservacionesApoderado .getText();
         String generoApoderado          = obtenerGeneroApoderado();
 
-        Clases.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
+        Modelo.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
                 parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
                 direccionApoderado      , observacionesApoderado    , generoApoderado           );
         nuevoAlumno.setNuevoApoderado(nuevoApoderado);

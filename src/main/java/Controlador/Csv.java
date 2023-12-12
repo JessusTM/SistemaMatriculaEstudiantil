@@ -1,7 +1,7 @@
 package Controlador;
 
-import Clases.Alumno;
-import Clases.Apoderado;
+import Modelo.Alumno;
+import Modelo.Apoderado;
 import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;

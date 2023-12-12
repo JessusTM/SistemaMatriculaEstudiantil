@@ -1,5 +1,5 @@
 
-package Clases;
+package Modelo;
 
 public class Apoderado {
 
