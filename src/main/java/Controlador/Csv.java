@@ -16,7 +16,7 @@ public class Csv {
 
     // ==================== AGREGAR ALUMNO CSV ====================
     public static void agregarAlumnoCSV(Alumno nuevoAlumno) {
-        // --> Si el archivo no existe
+        // -→ Si el archivo no existe
         crearArchivo();
 
         // -→ Si el archivo ya existe
@@ -30,8 +30,8 @@ public class Csv {
             String atributosApoderado   = atributosApoderado(nuevoAlumno.getNuevoApoderado());
 
             // ----- Agregar datos a el archivo en modo append -----
-            FileWriter fileWriter = new FileWriter(nombreArchivo, true);
-            BufferedWriter escritor = new BufferedWriter(fileWriter);
+            FileWriter fileWriter       = new FileWriter(nombreArchivo, true);
+            BufferedWriter escritor     = new BufferedWriter(fileWriter);
             escritor.write(atributosAlumno + "," + atributosApoderado);
 
             // ----- Nueva linea para un nuevo alumno -----
@@ -99,11 +99,9 @@ public class Csv {
         return  apoderado.getRut()                  + "," +
                 apoderado.getNombres()              + "," +
                 apoderado.getApellidos()            + "," +
-
                 apoderado.getParentesco()           + "," +
                 apoderado.getTelefono()             + "," +
                 apoderado.getCiudad()               + "," +
-
                 apoderado.getDireccion()            + "," +
                 apoderado.getObservaciones()        + "," +
                 apoderado.getGenero();
@@ -118,18 +116,12 @@ public class Csv {
         List<Object[]> alumnosData  = new ArrayList<>();
 
         try {
-            FileReader fileReader = new FileReader(nombreArchivo);
-            BufferedReader lector = new BufferedReader(fileReader);
+            FileReader fileReader   = new FileReader(nombreArchivo);
+            BufferedReader lector   = new BufferedReader(fileReader);
             String linea;
 
-            // Omitir línea de encabezados
-            boolean primeraLinea    = true;
-            while ((linea = lector.readLine()) != null) {
-                if (primeraLinea) {
-                    primeraLinea    = false;
-                    continue;
-                }
 
+            while ((linea = lector.readLine()) != null) {
                 String[] campos = linea.split(",");
 
                 if (campos.length >= 1) {
