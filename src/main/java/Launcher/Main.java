@@ -9,11 +9,14 @@ public class   Main {
 
     //==================== MAIN ====================
     public static void main(String[] args) {
+        // ----- APARIENCIA -----
         try {
-            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme()); // Configura el tema
+            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
+
+        // ----- VENTANA PRINCIPAL -----
         GuiMenu menu = new GuiMenu();
         menu.setVisible(true);
     }

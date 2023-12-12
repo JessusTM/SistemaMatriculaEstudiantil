@@ -1,16 +1,13 @@
 package Vista;
 
-import Controlador.ContadorAlumnos;
-import Controlador.ContadorPorCurso;
-import Controlador.ContadorPorGenero;
-import Controlador.ContadorPorNacionalidad;
+import Controlador.*;
+import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -21,20 +18,17 @@ public class GuiGraficos extends JDialog {
     // ----- PANEL -----
     private JPanel jpInicial;
 
-
     // ----- LABEL -----
     private JLabel jbelAlumnosTotales;
     private JLabel jbelTitulo;
     private JLabel lblPeopleIcon;
     private JLabel lblFlagIcon;
 
-
     // ----- BUTTON -----
     private JButton btnGraficaGenero;
     private JButton btnGraficoNacionalidad;
     private JButton btnVolver;
     private JButton btnGraficoCurso;
-
 
     // ----- PANEL ------
     private JPanel jpGraficaGenero;
@@ -43,13 +37,19 @@ public class GuiGraficos extends JDialog {
 
 
 
-
-
     // ========== CONSTRUCTOR ==========
     public GuiGraficos() {
+        // ----- APARIENCIA -----
+        try {
+            UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
+        // ----- PROPIEDADES -----
         setContentPane(jpInicial);
         setVisible(true);
-        setTitle("Estadisticas");
+        setTitle("Estadísticas");
         setLocationRelativeTo(null);
         setModal(true);
         setSize(1050,850);
@@ -72,15 +72,13 @@ public class GuiGraficos extends JDialog {
 
                 JFreeChart grafico_circular = ChartFactory.createPieChart("Alumnos por género",datosContadores,true,true,false);
 
-                ChartPanel panelGrafico = new ChartPanel(grafico_circular);
+                ChartPanel panelGrafico     = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
                 panelGrafico.setSize(300,200);
 
                 jpGraficaGenero.setLayout(new BorderLayout());
                 jpGraficaGenero.add(panelGrafico,BorderLayout.CENTER);
                 jpGraficaGenero.setSize(300,200);
-
-
             }
         });
 
@@ -106,10 +104,10 @@ public class GuiGraficos extends JDialog {
 
                 DefaultCategoryDataset datosNacionalidad = new DefaultCategoryDataset();
 
-                datosNacionalidad.setValue(contadorChilena,"Cantidad","Chilena");
-                datosNacionalidad.setValue(contadorVenezolano,"Cantidad","Venezolano");
-                datosNacionalidad.setValue(contadorHaitiano,"Cantidad","Haitiano");
-                datosNacionalidad.setValue(contadorOtraNacionalidad,"Cantidad","Otros");
+                datosNacionalidad.setValue(contadorChilena          ,"Cantidad","Chilena"       );
+                datosNacionalidad.setValue(contadorVenezolano       ,"Cantidad","Venezolano"    );
+                datosNacionalidad.setValue(contadorHaitiano         ,"Cantidad","Haitiano"      );
+                datosNacionalidad.setValue(contadorOtraNacionalidad ,"Cantidad","Otros"         );
 
                 JFreeChart grafico_nacionalidad = ChartFactory.createBarChart(
                         "Estadísticas de Nacionalidad",
@@ -158,7 +156,6 @@ public class GuiGraficos extends JDialog {
                 jpGraficaCurso.setLayout(new BorderLayout());
                 jpGraficaCurso.add(panelGrafico,BorderLayout.CENTER);
                 jpGraficaCurso.setSize(300,200);
-
             }
         });
 

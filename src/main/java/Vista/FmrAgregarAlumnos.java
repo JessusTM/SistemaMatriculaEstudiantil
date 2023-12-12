@@ -23,14 +23,11 @@ public class FmrAgregarAlumnos extends JDialog {
     private JPanel Apoderado;
     private JPanel Alumno;
 
-
     // ----- TABBED PANEL -----
     private JTabbedPane tabbedPane1;
 
-
     // ----- JTABLE -----
     private JTable tblListado;
-
 
     // ----- TXT -----
     private JTextField txtRut;
@@ -58,7 +55,6 @@ public class FmrAgregarAlumnos extends JDialog {
     private JTextField txtDireccionApoderado;
     private JTextField txtObservacionesApoderado;
 
-
     // ----- BUTTON -----
     private JButton     btnGrabar;
     private JButton     btnLimpiar;
@@ -69,11 +65,9 @@ public class FmrAgregarAlumnos extends JDialog {
     private JButton     btnBuscar;
     private JButton     btnLimpiarApoderado;
 
-
     // ----- BUTTON GROUP -----
     private ButtonGroup grupoBotonesGenero;
     private ButtonGroup grupoBotonesGeneroApoderado;
-
 
     // ----- RDO -----
     private JRadioButton    rdoMasculino;
@@ -82,7 +76,6 @@ public class FmrAgregarAlumnos extends JDialog {
     private JRadioButton    rdoMasculinoApoderado;
     private JRadioButton    rdoFemeninoApoderado;
     private JRadioButton    rdoOtroApoderado;
-
 
     // ----- LBL -----
     private JLabel lblDatos;
@@ -115,7 +108,6 @@ public class FmrAgregarAlumnos extends JDialog {
     private JLabel lblGeneroApoderado;
     private JLabel lblObservacionesApoderado;
 
-
     // ----- COMBO BOX -----
     private JComboBox boxNacionalidad;
     private JComboBox boxCurso;
@@ -123,9 +115,9 @@ public class FmrAgregarAlumnos extends JDialog {
     private JComboBox boxElectivo;
 
 
+
     // ========== CONSTRUCTOR ==========
     public FmrAgregarAlumnos() {
-
         // ----- APARIENCIA -----
         try {
             UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme());
@@ -133,12 +125,13 @@ public class FmrAgregarAlumnos extends JDialog {
             e.printStackTrace();
         }
 
-        setModal(true);
+        // ----- PROPIEDADES -----
         setTitle("Agregar Alumno");
-        setSize(1000, 700);
         setLocationRelativeTo(null);
-        setContentPane(AgregarAlumno);
+        setModal(true);
+        setSize(1000, 700);
         setResizable(false);
+        setContentPane(AgregarAlumno);
         cargarListadoAlumnos(null);
 
         // ----- GRUPO DE BOTONES -----
@@ -299,7 +292,7 @@ public class FmrAgregarAlumnos extends JDialog {
     }
     // ----- Obtener género -----
     private String obtenerGeneroAlumno() {
-        String generoAlumno = "";
+        String generoAlumno     = "";
 
         if (rdoMasculino.isSelected()) {
             return "Masculino";
@@ -385,7 +378,7 @@ public class FmrAgregarAlumnos extends JDialog {
         txtCiudadApoderado          .setText(null);
         txtDireccionApoderado       .setText(null);
         txtObservacionesApoderado   .setText(null);
-        grupoBotonesGeneroApoderado.clearSelection();
+        grupoBotonesGeneroApoderado .clearSelection();
     }
 
 
@@ -439,10 +432,10 @@ public class FmrAgregarAlumnos extends JDialog {
     // -------------------- CARGAR LISTADO ALUMNOS --------------------
     private void cargarListadoAlumnos(String filtroRut) {
         // Obtener los datos de los alumnos desde el controlador
-        List<Object[]> alumnosData = Csv.listadoAlumnos(filtroRut);
+        List<Object[]> alumnosData  = Csv.listadoAlumnos(filtroRut);
 
         // Crear un modelo de tabla
-        DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo    = new DefaultTableModel();
 
         // Definir las columnas
         String[] columnas = {   "Rut Alumno"                , "Nombres Alumno"              , "Apellidos Alumno"            , "Edad Alumno"                     ,
@@ -517,7 +510,7 @@ public class FmrAgregarAlumnos extends JDialog {
             txtEnfermedades         .setText((String) alumnoEncontrado[14]);
             txtDatosAdicionales     .setText((String) alumnoEncontrado[15]);
 
-            String generoAlumno = (String) alumnoEncontrado[16];
+            String generoAlumno     = (String) alumnoEncontrado[16];
             if (generoAlumno.equals("Masculino")) {
                 rdoMasculino.setSelected(true);
             } else if (generoAlumno.equals("Femenino")) {
@@ -535,13 +528,13 @@ public class FmrAgregarAlumnos extends JDialog {
             txtDireccionApoderado       .setText((String) alumnoEncontrado[23]);
             txtObservacionesApoderado   .setText((String) alumnoEncontrado[24]);
 
-            String generoApoderado = (String) alumnoEncontrado[25];
+            String generoApoderado  = (String) alumnoEncontrado[25];
             if (generoApoderado.equals("Masculino")) {
-                rdoMasculinoApoderado.setSelected(true);
+                rdoMasculinoApoderado   .setSelected(true);
             } else if (generoApoderado.equals("Femenino")) {
-                rdoFemeninoApoderado.setSelected(true);
+                rdoFemeninoApoderado    .setSelected(true);
             } else {
-                rdoOtroApoderado.setSelected(true);
+                rdoOtroApoderado        .setSelected(true);
             }
 
             btnBorrar       .setEnabled(true);
@@ -601,11 +594,11 @@ public class FmrAgregarAlumnos extends JDialog {
 
             String generoApoderado = apoderado.getGenero();
             if (generoApoderado.equals("Masculino")) {
-                rdoMasculinoApoderado.setSelected(true);
+                rdoMasculinoApoderado   .setSelected(true);
             } else if (generoApoderado.equals("Femenino")) {
-                rdoFemeninoApoderado.setSelected(true);
+                rdoFemeninoApoderado    .setSelected(true);
             } else {
-                rdoOtroApoderado.setSelected(true);
+                rdoOtroApoderado        .setSelected(true);
             }
         }
     }

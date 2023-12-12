@@ -9,10 +9,16 @@ import java.awt.event.ActionListener;
 
 
 public class GuiMenu extends JFrame {
+    // ========== ATRIBUTOS ==========
+    // ----- PANEL -----
+    private JPanel  Menu;
+
+    // ----- BUTTON -----
+    private JButton btnSalir;
     private JButton btnAgregarAlumno;
     private JButton btnEstadisticas;
-    private JPanel  Menu;
-    private JButton btnSalir;
+
+    // ----- LBL -----
     private JLabel lblAgregar;
     private JLabel lblStats;
     private JLabel lblClose;
@@ -25,20 +31,22 @@ public class GuiMenu extends JFrame {
     private JLabel lblRbdNum;
 
 
+
     // ========== CONSTRUCTOR ==========
     public GuiMenu(){
-        //APARIENCIA FLATLAF
+        // ----- APARIENCIA -----
         try {
             UIManager.setLookAndFeel(new FlatDarkPurpleIJTheme()); // Configura el tema
         } catch (UnsupportedLookAndFeelException e) {
             e.printStackTrace();
         }
-        //TAMAÑO NO CAMBIABLE
-        setMinimumSize(new Dimension(600, 400));
-        setLocationRelativeTo(null);
+
+        // ----- PROPIEDADES -----
         setTitle("Menú");
-        setContentPane(Menu);
+        setLocationRelativeTo(null);
+        setSize(600,400);
         setResizable(false);
+        setContentPane(Menu);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 
