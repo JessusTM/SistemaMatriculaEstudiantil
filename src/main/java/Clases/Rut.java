@@ -3,15 +3,14 @@ package Clases;
 public class Rut {
 
     // ==================== ATRIBUTOS ====================
-    private static int      rut, digito, multiplo, acumulador;
+    private int      rut     , digito    , multiplo  , acumulador;
 
-    private static String   rutDigito;
+    private String   rutDigito;
 
 
 
     // ==================== CONSTRUCTORES ====================
-    public Rut( int rut         , int digito        , int multiplo,
-                int acumulador  , String rutDigito) {
+    public Rut(int rut, int digito, int multiplo, int acumulador, String rutDigito) {
         this.rut            = rut;
         this.digito         = digito;
         this.multiplo       = multiplo;
@@ -26,15 +25,16 @@ public class Rut {
 
     // ==================== VALIDAR RUT ====================
     public void validarRut() {
-        int contador = 2;
-        acumulador = 0;
-        int tempRut = rut;
+        int contador    = 2;
+        acumulador      = 0;
+        int tempRut     = rut;
 
         while (tempRut != 0) {
-            int digito = tempRut % 10;
-            multiplo = digito * contador;
-            tempRut = tempRut / 10;
-            contador = contador + 1;
+            int digito  = tempRut   % 10;
+            multiplo    = digito    * contador;
+            acumulador += multiplo;
+            tempRut     = tempRut   / 10;
+            contador    = contador  + 1;
 
             if (contador == 8) {
                 contador = 2;
@@ -44,21 +44,6 @@ public class Rut {
         // Cuando el RUT tenga una "K"
         if (rutDigito.equalsIgnoreCase("k")) {
             rutDigito = "10";
-        }
-    }
-
-
-    // ==================== DETERMIANR RUT VALIDO ====================
-    public static boolean esRutValido() {
-        int resto = acumulador % 11;
-        int digitoVerificador = 11 - resto;
-
-        if (digitoVerificador == 11) {
-            return  rutDigito.equals("0");
-        } else if (digitoVerificador == 10) {
-            return rutDigito.equalsIgnoreCase("k");
-        } else {
-            return Integer.parseInt(rutDigito) == digitoVerificador;
         }
     }
 
