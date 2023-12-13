@@ -10,12 +10,11 @@ import javax.swing.*;
  */
 public class   Main {
 
-    //==================== MAIN ====================
-
     /**
      *
      * @param args Este parametro es parte del metodo main
      */
+    //==================== MAIN ====================
     public static void main(String[] args) {
         // ----- APARIENCIA -----
         try {
