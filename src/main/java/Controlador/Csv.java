@@ -18,12 +18,21 @@ public class Csv {
     public static final String nombreArchivo = "Matrículas.csv";
 
 
-    // ==================== AGREGAR ALUMNO CSV ====================
+
+
+
     /**
      * Agrega un nuevo alumno al archivo CSV de matrículas.
      * @param nuevoAlumno Objeto Alumno a agregar
      */
+    // ==================== AGREGAR ALUMNO CSV ====================
     public static void agregarAlumnoCSV(Alumno nuevoAlumno) {
+        // Verificar si ya existe un alumno con el mismo RUT
+        if (existeAlumnoConRut(nuevoAlumno.getRut())) {
+            JOptionPane.showMessageDialog(null, " Ya hay un Alumno registrado con el rut: " + nuevoAlumno.getRut(), "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         // -→ Si el archivo no existe
         crearArchivo();
 
@@ -41,6 +50,9 @@ public class Csv {
             FileWriter fileWriter       = new FileWriter(nombreArchivo, true);
             BufferedWriter escritor     = new BufferedWriter(fileWriter);
             escritor.write(atributosAlumno + "," + atributosApoderado);
+
+            // Mostrar mensaje solo si se agregó un nuevo alumno
+            JOptionPane.showMessageDialog(  null, "Alumno y apoderado agregados correctamente", "Éxito", JOptionPane.INFORMATION_MESSAGE);
 
             // ----- Nueva linea para un nuevo alumno -----
             escritor.newLine();
@@ -117,12 +129,45 @@ public class Csv {
 
 
 
-    // ==================== MOSTRAR ALUMNOS CSV ====================
+    // ==================== EXISTE ALUMNO CON EL MISMO RUT ====================
+    private static boolean existeAlumnoConRut(String rut) {
+        try {
+            FileReader fileReader       = new FileReader(nombreArchivo);
+            BufferedReader lector       = new BufferedReader(fileReader);
+            String linea;
+
+            while ((linea = lector.readLine()) != null) {
+                String[] campos         = linea.split(",");
+
+                if (campos.length >= 1) {
+                    String rutAlumno    = campos[0].trim();
+                    if (rutAlumno.equals(rut.trim())) {
+                        lector.close();
+                        // Ya existe un alumno con el mismo RUT
+                        return true;
+                    }
+                }
+            }
+
+            lector.close();
+        } catch (IOException e) {
+            System.err.println(" Hubo un error al leer Matrículas.csv " + e.getMessage());
+        }
+
+        // No existe un alumno con el mismo RUT
+        return false;
+    }
+
+
+
+
+
     /**
      * Obtiene una lista de datos de alumnos desde el archivo CSV
      * @param filtroRut Filtro opcional para buscar un alumno específico por su RUT
      * @return Lista de arreglos de objetos que representan datos de alumnos
      */
+    // ==================== MOSTRAR ALUMNOS CSV ====================
     public static List<Object[]> listadoAlumnos(String filtroRut) {
         List<Object[]> alumnosData  = new ArrayList<>();
 

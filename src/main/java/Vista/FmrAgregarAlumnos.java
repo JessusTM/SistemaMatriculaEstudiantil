@@ -521,23 +521,24 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-    // # ======================================== MÉTODOS ======================================== #
-    // -------------------- GRABAR TOTAL --------------------
-
     /**
      * Se encarga de ealizar la acción completa de grabar un nuevo alumno con su apoderado
      * primero verifica que los campos estén validados con el método "ValidarCampos"
      * Luego, utiliza el método "grabar" para obtener un objeto "Alumno", ejecuta "grabarApoderado" para obtener un objeto "Apoderado"
      * finalmente, agrega el nuevo alumno al archivo CSV utilizando la clase "Csv"
      */
+    // # ======================================== MÉTODOS ======================================== #
+    // -------------------- GRABAR TOTAL --------------------
     public void grabarTotal() {
         if (validarCampos()) {
             this.nuevoAlumno = grabar();
             grabarApoderado();
             Csv.agregarAlumnoCSV(this.nuevoAlumno);
-            JOptionPane.showMessageDialog(null, "Alumno y apoderado agregados correctamente");
         }
     }
+
+
+
 
 
     /**
@@ -573,6 +574,10 @@ public class FmrAgregarAlumnos extends JDialog {
         return nuevoAlumno;
     }
 
+
+
+
+
     /**
      * Obtiene el género del alumno seleccionado en la interfaz gráfica,
      * Verifica cuál de los botones de opción está seleccionado
@@ -597,11 +602,10 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-    // -------------------- GRABAR APODERADO --------------------
-
     /**
      *
      */
+    // -------------------- GRABAR APODERADO --------------------
     public void grabarApoderado() {
         String rutApoderado             = txtRutApoderado           .getText();
         String nombresApoderado         = txtNombresApoderado       .getText();
