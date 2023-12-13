@@ -429,32 +429,6 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-    // -------------------- CARGAR LISTADO ALUMNOS --------------------
-    public void cargarListadoAlumnos(String filtroRut) {
-        // Obtener los datos de los alumnos desde el controlador
-        List<Object[]> alumnosData  = Csv.listadoAlumnos(filtroRut);
-
-        // Crear un modelo de tabla
-        DefaultTableModel modelo    = new DefaultTableModel();
-
-        // Definir las columnas
-        String[] columnas = {   "Rut"       , "Nombres"     , "Apellidos"   , "Nacionalidad"  ,
-                                "Curso"     , "Letra"       , "Electivo"    , "Género"        };
-        modelo.setColumnIdentifiers(columnas);
-
-        // Agregar los datos al modelo
-        for (Object[] rowData : alumnosData) {
-            modelo.addRow(rowData);
-        }
-
-        // Establecer el modelo en la tabla
-        tblListado.setModel(modelo);
-    }
-
-
-
-
-
     // -------------------- ELIMINAR ESTUDIANTE --------------------
     private void eliminarEstudiante() {
         String rutEstudiante = txtRut.getText();
@@ -472,6 +446,32 @@ public class FmrAgregarAlumnos extends JDialog {
         } else {
             JOptionPane.showMessageDialog(this, "Primero debes buscar al estudiante que deseas eliminar", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
+
+
+
+
+
+    // -------------------- CARGAR LISTADO ALUMNOS --------------------
+    public void cargarListadoAlumnos(String filtroRut) {
+        // Obtener los datos de los alumnos desde el controlador
+        List<Object[]> alumnosData  = Csv.listadoAlumnos(filtroRut);
+
+        // Crear un modelo de tabla
+        DefaultTableModel modelo    = new DefaultTableModel();
+
+        // Definir las columnas
+        String[] columnas = {   "Rut"       , "Nombres"     , "Apellidos"   , "Nacionalidad"  ,
+                "Curso"     , "Letra"       , "Electivo"    , "Género"        };
+        modelo.setColumnIdentifiers(columnas);
+
+        // Agregar los datos al modelo
+        for (Object[] rowData : alumnosData) {
+            modelo.addRow(rowData);
+        }
+
+        // Establecer el modelo en la tabla
+        tblListado.setModel(modelo);
     }
 
 
