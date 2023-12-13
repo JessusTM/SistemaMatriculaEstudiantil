@@ -19,7 +19,6 @@ public class Csv {
 
 
     // ==================== AGREGAR ALUMNO CSV ====================
-
     /**
      * Agrega un nuevo alumno al archivo CSV de matrículas.
      * @param nuevoAlumno Objeto Alumno a agregar
@@ -119,7 +118,6 @@ public class Csv {
 
 
     // ==================== MOSTRAR ALUMNOS CSV ====================
-
     /**
      * Obtiene una lista de datos de alumnos desde el archivo CSV
      * @param filtroRut Filtro opcional para buscar un alumno específico por su RUT
@@ -192,7 +190,6 @@ public class Csv {
 
 
     // ==================== ELIMINAR ALUMNO ====================
-
     /**
      * Elimina un alumno del archivo CSV de matrículas
      * @param rutEstudiante RUT del estudiante a eliminar
@@ -245,7 +242,6 @@ public class Csv {
 
 
     // ==================== MODIFICAR ALUMNO ====================
-
     /**
      * Modifica los datos de un alumno en el archivo CSV de matrículas
      * @param alumnoModificado Objeto Alumno con los datos modificados
@@ -255,21 +251,31 @@ public class Csv {
             File archivo                    = new File(nombreArchivo);
             Scanner lector                  = new Scanner(archivo);
             File archivoTemp                = new File(nombreArchivo + ".temp");
-            FileWriter fileWriterTemp       = new FileWriter(archivoTemp);
+            FileWriter fileWriterTemp       = new FileWriter(archivoTemp, true);
             BufferedWriter escritor         = new BufferedWriter(fileWriterTemp);
 
             boolean estudianteEncontrado    = false;
 
             while (lector.hasNextLine()) {
-                String linea        = lector.nextLine();
-                String[] campos     = linea.split(",");
+                String linea    = lector.nextLine();
+                String[] campos = linea.split(",");
 
                 if (campos.length >= 1) {
                     String rutAlumnoSinEspacios     = campos[0].trim();
                     String rutModificadoSinEspacios = alumnoModificado.getRut().trim();
 
                     if (rutAlumnoSinEspacios.equals(rutModificadoSinEspacios)) {
-                        String nuevaLinea = atributosAlumno(alumnoModificado) + "," + atributosApoderado(alumnoModificado.getNuevoApoderado());
+                        String nuevaLinea   = atributosAlumno(alumnoModificado);
+                        Apoderado apoderado = alumnoModificado.getNuevoApoderado();
+                        if (apoderado != null) {
+                            nuevaLinea += "," + atributosApoderado(apoderado);
+                        }
+
+                        // Agregar el resto de los campos
+                        for (int i = 17; i < campos.length; i++) {
+                            nuevaLinea += "," + campos[i].trim();
+                        }
+
                         escritor.write(nuevaLinea);
                         escritor.newLine();
                         estudianteEncontrado = true;
@@ -284,13 +290,13 @@ public class Csv {
             escritor.close();
 
             archivo.delete();
-            archivoTemp.renameTo(archivo);
+            archivoTemp.renameTo(new File(nombreArchivo));
 
             if (!estudianteEncontrado) {
-                JOptionPane.showMessageDialog(null, "No se encontró un estudiante con el RUT " + alumnoModificado.getRut(), "Advertencia", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, " No hay un alumno registrado con ese RUT " + alumnoModificado.getRut(), "Advertencia", JOptionPane.WARNING_MESSAGE);
             }
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Hubo un error al modificar el estudiante: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, " No se pudo modificar el alumno" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }
