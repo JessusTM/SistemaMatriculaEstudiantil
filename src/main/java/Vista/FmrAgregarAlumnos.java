@@ -13,7 +13,9 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 
 
-
+/**
+ * Clase FmrAgregarAlumnos: Ventana para agregar, modificar y eliminar alumnos
+ */
 public class FmrAgregarAlumnos extends JDialog {
     // ========== ATRIBUTOS ==========
     private Alumno nuevoAlumno;
@@ -521,6 +523,13 @@ public class FmrAgregarAlumnos extends JDialog {
 
     // # ======================================== MÉTODOS ======================================== #
     // -------------------- GRABAR TOTAL --------------------
+
+    /**
+     * Se encarga de ealizar la acción completa de grabar un nuevo alumno con su apoderado
+     * primero verifica que los campos estén validados con el método "ValidarCampos"
+     * Luego, utiliza el método "grabar" para obtener un objeto "Alumno", ejecuta "grabarApoderado" para obtener un objeto "Apoderado"
+     * finalmente, agrega el nuevo alumno al archivo CSV utilizando la clase "Csv"
+     */
     public void grabarTotal() {
         if (validarCampos()) {
             this.nuevoAlumno = grabar();
@@ -531,9 +540,11 @@ public class FmrAgregarAlumnos extends JDialog {
     }
 
 
-
-
-
+    /**
+     * Crea un objeto de tipo "Alumno" a partir de la información ingresada en los campos del formulario
+     * Los datos son obtenidos desde los campos de texto y los "combobox"
+     * @return Un objeto "Alumno" con la información ingresada en la interfaz gráfica
+     */
     // -------------------- GRABAR ALUMNO --------------------
     public Alumno grabar() {
         String rut              = txtRut                    .getText();
@@ -561,7 +572,14 @@ public class FmrAgregarAlumnos extends JDialog {
                 genero);
         return nuevoAlumno;
     }
-    // ----- Obtener género -----
+
+    /**
+     * Obtiene el género del alumno seleccionado en la interfaz gráfica,
+     * Verifica cuál de los botones de opción está seleccionado
+     * y devuelve el genero seleccionado.
+     * @return String que representa el género del alumno
+     */
+    // ----- OBTENER GENERO -----
     private String obtenerGeneroAlumno() {
         String generoAlumno     = "";
 
@@ -580,6 +598,10 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
     // -------------------- GRABAR APODERADO --------------------
+
+    /**
+     *
+     */
     public void grabarApoderado() {
         String rutApoderado             = txtRutApoderado           .getText();
         String nombresApoderado         = txtNombresApoderado       .getText();
