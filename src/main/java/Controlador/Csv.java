@@ -165,7 +165,7 @@ public class Csv {
             }
             lector.close();
         } catch (IOException e) {
-            System.err.println(" Error al leer el archivo: " + e.getMessage());
+            System.err.println(" Error al leer el archivo, el archivo Matrículas.csv, aún no ha sido creado " + e.getMessage());
         }
         return alumnosData;
     }

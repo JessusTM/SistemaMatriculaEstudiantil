@@ -170,6 +170,15 @@ public class FmrAgregarAlumnos extends JDialog {
         });
 
 
+        // ----- BOTÓN LIMPIAR APODERADO -----
+        btnLimpiarApoderado.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                limpiarApoderado();
+            }
+        });
+
+
         // ----- BOTÓN SALIR -----
         btnSalir.addActionListener(new ActionListener() {
             @Override
@@ -185,6 +194,8 @@ public class FmrAgregarAlumnos extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buscarAlumnoPorRut();
+                btnLimpiar          .setEnabled(false);
+                btnLimpiarApoderado .setEnabled(false);
             }
         });
 
@@ -195,8 +206,10 @@ public class FmrAgregarAlumnos extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 cargarListadoAlumnos(null);
                 limpiar();
-                btnBorrar.setEnabled(false);
+                btnBorrar   .setEnabled(false);
                 btnModificar.setEnabled(false);
+                btnGrabar   .setEnabled(true);
+                btnLimpiar  .setEnabled(true);
             }
         });
 
@@ -209,15 +222,6 @@ public class FmrAgregarAlumnos extends JDialog {
                 limpiar();
                 limpiarApoderado();
                 cargarListadoAlumnos(null);
-            }
-        });
-
-
-        // ----- BOTÓN LIMPIAR APODERADO -----
-        btnLimpiarApoderado.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                dispose();
             }
         });
 
@@ -667,14 +671,11 @@ public class FmrAgregarAlumnos extends JDialog {
                 txtNombres              .getText().isEmpty()        ||
                 txtApellidos            .getText().isEmpty()        ||
                 txtEdad                 .getText().isEmpty()        ||
-                txtFechaNacimiento      .getText().isEmpty()        ||
                 txtDireccion            .getText().isEmpty()        ||
                 txtCiudad               .getText().isEmpty()        ||
                 txtTelefono             .getText().isEmpty()        ||
                 boxNacionalidad         .getSelectedIndex() == -1   ||
-                txtDatosAdicionales     .getText().isEmpty()        ||
                 txtFechaMatricula       .getText().isEmpty()        ||
-                txtDireccion            .getText().isEmpty()        ||
                 boxCurso                .getSelectedIndex() == -1   ||
                 boxLetra                .getSelectedIndex() == -1   ||
                 boxElectivo             .getSelectedIndex() == -1   ||
@@ -727,14 +728,15 @@ public class FmrAgregarAlumnos extends JDialog {
         // Crear un modelo de tabla
         DefaultTableModel modelo    = new DefaultTableModel();
 
+
         // Definir las columnas
         String[] columnas = {   "Rut"                       ,"Nombres"                  ,"Apellidos"                ,"Edad"                 ,
-                                "Fecha Nacimiento"          ,"Email"                    ,"Ciudad"                   ,"Teléfono"             ,
-                                "Nacionalidad"              ,"Fecha Matrícula"          ,"Dirección"                ,"Curso"                ,
-                                "Letra"                     ,"Electivo"                 ,"Enfermedades"             ,"Datos Adicionales"    ,
-                                "Género"                    ,"Rut Apoderado"            ,"Nombres Apoderado"        ,"Apellidos Apoderado"  ,
-                                "Paréntesco Apoderado"      ,"Teléfono Apoderado"       ,"Ciudad Apoderado"         ,"Dirección Apoderado"  ,
-                                "Observaciones Apoderado"   ,"Género Apoderado"};
+                "Fecha Nacimiento"          ,"Email"                    ,"Ciudad"                   ,"Teléfono"             ,
+                "Nacionalidad"              ,"Fecha Matrícula"          ,"Dirección"                ,"Curso"                ,
+                "Letra"                     ,"Electivo"                 ,"Enfermedades"             ,"Datos Adicionales"    ,
+                "Género"                    ,"Rut Apoderado"            ,"Nombres Apoderado"        ,"Apellidos Apoderado"  ,
+                "Paréntesco Apoderado"      ,"Teléfono Apoderado"       ,"Ciudad Apoderado"         ,"Dirección Apoderado"  ,
+                "Observaciones Apoderado"   ,"Género Apoderado"};
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo
@@ -810,6 +812,7 @@ public class FmrAgregarAlumnos extends JDialog {
             btnModificar    .setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró un alumno con el RUT especificado.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            cargarListadoAlumnos(null);
             limpiar();
             limpiarApoderado();
             btnBorrar       .setEnabled(false);
