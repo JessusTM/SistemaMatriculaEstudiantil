@@ -84,7 +84,6 @@ public class GuiMenu extends JFrame {
 
 
 
-    // # ======================================== MÉTODOS ======================================== #
     // -------------------- Confirmar cerrar ventana --------------------
     private void cerrarVentana() {
         int confirmacion = JOptionPane.showConfirmDialog(this, "¿Estás seguro de que deseas salir?", "Salir", JOptionPane.YES_NO_OPTION);
