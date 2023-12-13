@@ -8,6 +8,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 
@@ -158,6 +160,7 @@ public class FmrAgregarAlumnos extends JDialog {
 
         comboBoxVacio();
 
+
         // ----- BOTÓN LIMPIAR ALUMNO-----
         btnLimpiar.addActionListener(new ActionListener() {
             @Override
@@ -242,6 +245,270 @@ public class FmrAgregarAlumnos extends JDialog {
             }
         });
         btnModificar.setEnabled(false);
+
+
+        // ----- TEXTFIELD NOMBRES ALUMNO EN MÁYUS -----
+        txtNombres.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD NOMBRES APODERADO EN MÁYUS -----
+        txtNombresApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD APELLIDOS ALUMNO EN MÁYUS -----
+        txtApellidos.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD APELLIDOS APODERADO EN MÁYUS -----
+        txtApellidosApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD CIUDAD ALUMNO EN MÁYUS -----
+        txtCiudad.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD CIUDAD APODERADO EN MÁYUS -----
+        txtCiudadApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD DIRECCIÓN ALUMNO EN MÁYUS -----
+        txtDireccion.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD DIRECCIÓN APODERADO EN MÁYUS -----
+        txtDireccionApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD ENFERMEDADES EN MÁYUS -----
+        txtEnfermedades.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD PARÉNTESCO APODERADO EN MÁYUS -----
+        txtParentescoApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD DATOS ADICIONALES ALUMNO EN MÁYUS -----
+        txtDatosAdicionales.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD OBSERVACIONES APODERADO EN MÁYUS -----
+        txtObservacionesApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD EDAD ALUMNO SOLO NÚMEROS -----
+        txtEdad.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char car = e.getKeyChar();
+                if ((car < '0' || car > '9')) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD TELÉFONO ALUMNO SOLO NÚMEROS -----
+        txtTelefono.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // Límite nueve carácteres
+                if (txtTelefono.getText().length() >= 9){
+                    e.consume();
+                }
+
+                // Solo números
+                char car = e.getKeyChar();
+                if ((car < '0' || car > '9')) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD TELÉFONO APODERADO SOLO NÚMEROS -----
+        txtTelefonoApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                // Límite nueve carácteres
+                if (txtTelefonoApoderado.getText().length() >= 9){
+                    e.consume();
+                }
+
+                // Solo números
+                char car = e.getKeyChar();
+                if ((car < '0' || car > '9')) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD FECHA MATRÍCULA ALUMNO SOLO NÚMEROS -----
+        txtFechaMatricula.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char car = e.getKeyChar();
+                if ((car < '0' || car > '9')) {
+                    e.consume();
+                }
+            }
+        });
+
+
+        // ----- TEXTFIELD FECHA NACIMIENTO ALUMNO SOLO NÚMEROS -----
+        txtFechaNacimiento.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char car = e.getKeyChar();
+                if ((car < '0' || car > '9')) {
+                    e.consume();
+                }
+            }
+        });
     }
 
 
