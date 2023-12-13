@@ -842,20 +842,25 @@ public class FmrAgregarAlumnos extends JDialog {
         // Crear un modelo de tabla
         DefaultTableModel modelo    = new DefaultTableModel();
 
-
-        // Definir las columnas
-        String[] columnas = {   "Rut"                       ,"Nombres"                  ,"Apellidos"                ,"Edad"                 ,
-                "Fecha Nacimiento"          ,"Email"                    ,"Ciudad"                   ,"Teléfono"             ,
-                "Nacionalidad"              ,"Fecha Matrícula"          ,"Dirección"                ,"Curso"                ,
-                "Letra"                     ,"Electivo"                 ,"Enfermedades"             ,"Datos Adicionales"    ,
-                "Género"                    ,"Rut Apoderado"            ,"Nombres Apoderado"        ,"Apellidos Apoderado"  ,
-                "Paréntesco Apoderado"      ,"Teléfono Apoderado"       ,"Ciudad Apoderado"         ,"Dirección Apoderado"  ,
-                "Observaciones Apoderado"   ,"Género Apoderado"};
+        // Definir las columnas que deseas mostrar
+        String[] columnas = {   "Rut", "Nombres", "Apellidos", "Fecha Matrícula", "Nacionalidad", "Curso", "Letra", "Electivo", "Género"};
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo
         for (Object[] rowData : alumnosData) {
-            modelo.addRow(rowData);
+            // Crear un nuevo array que contenga solo los datos que deseas mostrar
+            Object[] rowDataToShow = {
+                    rowData[0], // Rut
+                    rowData[1], // Nombres
+                    rowData[2], // Apellidos
+                    rowData[9], // Fecha Matrícula
+                    rowData[8], // Nacionalidad
+                    rowData[11], // Curso
+                    rowData[12], // Letra
+                    rowData[13], // Electivo
+                    rowData[16]  // Género
+            };
+            modelo.addRow(rowDataToShow);
         }
 
         // Establecer el modelo en la tabla
