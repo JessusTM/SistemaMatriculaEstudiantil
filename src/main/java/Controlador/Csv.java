@@ -180,7 +180,7 @@ public class Csv {
             while ((linea = lector.readLine()) != null) {
                 String[] campos     = linea.split(",");
 
-                if (campos.length >= 26) {
+                if (campos.length >= 19) {
                     String rutAlumno                = campos[0].trim();
                     String nombresAlumno            = campos[1].trim();
                     String apellidosAlumno          = campos[2].trim();
@@ -223,7 +223,7 @@ public class Csv {
             }
             lector.close();
         } catch (IOException e) {
-            System.err.println(" Error al leer el archivo, el archivo Matrículas.csv, aún no ha sido creado " + e.getMessage());
+            System.err.println(" Aún no ha sido creado el archivo Matrículas.csv " + e.getMessage());
         }
         return alumnosData;
     }

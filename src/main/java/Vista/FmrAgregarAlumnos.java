@@ -6,10 +6,8 @@ import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.List;
 
 
@@ -163,6 +161,9 @@ public class FmrAgregarAlumnos extends JDialog {
         comboBoxVacio();
 
 
+
+
+
         // ----- BOTÓN LIMPIAR ALUMNO-----
         btnLimpiar.addActionListener(new ActionListener() {
             @Override
@@ -220,10 +221,13 @@ public class FmrAgregarAlumnos extends JDialog {
         btnGrabar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                grabarTotal();
-                limpiar();
-                limpiarApoderado();
-                cargarListadoAlumnos(null);
+                if (validarRut()) {
+                    // Si el RUT es válido, ejecutas la lógica adicional y grabas
+                    grabarTotal();
+                    limpiar();
+                    limpiarApoderado();
+                    cargarListadoAlumnos(null);
+                }
             }
         });
 
@@ -515,15 +519,48 @@ public class FmrAgregarAlumnos extends JDialog {
                 }
             }
         });
+
+
+        String textoFondoRut = "12345678-9";
+        txtRut.setText(textoFondoRut);
+        txtRut.setForeground(Color.GRAY);
+        // ----- TXTRUT -----
+        txtRut.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if(c == '.' || c == ',') {
+                    e.consume();
+                }
+
+                if (txtRut.getText().equals(textoFondoRut)) {
+                    txtRut.setText("");
+                    txtRut.setForeground(Color.WHITE);
+                }
+            }
+        });
+
+
+        // ----- TXTRUT APODERADO -----
+        txtRutApoderado.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if(c == '.' || c == ',') {
+                    e.consume();
+                }
+
+                if (txtRutApoderado.getText().equals(textoFondoRut)) {
+                    txtRutApoderado.setText("");
+                    txtRutApoderado.setForeground(Color.WHITE);
+                }
+            }
+        });
     }
 
-
-
-
-
     /**
-     * Se encarga de ealizar la acción completa de grabar un nuevo alumno con su apoderado
-     * primero verifica que los campos estén validados con el método "ValidarCampos"
+     * Se encarga de realizar la acción completa de grabar un nuevo alumno con su apoderado
+     * primero verífica que los campos estén validados con el método "ValidarCampos"
      * Luego, utiliza el método "grabar" para obtener un objeto "Alumno", ejecuta "grabarApoderado" para obtener un objeto "Apoderado"
      * finalmente, agrega el nuevo alumno al archivo CSV utilizando la clase "Csv"
      */
@@ -541,6 +578,25 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
+    // -------------------- VALIDAR RUT --------------------
+    private boolean validarRut() {
+        String rutIngresado = txtRut.getText().replaceAll("\\.", "");
+
+        // Validar rut
+        if (rutIngresado.matches("^\\d{7,8}-[0-9kK]$")) {
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(this, "Rut Inválido", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+            // Devuelve "false" para indicar que el RUT es inválido
+            return false;
+        }
+    }
+
+
+
+
+
+
     /**
      * Crea un objeto de tipo "Alumno" a partir de la información ingresada en los campos del formulario
      * Los datos son obtenidos desde los campos de texto y los "combobox"
@@ -548,29 +604,49 @@ public class FmrAgregarAlumnos extends JDialog {
      */
     // -------------------- GRABAR ALUMNO --------------------
     public Alumno grabar() {
-        String rut              = txtRut                    .getText();
-        String nombres          = txtNombres                .getText();
-        String apellidos        = txtApellidos              .getText();
-        String edad             = txtEdad                   .getText();
-        String fechaNacimiento  = txtFechaNacimiento        .getText();
-        String direccion        = txtDireccion              .getText();
-        String ciudad           = txtCiudad                 .getText();
-        String telefono         = txtTelefono               .getText();
-        String email            = txtEmail                  .getText();
-        String nacionalidad     = (String) boxNacionalidad  .getSelectedItem();
-        String datosAdicionales = txtDatosAdicionales       .getText();
-        String fechaMatricula   = txtFechaMatricula         .getText();
-        String enfermedades     = txtEnfermedades           .getText();
-        String genero           = obtenerGeneroAlumno();
-        String curso            = (String) boxCurso         .getSelectedItem();
-        String letra            = (String) boxLetra         .getSelectedItem();
-        String electivo         = (String) boxElectivo      .getSelectedItem();
+        String rutAlumno               = txtRut           .getText();
+        String nombresAlumno           = txtNombres       .getText();
+        String apellidosAlumno         = txtApellidos     .getText();
+        String edadAlumno              = txtEdad          .getText();
+        String fechaNacimientoAlumno   = txtFechaNacimiento.getText();
+        String direccionAlumno         = txtDireccion     .getText();
+        String ciudadAlumno            = txtCiudad        .getText();
+        String telefonoAlumno          = txtTelefono      .getText();
+        String emailAlumno             = txtEmail         .getText();
+        String nacionalidadAlumno      = (String) boxNacionalidad.getSelectedItem();
+        String fechaMatriculaAlumno    = txtFechaMatricula .getText();
+        String enfermedadesAlumno      = txtEnfermedades  .getText();
+        String cursoAlumno             = (String) boxCurso.getSelectedItem();
+        String letraAlumno             = (String) boxLetra.getSelectedItem();
+        String electivoAlumno          = (String) boxElectivo.getSelectedItem();
+        String datosAdicionalesAlumno  = txtDatosAdicionales.getText();
+        String generoAlumno            = obtenerGeneroAlumno();
 
-        Alumno nuevoAlumno      = new Alumno(   rut             , nombres           , apellidos         , edad              ,
-                fechaNacimiento , email             , ciudad            , telefono          ,
-                nacionalidad    , fechaMatricula    , direccion         , curso             ,
-                letra           , electivo          , enfermedades      , datosAdicionales  ,
-                genero);
+        // Verificar campos no obligatorios y asignar espacio en blanco si están vacíos
+        if (fechaNacimientoAlumno.trim().isEmpty()) {
+            fechaNacimientoAlumno = " ";
+        }
+        if (emailAlumno.trim().isEmpty()) {
+            emailAlumno = " ";
+        }
+        if (direccionAlumno.trim().isEmpty()) {
+            direccionAlumno = " ";
+        }
+        if (enfermedadesAlumno.trim().isEmpty()) {
+            enfermedadesAlumno = " ";
+        }
+        if (datosAdicionalesAlumno.trim().isEmpty()) {
+            datosAdicionalesAlumno = " ";
+        }
+        if (generoAlumno.trim().isEmpty()) {
+            generoAlumno = " ";
+        }
+
+        Alumno nuevoAlumno      = new Alumno(   rutAlumno             , nombresAlumno           , apellidosAlumno         , edadAlumno              ,
+                                                fechaNacimientoAlumno , emailAlumno             , ciudadAlumno            , telefonoAlumno          ,
+                                                nacionalidadAlumno    , fechaMatriculaAlumno    , direccionAlumno         , cursoAlumno             ,
+                                                letraAlumno           , electivoAlumno          , enfermedadesAlumno      , datosAdicionalesAlumno  ,
+                                                generoAlumno);
         return nuevoAlumno;
     }
 
@@ -617,6 +693,14 @@ public class FmrAgregarAlumnos extends JDialog {
         String observacionesApoderado   = txtObservacionesApoderado .getText();
         String generoApoderado          = obtenerGeneroApoderado();
 
+        // Verificar campos no obligatorios y asignar espacio en blanco si están vacíos
+        if (observacionesApoderado.trim().isEmpty()) {
+            observacionesApoderado = " ";
+        }
+        if (generoApoderado.trim().isEmpty()) {
+            generoApoderado = " ";
+        }
+
         Clases.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
                 parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
                 direccionApoderado      , observacionesApoderado    , generoApoderado           );
@@ -642,7 +726,8 @@ public class FmrAgregarAlumnos extends JDialog {
 
     // -------------------- LIMPIAR ALUMNO --------------------
     public void limpiar() {
-        txtRut              .setText(null);
+        txtRut              .setText("12345678-9");
+        txtRut              .setForeground(Color.GRAY);
         txtNombres          .setText(null);
         txtApellidos        .setText(null);
         txtEdad             .setText(null);
@@ -667,7 +752,8 @@ public class FmrAgregarAlumnos extends JDialog {
 
     // -------------------- LIMPIAR APODERADO --------------------
     public void limpiarApoderado() {
-        txtRutApoderado             .setText(null);
+        txtRutApoderado             .setText("12345678-9");
+        txtRutApoderado             .setForeground(Color.GRAY);
         txtNombresApoderado         .setText(null);
         txtApellidosApoderado       .setText(null);
         txtParentescoApoderado      .setText(null);
@@ -718,6 +804,8 @@ public class FmrAgregarAlumnos extends JDialog {
         }
         return true;
     }
+
+
 
 
 
