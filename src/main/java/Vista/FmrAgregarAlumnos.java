@@ -438,11 +438,8 @@ public class FmrAgregarAlumnos extends JDialog {
         DefaultTableModel modelo    = new DefaultTableModel();
 
         // Definir las columnas
-        String[] columnas = {   "Rut Alumno"                , "Nombres Alumno"              , "Apellidos Alumno"            , "Edad Alumno"                     ,
-                                "Fecha Nacimiento Alumno"   , "Email Alumno"                , "Ciudad Alumno"               , "Teléfono Alumno"                 ,
-                                "Nacionalidad Alumno"       , "Fecha Matrícula Alumno"      , "Dirección Alumno"            , " Curso Alumno"                   ,
-                                "Letra Alumno"              , "Electivo Alumno"             , "Enfermedades Alumno"         , "Datos Adicionales Alumno"        ,
-                                "Género Alumno"};
+        String[] columnas = {   "Rut"       , "Nombres"     , "Apellidos"   , "Nacionalidad"  ,
+                                "Curso"     , "Letra"       , "Electivo"    , "Género"        };
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo
