@@ -697,9 +697,6 @@ public class FmrAgregarAlumnos extends JDialog {
         if (observacionesApoderado.trim().isEmpty()) {
             observacionesApoderado = " ";
         }
-        if (generoApoderado.trim().isEmpty()) {
-            generoApoderado = " ";
-        }
 
         Clases.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
                 parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
@@ -797,7 +794,9 @@ public class FmrAgregarAlumnos extends JDialog {
                 txtParentescoApoderado  .getText().isEmpty()        ||
                 txtTelefonoApoderado    .getText().isEmpty()        ||
                 txtDireccionApoderado   .getText().isEmpty()        ||
-                txtCiudadApoderado      .getText().isEmpty()
+                txtCiudadApoderado      .getText().isEmpty()        ||
+                obtenerGeneroAlumno()   .isEmpty()                  ||
+                obtenerGeneroApoderado().isEmpty()
         ) {
             JOptionPane.showMessageDialog(this, "Faltan campos por rellenar", "Error de Validación", JOptionPane.ERROR_MESSAGE);
             return false;
@@ -836,19 +835,16 @@ public class FmrAgregarAlumnos extends JDialog {
 
     // -------------------- CARGAR LISTADO ALUMNOS --------------------
     public void cargarListadoAlumnos(String filtroRut) {
-        // Obtener los datos de los alumnos desde el controlador
         List<Object[]> alumnosData  = Csv.listadoAlumnos(filtroRut);
 
-        // Crear un modelo de tabla
+        // Modelo de tabla
         DefaultTableModel modelo    = new DefaultTableModel();
 
-        // Definir las columnas que deseas mostrar
         String[] columnas = {   "Rut", "Nombres", "Apellidos", "Fecha Matrícula", "Nacionalidad", "Curso", "Letra", "Electivo", "Género"};
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo
         for (Object[] rowData : alumnosData) {
-            // Crear un nuevo array que contenga solo los datos que deseas mostrar
             Object[] rowDataToShow = {
                     rowData[0], // Rut
                     rowData[1], // Nombres
