@@ -58,26 +58,26 @@ public class FmrAgregarAlumnos extends JDialog {
     private JTextField txtObservacionesApoderado;
 
     // ----- BUTTON -----
-    private JButton     btnGrabar;
-    private JButton     btnLimpiar;
-    private JButton     btnSalir;
-    private JButton     btnBorrar;
-    private JButton     btnModificar;
-    private JButton     btnListar;
-    private JButton     btnBuscar;
-    private JButton     btnLimpiarApoderado;
+    private JButton btnGrabar;
+    private JButton btnLimpiar;
+    private JButton btnSalir;
+    private JButton btnBorrar;
+    private JButton btnModificar;
+    private JButton btnListar;
+    private JButton btnBuscar;
+    private JButton btnLimpiarApoderado;
 
     // ----- BUTTON GROUP -----
     private ButtonGroup grupoBotonesGenero;
     private ButtonGroup grupoBotonesGeneroApoderado;
 
     // ----- RDO -----
-    private JRadioButton    rdoMasculino;
-    private JRadioButton    rdoFemenino;
-    private JRadioButton    rdoOtro;
-    private JRadioButton    rdoMasculinoApoderado;
-    private JRadioButton    rdoFemeninoApoderado;
-    private JRadioButton    rdoOtroApoderado;
+    private JRadioButton rdoMasculino;
+    private JRadioButton rdoFemenino;
+    private JRadioButton rdoOtro;
+    private JRadioButton rdoMasculinoApoderado;
+    private JRadioButton rdoFemeninoApoderado;
+    private JRadioButton rdoOtroApoderado;
 
     // ----- LBL -----
     private JLabel lblDatos;
@@ -117,7 +117,6 @@ public class FmrAgregarAlumnos extends JDialog {
     private JComboBox boxElectivo;
 
 
-
     // ========== CONSTRUCTOR ==========
     public FmrAgregarAlumnos() {
         // ----- APARIENCIA -----
@@ -153,15 +152,12 @@ public class FmrAgregarAlumnos extends JDialog {
         String[] letras         = {"A", "B", "C", "D"};
         String[] electivos      = {"Telecomunicaciones", "Agropecuaria"};
 
-        boxNacionalidad .setModel(new DefaultComboBoxModel<>(nacionalidades));
-        boxCurso        .setModel(new DefaultComboBoxModel<>(cursos));
-        boxLetra        .setModel(new DefaultComboBoxModel<>(letras));
-        boxElectivo     .setModel(new DefaultComboBoxModel<>(electivos));
+        boxNacionalidad.setModel(new DefaultComboBoxModel<>(nacionalidades));
+        boxCurso.setModel(new DefaultComboBoxModel<>(cursos));
+        boxLetra.setModel(new DefaultComboBoxModel<>(letras));
+        boxElectivo.setModel(new DefaultComboBoxModel<>(electivos));
 
         comboBoxVacio();
-
-
-
 
 
         // ----- BOTÓN LIMPIAR ALUMNO-----
@@ -197,8 +193,8 @@ public class FmrAgregarAlumnos extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 buscarAlumnoPorRut();
-                btnLimpiar          .setEnabled(false);
-                btnLimpiarApoderado .setEnabled(false);
+                btnLimpiar.setEnabled(false);
+                btnLimpiarApoderado.setEnabled(false);
             }
         });
 
@@ -209,10 +205,10 @@ public class FmrAgregarAlumnos extends JDialog {
             public void actionPerformed(ActionEvent e) {
                 cargarListadoAlumnos(null);
                 limpiar();
-                btnBorrar   .setEnabled(false);
+                btnBorrar.setEnabled(false);
                 btnModificar.setEnabled(false);
-                btnGrabar   .setEnabled(true);
-                btnLimpiar  .setEnabled(true);
+                btnGrabar.setEnabled(true);
+                btnLimpiar.setEnabled(true);
             }
         });
 
@@ -257,270 +253,6 @@ public class FmrAgregarAlumnos extends JDialog {
         btnModificar.setEnabled(false);
 
 
-        // ----- TEXTFIELD NOMBRES ALUMNO EN MÁYUS -----
-        txtNombres.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD NOMBRES APODERADO EN MÁYUS -----
-        txtNombresApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD APELLIDOS ALUMNO EN MÁYUS -----
-        txtApellidos.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD APELLIDOS APODERADO EN MÁYUS -----
-        txtApellidosApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD CIUDAD ALUMNO EN MÁYUS -----
-        txtCiudad.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD CIUDAD APODERADO EN MÁYUS -----
-        txtCiudadApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD DIRECCIÓN ALUMNO EN MÁYUS -----
-        txtDireccion.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD DIRECCIÓN APODERADO EN MÁYUS -----
-        txtDireccionApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD ENFERMEDADES EN MÁYUS -----
-        txtEnfermedades.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD PARÉNTESCO APODERADO EN MÁYUS -----
-        txtParentescoApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD DATOS ADICIONALES ALUMNO EN MÁYUS -----
-        txtDatosAdicionales.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD OBSERVACIONES APODERADO EN MÁYUS -----
-        txtObservacionesApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if (Character.isLowerCase(c)) {
-                    String cad = ("" + c).toUpperCase();
-                    c = cad.charAt(0);
-                    e.setKeyChar(c);
-                } else if (Character.isDigit(c)) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD EDAD ALUMNO SOLO NÚMEROS -----
-        txtEdad.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char car = e.getKeyChar();
-                if ((car < '0' || car > '9')) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD TELÉFONO ALUMNO SOLO NÚMEROS -----
-        txtTelefono.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                // Límite nueve carácteres
-                if (txtTelefono.getText().length() >= 9){
-                    e.consume();
-                }
-
-                // Solo números
-                char car = e.getKeyChar();
-                if ((car < '0' || car > '9')) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD TELÉFONO APODERADO SOLO NÚMEROS -----
-        txtTelefonoApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                // Límite nueve carácteres
-                if (txtTelefonoApoderado.getText().length() >= 9){
-                    e.consume();
-                }
-
-                // Solo números
-                char car = e.getKeyChar();
-                if ((car < '0' || car > '9')) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD FECHA MATRÍCULA ALUMNO SOLO NÚMEROS -----
-        txtFechaMatricula.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char car = e.getKeyChar();
-                if ((car < '0' || car > '9')) {
-                    e.consume();
-                }
-            }
-        });
-
-
-        // ----- TEXTFIELD FECHA NACIMIENTO ALUMNO SOLO NÚMEROS -----
-        txtFechaNacimiento.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                char car = e.getKeyChar();
-                if ((car < '0' || car > '9')) {
-                    e.consume();
-                }
-            }
-        });
-
-
         String textoFondoRut = "12345678-9";
         txtRut.setText(textoFondoRut);
         txtRut.setForeground(Color.GRAY);
@@ -528,11 +260,6 @@ public class FmrAgregarAlumnos extends JDialog {
         txtRut.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if(c == '.' || c == ',') {
-                    e.consume();
-                }
-
                 if (txtRut.getText().equals(textoFondoRut)) {
                     txtRut.setText("");
                     txtRut.setForeground(Color.WHITE);
@@ -540,23 +267,104 @@ public class FmrAgregarAlumnos extends JDialog {
             }
         });
 
-
         // ----- TXTRUT APODERADO -----
         txtRutApoderado.addKeyListener(new KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent e) {
-                char c = e.getKeyChar();
-                if(c == '.' || c == ',') {
-                    e.consume();
-                }
-
                 if (txtRutApoderado.getText().equals(textoFondoRut)) {
                     txtRutApoderado.setText("");
                     txtRutApoderado.setForeground(Color.WHITE);
                 }
             }
         });
+
+
+        // ----- CAMPOS DE TEXTO SIN PUNTO Y COMA -----
+        JTextField[] camposDeTexto = {
+                txtRut                  , txtNombres            , txtApellidos          , txtEdad                   ,
+                txtFechaNacimiento      , txtDireccion          , txtEmail              , txtNacionalidad           ,
+                txtTelefono             , txtCiudad             , txtDatosAdicionales   , txtFechaMatricula         ,
+                txtCurso                , txtLetra              , txtElectivo           , txtEnfermedades           ,
+                txtCiudadApoderado      , txtRutApoderado       , txtNombresApoderado   , txtApellidosApoderado     ,
+                txtParentescoApoderado  , txtTelefonoApoderado  , txtDireccionApoderado , txtObservacionesApoderado
+        };
+        // Aplicar el método para cada campo
+        for (JTextField campo : camposDeTexto) {
+            configurarCampoSinPuntoComa(campo);
+        }
+
+
+        // ----- CAMPOS DE TEXTO SOLO NÚMEROS -----
+        configurarCampoSoloNumeros(txtEdad, Integer.MAX_VALUE);
+        configurarCampoSoloNumeros(txtTelefono, 9);
+        configurarCampoSoloNumeros(txtTelefonoApoderado, 9);
+        configurarCampoSoloNumeros(txtFechaMatricula, Integer.MAX_VALUE);
+        configurarCampoSoloNumeros(txtFechaNacimiento, Integer.MAX_VALUE);
+
+
+        // ----- CAMPOS DE TEXTO EN MAYÚSCULA -----
+        JTextField[] camposDeTextoMayus = {
+                txtNombres          , txtNombresApoderado       , txtApellidos          , txtApellidosApoderado     ,
+                txtCiudad           , txtCiudadApoderado        , txtDireccion          , txtDireccionApoderado     ,
+                txtEnfermedades     , txtParentescoApoderado    , txtDatosAdicionales   , txtObservacionesApoderado
+        };
+
+        // Aplicar el método para cada campo
+        for (JTextField campo : camposDeTexto) {
+            configurarCampoMayusculas(campo);
+        }
     }
+
+
+
+    // -------------------- CONFIGURAR CAMPOS SIN PUNTO Y COMA --------------------
+    private void configurarCampoSinPuntoComa(JTextField textField) {
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (c == '.' || c == ',') {
+                    e.consume();
+                }
+            }
+        });
+    }
+
+
+
+    // -------------------- CONFIGURAR CAMPOS SOLO NÚMEROS --------------------
+    private void configurarCampoSoloNumeros(JTextField campo, int maxLength) {
+        campo.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char car = e.getKeyChar();
+                if ((car < '0' || car > '9') || campo.getText().length() >= maxLength) {
+                    e.consume();
+                }
+            }
+        });
+    }
+
+
+
+    // -------------------- CONFIGURAR CAMPOS EN MAYÚSCULA --------------------
+    private void configurarCampoMayusculas(JTextField campo) {
+        campo.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLowerCase(c)) {
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
+                } else if (Character.isDigit(c)) {
+                    e.consume();
+                }
+            }
+        });
+    }
+
+
 
     /**
      * Se encarga de realizar la acción completa de grabar un nuevo alumno con su apoderado
@@ -564,7 +372,6 @@ public class FmrAgregarAlumnos extends JDialog {
      * Luego, utiliza el método "grabar" para obtener un objeto "Alumno", ejecuta "grabarApoderado" para obtener un objeto "Apoderado"
      * finalmente, agrega el nuevo alumno al archivo CSV utilizando la clase "Csv"
      */
-    // # ======================================== MÉTODOS ======================================== #
     // -------------------- GRABAR TOTAL --------------------
     public void grabarTotal() {
         if (validarCampos()) {
@@ -573,8 +380,6 @@ public class FmrAgregarAlumnos extends JDialog {
             Csv.agregarAlumnoCSV(this.nuevoAlumno);
         }
     }
-
-
 
 
 
@@ -591,9 +396,6 @@ public class FmrAgregarAlumnos extends JDialog {
             return false;
         }
     }
-
-
-
 
 
 
@@ -622,7 +424,6 @@ public class FmrAgregarAlumnos extends JDialog {
         String datosAdicionalesAlumno  = txtDatosAdicionales.getText();
         String generoAlumno            = obtenerGeneroAlumno();
 
-        // Verificar campos no obligatorios y asignar espacio en blanco si están vacíos
         if (fechaNacimientoAlumno.trim().isEmpty()) {
             fechaNacimientoAlumno = " ";
         }
@@ -652,8 +453,6 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     /**
      * Obtiene el género del alumno seleccionado en la interfaz gráfica,
      * Verifica cuál de los botones de opción está seleccionado
@@ -676,8 +475,6 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     /**
      *
      */
@@ -693,14 +490,13 @@ public class FmrAgregarAlumnos extends JDialog {
         String observacionesApoderado   = txtObservacionesApoderado .getText();
         String generoApoderado          = obtenerGeneroApoderado();
 
-        // Verificar campos no obligatorios y asignar espacio en blanco si están vacíos
         if (observacionesApoderado.trim().isEmpty()) {
             observacionesApoderado = " ";
         }
 
-        Clases.Apoderado nuevoApoderado = new Apoderado(    rutApoderado            , nombresApoderado          , apellidosApoderado        ,
-                parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
-                direccionApoderado      , observacionesApoderado    , generoApoderado           );
+        Apoderado nuevoApoderado = new Apoderado(   rutApoderado            , nombresApoderado          , apellidosApoderado        ,
+                                                    parentescoApoderado     , telefonoApoderado         , ciudadApoderado           ,
+                                                    direccionApoderado      , observacionesApoderado    , generoApoderado           );
         nuevoAlumno.setNuevoApoderado(nuevoApoderado);
     }
     // ----- Obtener género apoderado-----
@@ -716,8 +512,6 @@ public class FmrAgregarAlumnos extends JDialog {
         }
         return generoApoderado;
     }
-
-
 
 
 
@@ -745,8 +539,6 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // -------------------- LIMPIAR APODERADO --------------------
     public void limpiarApoderado() {
         txtRutApoderado             .setText("12345678-9");
@@ -763,14 +555,10 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // -------------------- SET NUEVO ALUMNO --------------------
     public void setNuevoAlumno(Alumno nuevoAlumno) {
         this.nuevoAlumno = nuevoAlumno;
     }
-
-
 
 
 
@@ -806,10 +594,6 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-
-
-
-
     // -------------------- ELIMINAR ESTUDIANTE --------------------
     private void eliminarEstudiante() {
         String rutEstudiante = txtRut.getText();
@@ -831,8 +615,6 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // -------------------- CARGAR LISTADO ALUMNOS --------------------
     public void cargarListadoAlumnos(String filtroRut) {
         List<Object[]> alumnosData  = Csv.listadoAlumnos(filtroRut);
@@ -846,15 +628,15 @@ public class FmrAgregarAlumnos extends JDialog {
         // Agregar los datos al modelo
         for (Object[] rowData : alumnosData) {
             Object[] rowDataToShow = {
-                    rowData[0], // Rut
-                    rowData[1], // Nombres
-                    rowData[2], // Apellidos
-                    rowData[9], // Fecha Matrícula
-                    rowData[8], // Nacionalidad
-                    rowData[11], // Curso
-                    rowData[12], // Letra
-                    rowData[13], // Electivo
-                    rowData[16]  // Género
+                    rowData[0],     // Rut
+                    rowData[1],     // Nombres
+                    rowData[2],     // Apellidos
+                    rowData[9],     // Fecha Matrícula
+                    rowData[8],     // Nacionalidad
+                    rowData[11],    // Curso
+                    rowData[12],    // Letra
+                    rowData[13],    // Electivo
+                    rowData[16]     // Género
             };
             modelo.addRow(rowDataToShow);
         }
@@ -862,8 +644,6 @@ public class FmrAgregarAlumnos extends JDialog {
         // Establecer el modelo en la tabla
         tblListado.setModel(modelo);
     }
-
-
 
 
 
@@ -923,8 +703,8 @@ public class FmrAgregarAlumnos extends JDialog {
                 rdoOtroApoderado        .setSelected(true);
             }
 
-            btnBorrar       .setEnabled(true);
-            btnModificar    .setEnabled(true);
+            btnBorrar   .setEnabled(true);
+            btnModificar.setEnabled(true);
         } else {
             JOptionPane.showMessageDialog(this, "No se encontró un alumno con el RUT especificado.", "Advertencia", JOptionPane.WARNING_MESSAGE);
             cargarListadoAlumnos(null);
@@ -934,8 +714,6 @@ public class FmrAgregarAlumnos extends JDialog {
             btnModificar    .setEnabled(false);
         }
     }
-
-
 
 
 
@@ -953,8 +731,6 @@ public class FmrAgregarAlumnos extends JDialog {
 
 
 
-
-
     // -------------------- COMBO BOX EN BLANCO --------------------
     private void comboBoxVacio() {
         boxNacionalidad .setSelectedIndex(-1);
@@ -962,8 +738,6 @@ public class FmrAgregarAlumnos extends JDialog {
         boxLetra        .setSelectedIndex(-1);
         boxElectivo     .setSelectedIndex(-1);
     }
-
-
 
 
 
