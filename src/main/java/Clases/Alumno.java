@@ -3,8 +3,10 @@ package Clases;
 public class Alumno {
 
     // ==================== ATRIBUTOS ====================
+    /**
+     * La clase Alumno representa a un estudiante
+     */
     private Apoderado   nuevoApoderado;
-
     private String      rut                     , nombres               , apellidos             , edad              ,
                         fechaNacimiento         , email                 , ciudad                , telefono          ,
                         nacionalidad            , fechaMatricula        , direccion             , curso             ,
@@ -13,6 +15,27 @@ public class Alumno {
 
 
     // ==================== Constructor ====================
+
+    /**
+     * Constructor para la clase Alumno
+     * @param rut                   Rut del alumno
+     * @param nombres               Nombres del alumno
+     * @param apellidos             Apellidos del alumno
+     * @param edad                  Edad del alumno
+     * @param fechaNacimiento       Fecha de nacimiento del alumno
+     * @param email                 Correo electronico del alumno
+     * @param ciudad                Ciudad del alumno
+     * @param telefono              Numero del alumno
+     * @param nacionalidad          Nacionalidad del alumno
+     * @param fechaMatricula        Fecha de matricula del alumno
+     * @param direccion             Direccion del alumno
+     * @param curso                 Curso del alumno
+     * @param letra                 Letra identificativa del curso del alumno
+     * @param electivo              Electivo seleccionado por el alumno
+     * @param enfermedades          Enfermedades que padece el alumno
+     * @param datosAdicionales      Informacion adicional sobre el alumno
+     * @param genero                Genero del alumno
+     */
     public Alumno(      String rut              , String nombres            , String apellidos          , String edad                   ,
                         String fechaNacimiento  , String email              , String ciudad             , String telefono               ,
                         String nacionalidad     , String fechaMatricula     , String direccion          , String curso                  ,
@@ -37,10 +60,15 @@ public class Alumno {
         this.genero             = genero;
     }
 
+    /**
+     * Constructor vacio
+     */
     public Alumno() {
     }
 
     // ==================== GET ====================
+
+    // Metodos getter para obtener los valores de los atributos
     public String getRut() {
         return rut;
     }
@@ -109,12 +137,18 @@ public class Alumno {
         return genero;
     }
 
+    /**
+     * Obtiene el objeto Apoderado que esta asociado al alumno
+     * @return El objeto de Apoderado
+     */
     public Apoderado getNuevoApoderado() {
         return nuevoApoderado;
     }
 
 
     // ==================== SET ====================
+
+    // Metodos setter para estabkecer y/o modificar los valores de los atributos
     public void setRut(String rut) {
         this.rut = rut;
     }
@@ -183,6 +217,10 @@ public class Alumno {
         this.genero = genero;
     }
 
+    /**
+     * Establece el objeto Apoderado asociado al alumno
+     * @param nuevoApoderado El objeto de Apoderado
+     */
     public void setNuevoApoderado(Apoderado nuevoApoderado) {
         this.nuevoApoderado = nuevoApoderado;
     }

@@ -1,6 +1,9 @@
 
 package Clases;
 
+/**
+ * La clase Apoderado representa a la persona encargada del cuidado y responsabilidad de un alumno
+ */
 public class Apoderado {
 
     // ==================== ATRIBUTOS ====================
@@ -10,6 +13,19 @@ public class Apoderado {
 
 
     // ==================== CONSTRUCTORES ====================
+
+    /**
+     *Constructor para la clase Apoderado
+     * @param rut               Rut del apoderado
+     * @param nombres           Nombres del apoderado
+     * @param apellidos         Apellidos del apoderado
+     * @param parentesco        Relación de parentesco con el alumno
+     * @param telefono          Número de teléfono del apoderado
+     * @param ciudad            Ciudad de residencia del apoderado
+     * @param direccion         Dirección de residencia del apoderado
+     * @param observaciones     Observaciones adicionales sobre el apoderado
+     * @param genero            Género del apoderado
+     */
     public Apoderado(   String rut              , String nombres            , String apellidos              , String parentesco         ,
                         String telefono         , String ciudad             , String direccion              , String observaciones      ,
                         String genero) {
@@ -26,6 +42,7 @@ public class Apoderado {
 
 
     // ==================== GET ====================
+    // Metodos getter para obtener los valores de los atributos
     public String getRut() {
         return rut;
     }
@@ -64,6 +81,7 @@ public class Apoderado {
 
 
     // ==================== SET ====================
+    // Metodos setter para establecer y/o modificar los valores de los atributos
     public void setRut(String rut) {
         this.rut = rut;
     }

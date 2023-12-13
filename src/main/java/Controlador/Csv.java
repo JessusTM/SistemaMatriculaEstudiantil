@@ -8,13 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * La clase Csv se encarga de manejar la lectura y escritura de datos en formato CSV (Comma-Separated Values)
+ */
 public class Csv {
 
     // ==================== ATRIBUTOS ====================
+    // Nombre del archivo CSV utilizando para almacenar las matriculas
     public static final String nombreArchivo = "Matrículas.csv";
 
 
     // ==================== AGREGAR ALUMNO CSV ====================
+
+    /**
+     * Agrega un nuevo alumno al archivo CSV de matrículas.
+     * @param nuevoAlumno Objeto Alumno a agregar
+     */
     public static void agregarAlumnoCSV(Alumno nuevoAlumno) {
         // -→ Si el archivo no existe
         crearArchivo();
@@ -110,6 +119,12 @@ public class Csv {
 
 
     // ==================== MOSTRAR ALUMNOS CSV ====================
+
+    /**
+     * Obtiene una lista de datos de alumnos desde el archivo CSV
+     * @param filtroRut Filtro opcional para buscar un alumno específico por su RUT
+     * @return Lista de arreglos de objetos que representan datos de alumnos
+     */
     public static List<Object[]> listadoAlumnos(String filtroRut) {
         List<Object[]> alumnosData  = new ArrayList<>();
 
@@ -177,6 +192,11 @@ public class Csv {
 
 
     // ==================== ELIMINAR ALUMNO ====================
+
+    /**
+     * Elimina un alumno del archivo CSV de matrículas
+     * @param rutEstudiante RUT del estudiante a eliminar
+     */
     public static void eliminarAlumnoCSV(String rutEstudiante) {
         try {
             File archivo                    = new File(nombreArchivo);
@@ -225,6 +245,11 @@ public class Csv {
 
 
     // ==================== MODIFICAR ALUMNO ====================
+
+    /**
+     * Modifica los datos de un alumno en el archivo CSV de matrículas
+     * @param alumnoModificado Objeto Alumno con los datos modificados
+     */
     public static void modificarAlumno(Alumno alumnoModificado) {
         try {
             File archivo                    = new File(nombreArchivo);

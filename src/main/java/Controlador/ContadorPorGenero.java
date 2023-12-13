@@ -4,9 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * La clase ContadorPorGenero proporciona métodos para contar el número de estudiantes
+ * según su género a partir de un archivo de matrículas en formato CSV
+ */
 public class ContadorPorGenero {
 
     // ==================== ATRIBUTOS ====================
+    /**
+     * Nombre del archivo de matrículas en formato CSV.
+     */
     public static final String nombreArchivo = "Matrículas.csv";
 
 
@@ -14,6 +21,11 @@ public class ContadorPorGenero {
 
 
     // ================================ CONTADOR ALUMNOS GENERO: "MASCULINOS" TOTALES ==========================
+
+    /**
+     * Cuenta el número total de estudiantes masculinos en el archivo de matrículas
+     * @return El número total de estudiantes masculinos
+     */
     public static int contarAlumnosMasculinos() {
         int contadorMasculinos          = 0;
 
@@ -50,6 +62,11 @@ public class ContadorPorGenero {
 
 
     // ================================ CONTADOR ALUMNOS GENERO: "FEMENINOS" TOTALES ==========================
+
+    /**
+     * Cuenta el número total de estudiantes femeninos en el archivo de matrículas
+     * @return El número total de estudiantes femeninos
+     */
     public static int contarAlumnosFemeninos() {
         int contadorFemeninos           = 0;
 
@@ -86,6 +103,11 @@ public class ContadorPorGenero {
 
 
     // ================================ CONTADOR ALUMNOS GENERO: "OTRO" TOTALES ==========================
+
+    /**
+     * Cuenta el número total de estudiantes con género "otro" en el archivo de matrículas
+     * @return El número total de estudiantes con género "otro"
+     */
     public static int contarAlumnosOtrosGeneros() {
         int contadorOtrosGeneros        = 0;
 

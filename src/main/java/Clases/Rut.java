@@ -1,5 +1,8 @@
 package Clases;
 
+/**
+ * La clase Rut representa un número de RUT (Rol Único Tributario) con su respectivo dígito verificador
+ */
 public class Rut {
 
     // ==================== ATRIBUTOS ====================
@@ -10,6 +13,15 @@ public class Rut {
 
 
     // ==================== CONSTRUCTORES ====================
+
+    /**
+     * Constructor para la clase Rut
+     * @param rut           Número base del RUT
+     * @param digito        Dígito verificador del RUT
+     * @param multiplo      Valor resultante del producto entre el dígito y su posición
+     * @param acumulador    Acumulador para el cálculo del RUT
+     * @param rutDigito     Representación del dígito verificador del RUT (puede ser un número o la letra "K")
+     */
     public Rut(int rut, int digito, int multiplo, int acumulador, String rutDigito) {
         this.rut            = rut;
         this.digito         = digito;
@@ -18,12 +30,19 @@ public class Rut {
         this.rutDigito      = rutDigito;
     }
 
+    /**
+     * Constructor vacío por defecto
+     */
     public Rut() {
     }
 
 
 
     // ==================== VALIDAR RUT ====================
+
+    /**
+     * Método para validar el RUT y calcular su dígito verificador
+     */
     public void validarRut() {
         int contador    = 2;
         acumulador      = 0;
@@ -50,6 +69,7 @@ public class Rut {
 
 
     // ==================== GETTER ====================
+    // Metodos getter para obtener los valores de los atributos
     public int getRut() {
         return rut;
     }
@@ -72,6 +92,7 @@ public class Rut {
 
 
     // ==================== SETTER ====================
+    // Métodos setter para establecer y/o modificar los valores de los atributos
     public void setRut(int rut) {
         this.rut = rut;
     }
