@@ -52,7 +52,7 @@ public class GuiGraficos extends JDialog {
         setTitle("Estadísticas");
         setLocationRelativeTo(null);
         setModal(true);
-        setSize(1050,850);
+        setSize(1150,950);
         setResizable(false);
 
 
