@@ -1,7 +1,6 @@
 package Vista;
 
-import Clases.Alumno;
-import Clases.Apoderado;
+import Clases.*;
 import Controlador.*;
 import com.formdev.flatlaf.intellijthemes.FlatDarkPurpleIJTheme;
 
@@ -10,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+
 
 
 public class FmrAgregarAlumnos extends JDialog {
@@ -461,8 +461,13 @@ public class FmrAgregarAlumnos extends JDialog {
         DefaultTableModel modelo    = new DefaultTableModel();
 
         // Definir las columnas
-        String[] columnas = {   "Rut"       , "Nombres"     , "Apellidos"   , "Nacionalidad"  ,
-                "Curso"     , "Letra"       , "Electivo"    , "Género"        };
+        String[] columnas = {   "Rut"                       ,"Nombres"                  ,"Apellidos"                ,"Edad"                 ,
+                                "Fecha Nacimiento"          ,"Email"                    ,"Ciudad"                   ,"Teléfono"             ,
+                                "Nacionalidad"              ,"Fecha Matrícula"          ,"Dirección"                ,"Curso"                ,
+                                "Letra"                     ,"Electivo"                 ,"Enfermedades"             ,"Datos Adicionales"    ,
+                                "Género"                    ,"Rut Apoderado"            ,"Nombres Apoderado"        ,"Apellidos Apoderado"  ,
+                                "Paréntesco Apoderado"      ,"Teléfono Apoderado"       ,"Ciudad Apoderado"         ,"Dirección Apoderado"  ,
+                                "Observaciones Apoderado"   ,"Género Apoderado"};
         modelo.setColumnIdentifiers(columnas);
 
         // Agregar los datos al modelo

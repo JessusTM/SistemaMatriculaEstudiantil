@@ -120,21 +120,45 @@ public class Csv {
 
 
             while ((linea = lector.readLine()) != null) {
-                String[] campos = linea.split(",");
+                String[] campos     = linea.split(",");
 
                 if (campos.length >= 26) {
-                    String rutAlumno                = campos[0] .trim();
-                    String nombresAlumno            = campos[1] .trim();
-                    String apellidosAlumno          = campos[2] .trim();
-                    String nacionalidadAlumno       = campos[8] .trim();
+                    String rutAlumno                = campos[0].trim();
+                    String nombresAlumno            = campos[1].trim();
+                    String apellidosAlumno          = campos[2].trim();
+                    String edadAlumno               = campos[3].trim();
+                    String fechaNacimientoAlumno    = campos[4].trim();
+                    String emailAlumno              = campos[5].trim();
+                    String ciudadAlumno             = campos[6].trim();
+                    String telefonoAlumno           = campos[7].trim();
+                    String nacionalidadAlumno       = campos[8].trim();
+                    String fechaMatriculaAlumno     = campos[9].trim();
+                    String direccionAlumno          = campos[10].trim();
                     String cursoAlumno              = campos[11].trim();
                     String letraAlumno              = campos[12].trim();
                     String electivoAlumno           = campos[13].trim();
+                    String enfermedadesAlumno       = campos[14].trim();
+                    String datosAdicionalesAlumno   = campos[15].trim();
                     String generoAlumno             = campos[16].trim();
 
+                    String rutApoderado             = campos[17].trim();
+                    String nombresApoderado         = campos[18].trim();
+                    String apellidosApoderado       = campos[19].trim();
+                    String parentescoApoderado      = campos[20].trim();
+                    String telefonoApoderado        = campos[21].trim();
+                    String ciudadApoderado          = campos[22].trim();
+                    String direccionApoderado       = campos[23].trim();
+                    String observacionesApoderado   = campos[24].trim();
+                    String generoApoderado          = campos[25].trim();
+
                     if (filtroRut == null || rutAlumno.equals(filtroRut)) {
-                        Object[] rowData = {    rutAlumno       , nombresAlumno      , apellidosAlumno    , nacionalidadAlumno      ,
-                                                cursoAlumno     , letraAlumno        , electivoAlumno     , generoAlumno            , };
+                        Object[] rowData = {rutAlumno                   ,nombresAlumno              ,apellidosAlumno            ,edadAlumno                 ,
+                                            fechaNacimientoAlumno       ,emailAlumno                ,ciudadAlumno               ,telefonoAlumno             ,
+                                            nacionalidadAlumno          ,fechaMatriculaAlumno       ,direccionAlumno            ,cursoAlumno                ,
+                                            letraAlumno                 ,electivoAlumno             ,enfermedadesAlumno         ,datosAdicionalesAlumno     ,
+                                            generoAlumno                ,rutApoderado               ,nombresApoderado           ,apellidosApoderado         ,
+                                            parentescoApoderado         ,telefonoApoderado          ,ciudadApoderado            ,direccionApoderado         ,
+                                            observacionesApoderado      ,generoApoderado};
                         alumnosData.add(rowData);
                     }
                 }
