@@ -223,7 +223,7 @@ public class Csv {
             }
             lector.close();
         } catch (IOException e) {
-            System.err.println(" Aún no ha sido creado el archivo Matrículas.csv " + e.getMessage());
+            System.err.println();
         }
         return alumnosData;
     }

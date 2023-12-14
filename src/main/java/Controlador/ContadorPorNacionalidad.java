@@ -51,7 +51,7 @@ public class ContadorPorNacionalidad {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorChilenos;
@@ -91,7 +91,7 @@ public class ContadorPorNacionalidad {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorVenezolanos;
@@ -133,7 +133,7 @@ public class ContadorPorNacionalidad {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorHaitianos;
@@ -173,7 +173,7 @@ public class ContadorPorNacionalidad {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorOtraNacionalidad;

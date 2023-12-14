@@ -256,31 +256,6 @@ public class FmrAgregarAlumnos extends JDialog {
         btnModificar.setEnabled(false);
 
 
-        String textoFondoRut = "12345678-9";
-        txtRut.setText(textoFondoRut);
-        txtRut.setForeground(Color.GRAY);
-        // ----- TXTRUT -----
-        txtRut.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                if (txtRut.getText().equals(textoFondoRut)) {
-                    txtRut.setText("");
-                    txtRut.setForeground(Color.WHITE);
-                }
-            }
-        });
-
-        // ----- TXTRUT APODERADO -----
-        txtRutApoderado.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-                if (txtRutApoderado.getText().equals(textoFondoRut)) {
-                    txtRutApoderado.setText("");
-                    txtRutApoderado.setForeground(Color.WHITE);
-                }
-            }
-        });
-
 
         // ----- CAMPOS DE TEXTO SIN PUNTO Y COMA -----
         JTextField[] camposDeTexto = {
@@ -308,15 +283,28 @@ public class FmrAgregarAlumnos extends JDialog {
 
         // ----- CAMPOS DE TEXTO EN MAYÚSCULA -----
         JTextField[] camposDeTextoMayus = {
-                txtNombres          , txtNombresApoderado       , txtApellidos          , txtApellidosApoderado     ,
-                txtCiudad           , txtCiudadApoderado        , txtDireccion          , txtDireccionApoderado     ,
-                txtEnfermedades     , txtParentescoApoderado    , txtDatosAdicionales   , txtObservacionesApoderado
+                txtNombres              , txtNombresApoderado   , txtApellidos              , txtApellidosApoderado,
+                txtCiudad               , txtCiudadApoderado    , txtParentescoApoderado    ,
         };
 
         // Aplicar el método para cada campo
         for (JTextField campo : camposDeTextoMayus) {
             if (campo != null) {
                 configurarCampoMayusculas(campo);
+            }
+        }
+
+
+    // ----- CAMPOS DE TEXTO EN MAYÚSCULA Y NÚMEROS -----
+        JTextField[] camposDeTextoMayusYNumeros = {
+                txtDireccion            , txtEnfermedades           , txtEmail              , txtDatosAdicionales ,
+                txtDireccionApoderado   , txtObservacionesApoderado
+        };
+
+        // Aplicar el método para cada campo
+        for (JTextField campo : camposDeTextoMayusYNumeros) {
+            if (campo != null) {
+                configurarCamposMayusculasYNumeros(campo);
             }
         }
     }
@@ -367,6 +355,24 @@ public class FmrAgregarAlumnos extends JDialog {
                     e.setKeyChar(c);
                 } else if (Character.isDigit(c)) {
                     e.consume();
+                }
+            }
+        });
+    }
+
+
+
+    // ==================== CONFIGURAR CAMPOS EN MAYÚSCULA y NÚMEROS ====================
+    private void configurarCamposMayusculasYNumeros(JTextField textField) {
+        textField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                char c = e.getKeyChar();
+                if (Character.isLetter(c)) {
+                    // Convertir letras a mayúsculas
+                    String cad = ("" + c).toUpperCase();
+                    c = cad.charAt(0);
+                    e.setKeyChar(c);
                 }
             }
         });
@@ -513,7 +519,7 @@ public class FmrAgregarAlumnos extends JDialog {
         if (rutIngresado.matches("^\\d{7,8}-[0-9kK]$")) {
             return true;
         } else {
-            JOptionPane.showMessageDialog(this, "Rut Inválido", "Error de Validación", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Rut Inválido \nForma válida --> 12345678-9", "Error de Validación", JOptionPane.ERROR_MESSAGE);
             // RUT inválido
             return false;
         }
@@ -580,8 +586,7 @@ public class FmrAgregarAlumnos extends JDialog {
 
     // ==================== LIMPIAR ALUMNO ====================
     public void limpiar() {
-        txtRut              .setText("12345678-9");
-        txtRut              .setForeground(Color.GRAY);
+        txtRut              .setText(null);
         txtNombres          .setText(null);
         txtApellidos        .setText(null);
         txtEdad             .setText(null);
@@ -604,8 +609,7 @@ public class FmrAgregarAlumnos extends JDialog {
 
     // ==================== LIMPIAR APODERADO ====================
     public void limpiarApoderado() {
-        txtRutApoderado             .setText("12345678-9");
-        txtRutApoderado             .setForeground(Color.GRAY);
+        txtRutApoderado             .setText(null);
         txtNombresApoderado         .setText(null);
         txtApellidosApoderado       .setText(null);
         txtParentescoApoderado      .setText(null);

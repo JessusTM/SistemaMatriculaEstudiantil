@@ -47,7 +47,7 @@ public class ContadorPorCurso {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorPrimeroMedio;
@@ -86,7 +86,7 @@ public class ContadorPorCurso {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorSegundoMedio;
@@ -126,7 +126,7 @@ public class ContadorPorCurso {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorTerceroMedio;
@@ -166,7 +166,7 @@ public class ContadorPorCurso {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println("Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorCuartoMedio;

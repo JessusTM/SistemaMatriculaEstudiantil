@@ -51,7 +51,7 @@ public class ContadorPorGenero {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println(" Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorMasculinos;
@@ -92,7 +92,7 @@ public class ContadorPorGenero {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println(" Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorFemeninos;
@@ -132,7 +132,7 @@ public class ContadorPorGenero {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println(" Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contadorOtrosGeneros;

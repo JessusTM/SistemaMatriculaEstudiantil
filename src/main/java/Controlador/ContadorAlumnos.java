@@ -42,7 +42,7 @@ public class ContadorAlumnos {
             archivoLectura.close();
             lector.close();
         } catch (IOException e) {
-            System.err.println(" Error al leer el archivo: " + e.getMessage());
+            System.err.println();
         }
 
         return contador;
