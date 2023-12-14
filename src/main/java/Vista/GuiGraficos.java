@@ -75,6 +75,7 @@ public class GuiGraficos extends JDialog {
                 ChartPanel panelGrafico     = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
                 panelGrafico.setSize(300,200);
+                panelGrafico.setDisplayToolTips(false);
 
                 jpGraficaGenero.setLayout(new BorderLayout());
                 jpGraficaGenero.add(panelGrafico,BorderLayout.CENTER);
@@ -123,6 +124,7 @@ public class GuiGraficos extends JDialog {
                 ChartPanel panelGrafico = new ChartPanel(grafico_nacionalidad);
                 panelGrafico.setMouseWheelEnabled(true);
                 panelGrafico.setSize(300,200);
+                panelGrafico.setDisplayToolTips(false);
 
                 jpGraficaNacionalidad.setLayout(new BorderLayout());
                 jpGraficaNacionalidad.add(panelGrafico,BorderLayout.CENTER);
@@ -152,6 +154,7 @@ public class GuiGraficos extends JDialog {
                 ChartPanel panelGrafico     = new ChartPanel(grafico_circular);
                 panelGrafico.setMouseWheelEnabled(true);
                 panelGrafico.setSize(300,200);
+                panelGrafico.setDisplayToolTips(false);
 
                 jpGraficaCurso.setLayout(new BorderLayout());
                 jpGraficaCurso.add(panelGrafico,BorderLayout.CENTER);
